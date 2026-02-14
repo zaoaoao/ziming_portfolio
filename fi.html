@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+<script>
+
+
+
+</script>
+
+<style>
+   
+    body {
+        margin: 0%;
+        font-size: 20px;
+        background-color: rgb(255, 255, 255);
+                font-family: "BellGothic-Light", sans-serif;
+
+    }
+ @font-face {
+        font-family: "BellGothic-Light";
+        src: url("./fonts/BellGothic-Light.ttf") format("truetype");
+        font-weight: 300;
+        font-style: normal;
+    }
+
+    figure {
+        margin-left: 0;
+        margin-top: 0;
+        margin-bottom: 7em;
+
+        width: 100%;
+    height: 100%;
+    }
+
+    figcaption {
+        width: 700px;
+        max-width: 100%;
+        opacity: 1;
+        margin-left: 0EM;
+        color: rgb(195, 195, 195);
+                color: rgb(255, 255, 255);
+
+    }
+
+    .work {
+        width: 500px;
+
+        max-width: 99%;
+        margin-left: 0em;
+        user-select: none;
+        touch-action: none;
+
+        box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+
+
+    }
+
+    select{
+        width: 40%;
+        margin: 1em;
+          position: fixed;
+          display: block;
+          right: 0;
+          top: 0;
+
+    }
+
+    .w1{
+    }
+</style>
+
+<head> </head>
+
+<body>
+    <select>
+
+        <option value="volvo">all</option>
+    <option value="saab">design</option>
+    <option value="opel">installation</option>
+    <option value="audi">web</option>
+    </select>
+    <figure class="work-unit">
+
+    </figure>
+    <figure class="work-unit" data-type="book">
+        <img class="work" data-nr="2" data-imgnr="0">
+
+        <figcaption>installation view from suggestion for you</figcaption>
+    </figure>
+
+    <figure class="work-unit w1" data-type="book">
+
+        <img class="work" data-nr="1" data-imgnr="0">
+
+        <figcaption>port workers usually need to wear various safety gear, such as safety shoes, helmets, and gloves.
+            however, in a port filled with stacked shipping containers, faced with iron sheets, steel bars, and
+            concrete, these protective measures seem insignificant. confronted with these industrial machines and
+            materials, we truly see the fragility of the human body.
+            at the same time, when workers put on their uniforms, what we see are prepared workers, not individuals with
+            their own emotions and experiences. work uniforms objectify us.
+            based on these ideas, in this zine, I want to express the vast gap between humans and machines, humans and
+            products, and how we fall into the trap of dehumanization.</figcaption>
+
+    </figure>
+
+
+
+    <figure class="work-unit">
+        <img class="work" data-nr="3" data-imgnr="0">
+
+        <figcaption>room r1.08 packed in plastic trashbag</figcaption>
+    </figure>
+
+    <figure class="work-unit">
+        <img class="work" data-nr="4" data-imgnr="0">
+
+        <figcaption>pyramid
+            drawings of swearing words engraved on golden pyramid, written wishes of people screen printed on toilet
+            paper, after ten thousand years, would “fuck you” be more important than euro, skating, chanel bag, tesla
+            truck, porsche gt3, soo kim’s curry, bjork’s house, solo exhibition in moma, engineering position in aston
+            martin?
+            the upper part of pyramid is ceramic covered with sheet gold, the down part is made of cardboard and toilet
+            paper.</figcaption>
+    </figure>
+
+    <figure class="work-unit">
+
+        <video class="work" data-nr="5" data-imgnr="0" autoplay loop muted>
+            <source src="bell 2.mov" type="video/mp4" />
+        </video>
+
+        <figcaption>dancing diva (eyes grown on hands version)
+
+            how would we dance if our eyes were grown on our hands?
+            _baby shark
+            _jingle bell rock
+            _stars align
+            _chinese radio calisthenics</figcaption>
+    </figure>
+    <figure class="work-unit">
+
+        <video class="work" data-nr="6" data-imgnr="0" autoplay loop muted>
+            <source type="video/mp4" />
+        </video>
+
+        <figcaption>pets in safari</figcaption>
+    </figure>
+
+    <figure class="work-unit">
+
+        <video class="work" data-nr="7" data-imgnr="0" autoplay loop muted>
+            <source type="video/mp4" />
+        </video>
+
+        <figcaption>hahaha</figcaption>
+    </figure>
+
+    <figure class="work-unit">
+        <img class="work" data-nr="8" data-imgnr="0">
+
+        <figcaption>in-between eye and truth, no.2
+
+            different from my previous work, I shifted the focus from space(a room) to object. in this work, I took
+            photos of all visible surfaces of a table(shown in the last photo): top, legs, edges, corners, etc. I used
+            these photos to reassemble the table on paper, rebuild three dimensional object on plane surface. rules of
+            3d world are invalid and not required anymore.</figcaption>
+    </figure>
+
+    <figure class="work-unit">
+        <img class="work" data-nr="9" data-imgnr="0">
+
+        <figcaption>in-between eye and truth, no.3
+
+            can photos reflect the world objectively？</figcaption>
+    </figure>
+
+    <figure class="work-unit">
+
+        <img class="work" data-nr="10" data-imgnr="0">
+
+        <figcaption>project “toilet” focused only on toilet, an white and ceramic object.
+
+            started same as previous works, i took photos of every inch of toilet, collaged these images to construct a
+            complete toilet on paper. (3, 6, 7)
+            in the next step, i evened the difference of light, which caused difference of brightness and darkness in
+            photo, toilet became a white color block. (4)
+            after this i changed the medium of work(from paper to ceramic, which is normally the raw material of
+            toilet), to get a flattened ceramic toilet, and originally it should be one piece of white ceramic
+            piece(similar with image 4), but it was broken into pieces accidentally. (1)
+            and i collaged the original photos three dimensionally. (5)
+            at the end, i replaced the paper photo with ceramic plates that has same shape, built a three dimensional
+            ceramic toilet. same as the toilet we see, it’s touchable, white and made of ceramic. the camera, became a
+            transfer point of these two toilets. (2)
+            the original photos (8)
+        </figcaption>
+    </figure>
+    <figure class="work-unit">
+
+        <img class="work" data-nr="11" data-imgnr="0">
+
+        <figcaption>6 books about copying and recreating
+        </figcaption>
+    </figure>
+
+    <figure class="work-unit">
+
+        <img class="work" data-nr="12" data-imgnr="0">
+
+        <figcaption>book design - typography in three dimensions
+        </figcaption>
+    </figure>
+
+    <figure class="work-unit">
+
+        <img class="work" data-nr="13" data-imgnr="0">
+
+        <figcaption>my first typeface design
+
+            in this typeface, i deconstruct the letters into parts by how visually they look without considering how
+            they are written, and rebuild new-structured letters by using two different type of hand-drawn lines.
+            because of huge contrast of thin line(initial inspiration is curves of hair) and chaotic line, the structure
+            of letter became more unbalanced and unrecognizable.
+            this typeface has three different weights and for each weight I designed five different variations(not shown
+            in this post), to have more possibilities of typography.å
+        </figcaption>
+    </figure>
+
+    <figure class="work-unit">
+
+        <img class="work" data-nr="14" data-imgnr="0">
+
+        <figcaption>poster for typeface
+        </figcaption>
+    </figure>
+
+    <figure class="work-unit">
+
+        <img class="work" data-nr="15" data-imgnr="0">
+
+        <figcaption>punctuation poster
+        </figcaption>
+        <video class="work" data-nr="16" data-imgnr="0" autoplay loop muted>
+            <source type="video/mp4" />
+        </video>
+        <figcaption>shoting process
+        </figcaption>
+    </figure>
+
+
+
+    <figure class="work-unit">
+
+        <img class="work" data-nr="17" data-imgnr="0">
+
+        <figcaption>product information (I AM VISIBLE)
+            a zine inspired by Katarina Jazbec’s YOU CAN’T AUTOMATE ME (2021), a flim about the port workers.
+
+            port workers usually need to wear various safety gear, such as safety shoes, helmets, and gloves. however,
+            in a port filled with stacked shipping containers, faced with iron sheets, steel bars, and concrete, these
+            protective measures seem insignificant. confronted with these industrial machines and materials, we truly
+            see the fragility of the human body.
+
+            at the same time, when workers put on their uniforms, what we see are prepared workers, not individuals with
+            their own emotions and experiences. work uniforms objectify us.
+
+            based on these ideas, in this zine, I want to express the vast gap between humans and machines, humans and
+            products, and how we fall into the trap of dehumanization.
+        </figcaption>
+    </figure>
+
+
+
+    <figure class="work-unit">
+
+        <img class="work" data-nr="18" data-imgnr="0">
+
+        <figcaption>redesign of parkett
+
+            parkett is a contemporary art magazine. in 2017 it published its closing print issue in response to people’s
+            digital reading habits.
+            therefore, blending parkett’s print legacy with digital content is basic concept of this redesigned edition:
+            original articles appear right-side up; flipped, they reveal embedded social media snippets from instagram,
+            pinterest, or google. mismatched images and false footnotes disrupt expectations, mirroring online
+            information’s unreliability—a reflection of how we consume art today.
+        </figcaption>
+                <img class="work" data-nr="19" data-imgnr="0">
+
+    </figure>
+
+
+
+
+
+
+<figure class="work-unit">
+
+        <img class="work" data-nr="20" data-imgnr="0">
+
+        <figcaption>trump calender
+        </figcaption>
+                <img class="work" data-nr="21" data-imgnr="0">
+
+    </figure>
+
+
+
+
+    <figure class="work-unit">
+
+        <img src="PU5A030911 1.jpg" class="work">
+
+        <figcaption>web with full of buttons</figcaption>
+    </figure>
+
+    <figure class="work-unit">
+
+        <img src="1.gif" class="work">
+
+        <figcaption>web with full of buttons</figcaption>
+    </figure>
+
+
+    <figure class="work-unit">
+
+        <img src="7-1.jpg" class="work">
+
+        <figcaption>punctuation poster</figcaption>
+    </figure>
+
+
+    <figure class="work-unit">
+
+        <img src="5.png" class="work">
+
+        <figcaption>when workers put on their uniforms, what we see are prepared workers, not individuals with
+            their own emotions and experiences. work uniforms objectify us.
+            based on these ideas, in this zine, I want to express the vast gap between humans and machines, humans and
+            products, and how we fall into the trap of dehumanization.</figcaption>
+    </figure>
+
+    <figure class="work-unit">
+
+        <img src="20230111_13135011.jpg" class="work">
+
+        <figcaption>STANZE</figcaption>
+    </figure>
+
+    <figure class="work-unit">
+
+        <img src="3-2.jpg" class="work">
+
+        <figcaption>specimen for a typeface i designed, shows three weights and fifteen variations of letters, their
+            application and different possibilities of combinations
+        </figcaption>
+    </figure>
+
+    <figure class="work-unit">
+
+        <img src="om11.jpg" class="work">
+
+        <figcaption>a book about people in bed. the pages follow both chronological order and the activities of people,
+            from being awake (printed on yellow paper) to sleeping (printed on white paper and folded inside).
+
+            content images originate from rijksmuseum archive.
+        </figcaption>
+    </figure>
+
+    <figure class="work-unit">
+
+        <img src="school as a fountain.jpg" class="work">
+
+        <figcaption>school as a fountain
+        </figcaption>
+    </figure>
+
+    <figure class="work-unit">
+
+        <img src="pets in firefox.gif" class="work">
+
+        <figcaption>pets in firefox
+        </figcaption>
+    </figure>
+
+    <figure class="work-unit">
+
+        <img src="Screenshot 2026-02-05 at 22.32.43.png" class="work">
+
+        <figcaption>gay, label, figure
+        </figcaption>
+    </figure>
+
+
+
+    <figure class="work-unit">
+
+        <img src="Screenshot 2026-02-05 at 22.15.12.png" class="work">
+
+        <figcaption>redesign of parkett
+
+            parkett is a contemporary art magazine. in 2017 it published its closing print issue in response to people’s
+            digital reading habits.
+            therefore, blending parkett’s print legacy with digital content is basic concept of this redesigned edition:
+            original articles appear right-side up; flipped, they reveal embedded social media snippets from instagram,
+            pinterest, or google. mismatched images and false footnotes disrupt expectations, mirroring online
+            information’s unreliability—a reflection of how we consume art today.
+        </figcaption>
+    </figure>
+
+    <figure class="work-unit">
+
+        <img src="8.PNG" class="work">
+
+        <figcaption>pyramid
+            drawings of swearing words engraved on golden pyramid, written wishes of people screen printed on toilet
+            paper, after ten thousand years, would "fuck you" be more important than euro, skating, chanel bag, tesla
+            truck, porsche gt3, soo kim's curry, bjork's house, solo exhibition in moma, engineering position in aston
+            martin?
+            the upper part of pyramid is ceramic covered with sheet gold, the down part is made of cardboard and toilet
+            paper.
+        </figcaption>
+    </figure>
+
+    <figure class="work-unit">
+
+        <img src="6-1.jpg" class="work">
+
+        <figcaption>ping-pong calender, 356days of 2023
+        </figcaption>
+    </figure>
+
+
+    <figure class="work-unit">
+
+        <img src="Screenshot 2026-02-05 at 22.36.03.png" class="work">
+
+        <figcaption>"YOU DON'T REALLY HATE TRUMP, KAREN, YOU'RE JUST STUPID"
+        </figcaption>
+    </figure>
+
+</body>
+
+<script>
+    window.onload = () => {
+
+        randomwidth();
+        document.querySelectorAll(".work").forEach(img => {
+
+            const indexnr = img.dataset.nr;
+
+            const currentList = urlLists[`urlList${indexnr}`];
+            const initial = 0;
+
+            img.src = currentList[initial].url;
+        });
+    };
+
+
+    function randomwidth() {
+        document.querySelectorAll(".work").forEach(cube => {
+
+
+
+            cube.style.width = Math.floor(Math.random() * 600 + 200) + "px";
+
+        })
+
+
+    }
+
+    interact('.work')
+        .resizable({
+            edges: { right: true, bottom: true },
+            modifiers: [
+                interact.modifiers.aspectRatio({
+                    ratio: 'preserve'
+                })
+            ],
+            listeners: {
+                move(event) {
+                    let x = parseFloat(event.target.dataset.x) || 0
+                    let y = parseFloat(event.target.dataset.y) || 0
+
+                    Object.assign(event.target.style, {
+                        width: `${event.rect.width}px`,
+                        height: `${event.rect.height}px`,
+                        transform: `translate(${x + event.deltaRect.left}px, ${y + event.deltaRect.top}px)`
+                    })
+
+                    event.target.dataset.x = x + event.deltaRect.left
+                    event.target.dataset.y = y + event.deltaRect.top
+                }
+            }
+        })
+
+    const urlLists = {
+        urlList1: [
+            { url: "aa.jpg" },
+            { url: "Scan 711 2.jpg" },
+
+            { url: "PU5A002811 2.jpg" },
+            { url: "Scan 112.jpg" },
+            { url: "PU5A003011 2.jpg" },
+            { url: "Scan 213.jpg" },
+
+            { url: "PU5A001511 3.jpg" },
+            { url: "PU5A008511 2.jpg" },
+
+            { url: "PU5A002111 3.jpg" },
+            { url: "PU5A011211 2.jpg" },
+
+
+        ],
+        urlList2: [
+            { url: "PU5A012811 5.jpg" },
+
+
+
+        ],
+        urlList3: [
+            { url: "1-1.webp" },
+            { url: "1-2.webp" },
+            { url: "1-3.webp" },
+            { url: "1-4.webp" },
+            { url: "1-5.webp" },
+            { url: "1-6.webp" },
+
+
+
+
+        ],
+        urlList4: [
+            { url: "IMG_0289-311.jpg" },
+            { url: "IMG_658411.jpg" },
+
+            { url: "IMG_029711.jpg" },
+            { url: "IMG_3279.jpg" },
+
+            { url: "IMG_3284.jpg" },
+            { url: "IMG_5360.jpg" }, { url: "IMG_5406.jpg" },
+
+            { url: "IMG_5596.jpg" },
+            { url: "IMG_5604.jpg" },
+
+        ],
+        urlList5: [
+            { url: "bell 2.mov" },
+            { url: "Sequence 01_1.mov" },
+            { url: "starsalign 3.mov" },
+
+        ],
+        urlList6: [
+            { url: "Untitled.mov" }
+
+        ],
+        urlList7: [
+            { url: "Screen Recording 2025-05-29 at 17.31.47 2.mov" }
+
+
+        ],
+        urlList8: [
+            { url: "IMG_467111.jpg" },
+            { url: "IMG_467111 1.jpg" },
+            { url: "IMG_467111 2.jpg" },
+            { url: "IMG_467111 3.jpg" },
+
+        ],
+        urlList9: [
+            { url: "IMG_9810.jpg" }
+
+        ],
+
+        urlList10: [
+            { url: "nmb2 3.PNG" },
+            { url: "nmb 4.PNG" },
+            { url: "nmb3 4.PNG" },
+            { url: "nmb4 4.PNG" },
+            { url: "nmb5 4.PNG" }, { url: "nmb6 3.PNG" },
+            { url: "nmb7 3.PNG" },
+
+        ],
+        urlList11: [
+            { url: "Scan 711 6.jpg" },
+            { url: "photo-01.jpg" },
+            { url: "photo-02.jpg" },
+            { url: "photo-03.jpg" },
+            { url: "photo-04.jpg" },
+            { url: "photo-05.jpg" },
+            { url: "photo-06.jpg" },
+            { url: "photo-07.jpg" },
+            { url: "photo-08.jpg" },
+            { url: "photo-09.jpg" },
+            { url: "ScreenRecording_07-03-2025 14(1).gif" }
+
+
+
+        ],
+
+        urlList12: [
+            { url: "typo 811.jpg" },
+            { url: "typo 911.jpg" },
+            { url: "typo 2411.jpg" },
+
+            { url: "5-1.jpg" }
+
+
+        ],
+
+        urlList13: [
+            { url: "3-2.jpg" },
+            { url: "3-1.jpg" },
+            { url: "3-3.jpg" },
+            { url: "3-4.jpg" },
+            { url: "3-5.jpg" },
+            { url: "3-6.jpg" },
+            { url: "3-7.jpg" },
+
+
+        ],
+
+
+        urlList14: [
+            { url: "social-0111.jpg" },
+            { url: "social-0211.jpg" }
+
+
+        ],
+
+        urlList15: [
+            { url: "7-211.jpg" },
+            { url: "7-111.jpg" },
+            { url: "7-311.jpg" },
+        ],
+
+        urlList16: [
+            { url: "IMG_3446.MOV" },
+            { url: "IMG_3297.MOV" }
+        ],
+
+        urlList17: [
+            { url: "scan.jpg" },
+            { url: "scan 5.jpg" },
+            { url: "scan 4.jpg" },
+            { url: "scan 6.jpg" },
+            { url: "scan 20.jpg" },
+            { url: "scan 22.jpg" },
+            { url: "scan 25.jpg" },
+            { url: "scan 26.jpg" },
+            { url: "scan 27.jpg" },
+            { url: "scan 28.jpg" },
+            { url: "scan 29.jpg" },
+            { url: "scan 30.jpg" },
+
+        ],
+        urlList18: [
+            { url: "typo 111.jpg" },
+            { url: "typo 211.jpg" },
+            { url: "typo 411.jpg" },
+            { url: "typo 511.jpg" },
+            { url: "typo 811 1.jpg" },
+            { url: "typo 911 1.jpg" },
+            { url: "typo 1011.jpg" },
+            { url: "typo 1111.jpg" },
+            { url: "typo 1211 1.jpg" },
+            { url: "typo 1311.jpg" },
+            { url: "typo 1411 1.jpg" },
+
+
+
+
+
+
+        ],
+         urlList19: [
+            { url: "IMG_6469 211.jpg" },
+
+
+
+
+
+
+        ],
+
+       
+
+         urlList20: [
+            { url: "calender-01.jpg" },
+            { url: "calender-02.jpg" },
+            { url: "calender-03.jpg" },
+            { url: "calender-04.jpg" },
+            { url: "calender-05.jpg" },
+            { url: "calender-06.jpg" },
+            { url: "calender-07.jpg" },
+            { url: "calender-08.jpg" },
+            { url: "calender-09.jpg" },
+
+        ],
+        urlList21: [
+            { url: "PU5A033111 1.jpg" }
+
+        ],
+    };
+
+
+
+    document.addEventListener('click', e => {
+        if (e.target.classList.contains('work')) {
+            let inr = parseInt(e.target.dataset.imgnr || 0, 10);
+            const indexnr = e.target.dataset.nr;
+
+            const currentList = urlLists[`urlList${indexnr}`];
+            inr = (inr + 1) % currentList.length;
+
+            e.target.dataset.imgnr = inr;
+            e.target.src = currentList[inr].url;
+        }
+
+    })
+
+
+</script>
+
+</html>

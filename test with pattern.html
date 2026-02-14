@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+    let degr = 0;
+
+    // function rotate() {
+    degr += 90;
+
+    document.querySelectorAll(".cube").forEach(cube => { cube.style.setProperty("--b", degr + "deg"); })
+        ;
+    document.querySelectorAll(".cube").forEach(cube => { cube.style.setProperty("--f", degr + "deg"); })
+        ;
+
+    // }
+
+
+</script>
+
+<style>
+    @property --a {
+        syntax: "<number>";
+        initial-value: 1;
+        inherits: false;
+    }
+
+    @property --b {
+        syntax: "<angle>";
+        initial-value: 3deg;
+        inherits: false;
+    }
+
+    @property --c {
+        syntax: "<number>";
+        initial-value: 1;
+        inherits: false;
+    }
+
+    @property --d {
+        syntax: "<number>";
+        initial-value: 1;
+        inherits: false;
+    }
+
+    @property --e {
+        syntax: "<length>";
+        initial-value: 1000px;
+        inherits: false;
+    }
+
+    @property --f {
+        syntax: "<angle>";
+        initial-value: -20deg;
+        inherits: false;
+    }
+
+    @property --g {
+        syntax: "<angle>";
+        initial-value: 4deg;
+        inherits: false;
+    }
+
+
+
+    .container {
+        width: 36vw;
+        height: 70vh;
+        perspective: 50vw;
+        z-index: 1;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(calc(-50% - 0vw), calc(-50% - 0vw));
+    }
+
+
+
+
+    .cube {
+
+
+        width: 36vw;
+        height: 70vh;
+        transform-style: preserve-3d;
+        transition: --a 2s, --b 1s, --c 2s, --d 2s, --e 2s, --f 1s, --g 1s;
+        transform:
+            scaleX(var(--a)) scaleY(var(--c)) scaleZ(var(--d)) rotateX(var(--f)) rotateY(var(--b)) rotateZ(var(--g)) translateX(0vw) translateY(-5vh) translateZ(0px) skewX(0deg) skewY(0deg);
+    }
+
+
+
+    .cube-wrap {
+        perspective: 1000px;
+        perspective-origin: 50% 50%;
+    }
+
+
+    .front {
+        transform: translateZ(18vw);
+        transition: background-color 2s;
+        border: 0px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 36vw;
+        height: 70vh;
+
+        background-color: rgba(255, 0, 0, 0);
+        z-index: 999;
+    }
+
+    .back {
+        transform: translateZ(-18vw) rotateY(180deg);
+        background-color: rgba(255, 0, 0, 0);
+        transition: background-color 2s;
+        border: 0px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 36vw;
+        height: 70vh;
+
+    }
+
+    .left {
+        transform: translateX(-18vw) rotateY(-90deg);
+        background-color: rgba(255, 0, 0, 0);
+        transition: background-color 2s;
+        border: 5px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 36vw;
+        height: 70vh;
+        opacity: 0;
+
+    }
+
+    .right {
+        transform: translateX(18vw) rotateY(90deg);
+        background-color: rgba(255, 0, 0, 0);
+        transition: background-color 2s;
+        border: 0px solid rgb(255, 0, 0);
+        box-sizing: border-box;
+
+        width: 36vw;
+        height: 70vh;
+        opacity: 1;
+
+
+    }
+
+    .bottom {
+        transform: translateY(45vh) rotateX(90deg);
+        background-color: rgb(0, 0, 0, 0);
+        transition: background-color 2s;
+        border: 0px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 36vw;
+        height: 36vw;
+        opacity: 1;
+
+
+
+    }
+
+    .top {
+        transform: translateY(-35vh) rotateX(-90deg);
+        background: rgb(255, 255, 255, 0);
+        transition: background-color 2s;
+        border: 1px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 40vw;
+        height: 40vw;
+        opacity: 0;
+
+
+    }
+
+
+    .face {
+
+        position: absolute;
+        display: block;
+        align-items: normal;
+        justify-content: left;
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        line-break: strict;
+        overflow: scroll;
+        word-wrap: break-word;
+
+
+
+    }
+
+
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+    }
+
+    body {
+        margin: 0;
+
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        z-index: 99;
+        color: transparent;
+        background-color: transparent;
+        border: none;
+    }
+
+    .nex {
+        left: 50%;
+        cursor: e-resize;
+    }
+
+    .pre {
+        cursor: w-resize;
+
+    }
+
+    .img {
+        width: 50%;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        /*box-shadow: 0px 0px 60px 10px var(--c1);*/
+        transition: --c1 2s;
+    }
+
+    .turn {
+        bottom: 2%;
+        position: absolute;
+        font-size: 12px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+        cursor: alias;
+        color: gray;
+
+    }
+
+    .info {
+        top: 50%;
+        position: absolute;
+        font-size: 28px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: rgb(255, 0, 0);
+    }
+
+    @property --c1 {
+        syntax: "<color>";
+        initial-value: #00ff00;
+        inherits: false;
+    }
+
+    @property --c2 {
+        syntax: "<color>";
+        initial-value: #00ffff;
+        inherits: false;
+    }
+
+    @property --size1 {
+        syntax: "<length>";
+        initial-value: 200px;
+        inherits: false;
+    }
+
+    @property --size2 {
+        syntax: "<length>";
+        initial-value: 240px;
+        inherits: false;
+    }
+
+
+    .a {
+        background-image: repeating-conic-gradient(var(--c1) 0% 25%, var(--c2) 0% 50%);
+        background-position: calc(50% - var(--size1)/2) calc(50% - var(--size2)/2),
+            50% 50%;
+        background-size: var(--size1) var(--size2);
+        display: block;
+        width: 100%;
+        height: 100%;
+        transition: --c1 2s, --size1 1s, --size2 1s, opacity 2s;
+        opacity: 0;
+
+    }
+
+    .des {
+        bottom: 30%;
+        position: fixed;
+        font-size: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    .des1,
+    .des2,
+    .des3,
+    .des4,
+    .des5,
+    .des6,
+    .des7,
+    .des8,
+    .des9 {
+        opacity: 0;
+    }
+
+    .a- {
+        width: 100%;
+        height: auto;
+        left: 50%;
+        transform: translate(-50%, 0);
+
+        top: 0%;
+        position: relative;
+        opacity: 0.5;
+    }
+</style>
+
+<head> </head>
+
+<body>
+    <button onclick="detail()"></button>
+    <button onclick="nodetail()"></button>
+
+
+    <div class="a"></div>
+    <div class="container">
+        <div class="cube" onclick="rotate()">
+            <div class="face top">
+
+            </div>
+            <div class="face bottom">
+                <div class="des">this is a green cube</div>
+                <div class="des1 des">Is it cake? (2022-25).
+
+                    3d printed sculpture, edible non edible cake.</div>
+                <div class="des2 des">nstallation view, Claire Fontaine, Show Less, Mimosa House, curated by Daria Khan,
+                    London 09.10 – 16.12.2025
+
+                    F A T H E R F U C K E R (2025). Wall, window or suspended back painted magenta neon on framework.
+                </div>
+                <div class="des3 des">Wheatfield with Crows, 1890 (2025)
+
+                    Oil and acrylic on canvas.</div>
+                <div class="des4 des">Margherita (2024). Polyvinyl chloride, clear resin, paint, wood and horseshoe
+                    nails.
+                </div>
+                <div class="des5 des">Rosso Mediterraneo (2025). Digital print on archival paper</div>
+                <div class="des6 des">ntersections (2025)
+
+                    Shaped lightbox, perspex, led, printed vinyl, cables and transformers.</div>
+                <div class="des7 des">Diego Mantoan and Claire Fontaine. Fulvia Carnevale reading from Primo Levi’s, I
+                    sommersi e I salvati during the opening of Crossing Borders, Popoli in Movimento, Aula Magna
+                    Dipartimento di Giurisprudenza, Palermo IT 26.03.25</div>
+                <div class="des8 des">L’origine du monde (Turquoise) (2025). Oil and acrylic on canvas.</div>
+                <div class="des9 des">Lotta (2024). 8mm ultra violet back-painted neon, transformers, cables and frame.
+                </div>
+
+
+
+            </div>
+            <div class="face left">
+
+            </div>
+
+            <div class="face right">
+                <div>
+                    <img src="a-1.JPG" class="a-">
+                    <img src="a-2.JPG" class="a-">
+                    <img src="a-3.JPG" class="a-">
+                    <img src="a-4.JPG" class="a-">
+                    <img src="a-5.JPG" class="a-">
+                    <img src="a-6.JPG" class="a-">
+
+
+                </div>
+
+            </div>
+            <div class="face front">
+                <button class="nav nex" onclick="neximg()">
+                </button>
+                <button class="nav pre" onclick="preimg()">
+                </button>
+                <img src="1.png" class="img">
+                <div class="about turn" onclick="about()">(about)</div>
+            </div>
+            <div class="face back">
+
+                <div class="info">hahaha it's ziming's website, suprise! and it's so cool!</div>
+                <div class="projects turn" onclick="about()">projects</div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+<script>
+
+    const colors = [
+
+        "rgb(0,255,0)",
+        "rgb(0,0,255)",
+        "aqua",
+        "purple",
+        "pink",
+        "yellow",
+        "orange",
+        "red",
+        "grey",
+        "#b9ff00",
+        "#00ffec",
+        "#008fff",
+        "#e800ff",
+        "#cfffd8",
+        "#fbffcf",
+        "#ffbbbb",
+        " #bbe7ff",
+        "#f1eeff",
+        " #ffeefe",
+
+        "rgb(0,0,0)",
+    ];
+    let deg = 0
+
+    let rotatetime = 0
+    function about() {
+        rotatetime += 1;
+        let random1 = Math.floor(Math.random() * colors.length);
+        let random2 = Math.floor(Math.random() * colors.length);
+
+
+
+        if (rotatetime % 2 == 0) {
+            /*document.querySelectorAll('.a, .img').forEach(el => {
+                        el.style.setProperty("--c1", color1);
+                    });
+                    document.querySelectorAll('.a, .b').forEach(el => {
+                        el.style.setProperty("--c2", color2);
+                    })*/
+            document.body.querySelector(".a").style.opacity = 0;
+        } else {
+            document.body.querySelector(".a").style.opacity = 0;
+
+            /*document.querySelectorAll('.a, .img').forEach(el => {
+                       el.style.setProperty("--c1", "white");
+                   });
+                   document.querySelectorAll('.a, .b').forEach(el => {
+                       el.style.setProperty("--c2", "white");
+                   })
+                   }
+                  
+                  */
+
+        }
+
+        xdegree();
+        document.querySelector(".cube").style.setProperty("--b", deg + "deg");
+    }
+
+    function xdegree() {
+        deg += 180;
+        return deg;
+    }
+    const urlList = [
+
+        { url: "1.png" },
+        { url: "2.png" },
+        { url: "3.png" },
+        { url: "4.png" },
+        { url: "5.png" },
+        { url: "6.png" },
+        { url: "7.png" },
+        { url: "8.png" },
+        { url: "9.png" },
+
+
+    ]
+    let current = 0;
+    function neximg() {
+        current = (current + 1) % urlList.length;
+
+        document.body.querySelector(".img").src = urlList[current].url;
+        document.querySelectorAll(".des").forEach(d => d.style.opacity = "0");
+
+        document.querySelector(".des" + (current + 1)).style.opacity = "0";
+        let random1 = Math.floor(Math.random() * colors.length);
+        let random2 = Math.floor(Math.random() * colors.length);
+        let random3 = Math.floor(Math.random() * 80 + 200);
+        let random4 = Math.floor(Math.random() * 80 + 200);
+
+        let angle1 = Math.floor(Math.random() * 10 - 5);
+        let angle2 = Math.floor(Math.random() * 20 - 10);
+        let angle3 = Math.floor(Math.random() * 16 - 8);
+
+
+        let color1 = colors[random1];
+        let color2 = colors[random2];
+        //document.querySelector(".a").style.setProperty("--c1", color1);
+        //document.querySelector(".a").style.setProperty("--c2", color2);
+        //document.querySelector(".a").style.setProperty("--size1", random3+"px");
+        // document.querySelector(".a").style.setProperty("--size2", random4+"px");
+        document.querySelectorAll('.a, .img').forEach(el => {
+            el.style.setProperty("--c1", color1);
+        });
+        document.querySelectorAll('.a, .b').forEach(el => {
+            el.style.setProperty("--c2", color2);
+        })
+        document.querySelectorAll('.a, .b').forEach(el => {
+            el.style.setProperty("--size1", random3 + "px");
+        });
+        document.querySelectorAll('.a, .b').forEach(el => {
+            el.style.setProperty("--size2", random4 + "px");
+        })
+        document.querySelector(".cube").style.setProperty("--b", deg + angle1 + "deg");
+        document.querySelector(".cube").style.setProperty("--f", angle2 + "deg");
+        document.querySelector(".cube").style.setProperty("--g", angle3 + "deg");
+return angle1;
+
+    }
+    function detail() {
+        deg-=90;
+        document.querySelector(".cube").style.setProperty("--b", deg+ "deg");
+
+    }
+    function nodetail() {
+deg+=90;
+        document.querySelector(".cube").style.setProperty("--b", deg+ "deg");
+
+    }
+    function preimg() {
+        current = (current - 1 + urlList.length) % urlList.length;
+
+
+        document.body.querySelector(".img").src = urlList[current].url
+    }
+
+
+</script>
+
+</html>

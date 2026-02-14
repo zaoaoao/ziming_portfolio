@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+<figure class="work-unit">
+    <img src="7-1.jpg" class="work">
+    <img src="7-1.jpg" class="work">
+    <figcaption class="des">punctuation poster</figcaption>
+</figure>
+
+
+<figure class="work-unit">
+    <img src="3-1.jpg" class="work">
+    <figcaption class="des">punctuation poster</figcaption>
+</figure>
+
+<style>
+.work-unit {
+    text-align: center;
+    width: 100%;
+    margin: 0%;
+    position: relative; 
+    margin-top: 10%;
+}
+
+figcaption {
+    max-width: 100%;
+    opacity: 1;
+    display: block;
+    position: absolute;
+    text-align: left;
+}
+
+img {
+    width: 500px;
+    display: inline-block;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+}
+</style>
+
+<script>
+window.onload = () => {
+    document.querySelectorAll('.work-unit').forEach(unit => {
+        const firstImg = unit.querySelector('img:first-child');
+        const caption = unit.querySelector('figcaption');
+
+        if (firstImg && caption) {
+            const imgRect = firstImg.getBoundingClientRect();
+            const parentRect = firstImg.parentElement.getBoundingClientRect();
+            const leftOffset = imgRect.left - parentRect.left;
+
+            caption.style.left = leftOffset + "px";
+        }
+    });
+};
+</script>
+
+
+</html>

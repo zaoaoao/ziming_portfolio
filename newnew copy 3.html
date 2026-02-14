@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    /* $(document).ready(function () {
+         animateDiv1(".a1");
+         animateDiv2(".about");
+                 animateDiv3(".container");
+ 
+ 
+     });
+ 
+     function makeNewPosition() {
+         var h = $(window).height();
+         var w = $(window).width();
+ 
+         var nh = Math.floor(Math.random() * h - 50);
+         var nw = Math.floor(Math.random() * w - 50);
+ 
+         return [nh, nw];
+     }
+ 
+     function animateDiv1(myclass) {
+         var newq = makeNewPosition();
+         $(myclass).animate({ top: newq[0], left: newq[1] }, 8000, function () {
+             animateDiv1(myclass);
+         });
+     }
+     function animateDiv2(myclass) {
+         var newq = makeNewPosition();
+         $(myclass).animate({ top: newq[0], left: newq[1] }, 20000, function () {
+             animateDiv2(myclass);
+         });
+     }
+      function animateDiv3(myclass) {
+         var newq = makeNewPosition();
+         $(myclass).animate({ top: newq[0], left: newq[1] }, 20000, function () {
+             animateDiv3(myclass);
+         });
+     }*/
+    function makeNewPosition($el) {
+        var windowH = $(window).height();
+        var windowW = $(window).width();
+
+        var elH = $el.outerHeight();
+        var elW = $el.outerWidth();
+
+        var maxTop = windowH - elH;
+        var maxLeft = windowW - elW;
+
+        var newTop = Math.random() * maxTop;
+        var newLeft = Math.random() * maxLeft;
+
+        return [newTop, newLeft];
+    }
+
+    function animateDiv(myclass, speed) {
+        var $el = $(myclass);
+        var newPos = makeNewPosition($el);
+
+        $el.animate(
+            { top: newPos[0], left: newPos[1] },
+            speed,
+            function () {
+                animateDiv(myclass, speed);
+            }
+        );
+    }
+    $(document).ready(function () {
+        animateDiv(".a1", 8000);
+        animateDiv(".about", 10000);
+        /*  animateDiv(".container", 10000);*/
+    });
+
+    let degr = 0;
+
+    /* function rotate() {
+     degr += 90;
+ 
+     document.querySelectorAll(".cube").forEach(cube => { cube.style.setProperty("--b", degr + "deg"); })
+         ;
+   
+ 
+      }*/
+
+
+</script>
+
+<style>
+    @property --a {
+        syntax: "<number>";
+        initial-value: 0.85;
+        inherits: false;
+    }
+
+    @property --b {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    @property --c {
+        syntax: "<number>";
+        initial-value: 0.85;
+        inherits: false;
+    }
+
+    @property --d {
+        syntax: "<number>";
+        initial-value: 0.85;
+        inherits: false;
+    }
+
+    @property --e {
+        syntax: "<length>";
+        initial-value: 1000px;
+        inherits: false;
+    }
+
+    @property --f {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    @property --g {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    @property --a1 {
+        syntax: "<number>";
+        initial-value: 0.85;
+        inherits: false;
+    }
+
+    @property --b1 {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    @property --c1 {
+        syntax: "<number>";
+        initial-value: 0.85;
+        inherits: false;
+    }
+
+    @property --d1 {
+        syntax: "<number>";
+        initial-value: 0.85;
+        inherits: false;
+    }
+
+    @property --e1 {
+        syntax: "<length>";
+        initial-value: 1000px;
+        inherits: false;
+    }
+
+    @property --f1 {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    @property --g1 {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    .container {
+        width: 36vw;
+        height: 70vh;
+        perspective: 50vw;
+        z-index: 1;
+        position: fixed;
+        top: 50%;
+        left: 30%;
+
+        transform: translate(calc(-50% - 0vw), calc(-50% - 0vw));
+    }
+
+    .container1 {
+        width: 36vw;
+        height: 70vh;
+        perspective: 50vw;
+        z-index: 1;
+        position: fixed;
+        top: 50%;
+        left: 70%;
+        transform: translate(calc(-50% - 0vw), calc(-50% - 0vw));
+    }
+
+
+    .cube {
+
+
+        width: 36vw;
+        height: 70vh;
+        transform-style: preserve-3d;
+        transition: --a 2s, --b 1s, --c 2s, --d 2s, --e 2s, --f 1s, --g 1s;
+        transform:
+            scaleX(var(--a)) scaleY(var(--c)) scaleZ(var(--d)) rotateX(var(--f)) rotateY(var(--b)) rotateZ(var(--g)) translateX(0vw) translateY(-5vh) translateZ(0px) skewX(0deg) skewY(0deg);
+    }
+
+    .cube1 {
+
+
+        width: 36vw;
+        height: 70vh;
+        transform-style: preserve-3d;
+        transition: --a 2s, --b 1s, --c 2s, --d 2s, --e 2s, --f 1s, --g 1s;
+        transform:
+            scaleX(var(--a)) scaleY(var(--c)) scaleZ(var(--d)) rotateX(var(--f)) rotateY(var(--b)) rotateZ(var(--g)) translateX(0vw) translateY(-5vh) translateZ(0px) skewX(0deg) skewY(0deg);
+    }
+
+
+    .cube-wrap {
+        perspective: 1000px;
+        perspective-origin: 50% 50%;
+    }
+
+    .cube1-wrap {
+        perspective: 1000px;
+        perspective-origin: 50% 50%;
+    }
+
+    .front {
+        transform: translateZ(18vw);
+        transition: background-color 2s;
+        border: 0px solid rgb(255, 0, 0);
+        box-sizing: border-box;
+
+        width: 36vw;
+        height: 70vh;
+
+        background-color: rgba(255, 0, 0, 0);
+        z-index: 9;
+    }
+
+    .back {
+        transform: translateZ(-0vw) rotateY(180deg) translateX(32vw) translateY(-15vh);
+        background-color: rgba(255, 0, 0, 1);
+        transition: background-color 2s, opacity 1s;
+        border: 0px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 100vw;
+        height: 100vh;
+        opacity: 0;
+
+
+    }
+
+    .left {
+        transform: translateX(-18vw) rotateY(-90deg);
+        background-color: rgba(255, 0, 0, 0);
+        transition: background-color 2s;
+        border: 0px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 36vw;
+        height: 70vh;
+        opacity: 0;
+
+    }
+
+    .right {
+        transform: translateX(18vw) rotateY(90deg);
+        background-color: rgba(255, 0, 0, 0);
+        transition: background-color 2s;
+        border: 0px solid rgb(255, 0, 0);
+        box-sizing: border-box;
+
+        width: 36vw;
+        height: 70vh;
+        opacity: 0;
+        transition: opacity 1s;
+
+
+
+    }
+
+    .bottom {
+        transform: translateY(45vh) rotateX(90deg);
+        background-color: rgb(0, 0, 0, 0);
+        transition: background-color 2s;
+        border: 0px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 36vw;
+        height: 36vw;
+        opacity: 1;
+    }
+
+    .top {
+        transform: translateY(-35vh) rotateX(-90deg);
+        background: rgb(255, 255, 255, 0);
+        transition: background-color 2s;
+        border: 1px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 40vw;
+        height: 40vw;
+        opacity: 0;
+    }
+
+
+    .face {
+
+        position: absolute;
+        display: block;
+        align-items: normal;
+        justify-content: left;
+        font-size: 20px;
+        line-break: strict;
+        overflow: scroll;
+        word-wrap: break-word;
+    }
+
+    @font-face {
+        font-family: "BellGothic-Light";
+        src: url("./fonts/BellGothic-Light.ttf") format("truetype");
+        font-weight: 300;
+        font-style: normal;
+    }
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        background-color: #f5fff6;
+        opacity: 1;
+        cursor: w-resize;
+        overflow: hidden;
+        font-family: "BellGothic-Light", sans-serif;
+        /* Fallback is allowed here */
+    }
+
+    body {
+        margin: 0;
+    }
+
+
+
+
+    .img {
+        width: 25%;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        transition: --c1 2s, box-shadow 0.5s, width 1s;
+       /* box-shadow: rgba(17, 0, 255, 0.16) 0px 10px 36px 0px, rgba(47, 255, 0, 0.06) 0px 0px 0px 1px;*/
+
+    }
+
+    .img1 {
+        width: 25%;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        transition: --c1 2s, box-shadow 0.5s, width 1s;
+       /* box-shadow: rgba(255, 0, 98, 0.16) 0px 10px 36px 0px, rgba(238, 255, 0, 0.06) 0px 0px 0px 1px;*/
+
+    }
+
+    .turn {
+        top: 0%;
+        position: absolute;
+        font-size: 20px;
+        /* left: 50%;
+        transform: translate(-50%, -50%);*/
+        z-index: 999;
+        color: rgb(255, 0, 0);
+        left: 0%;
+        filter: invert(100%);
+        mix-blend-mode: difference;
+        opacity: 0;
+
+    }
+
+    .info {
+        width: 80%;
+        top: 50%;
+        position: absolute;
+        font-size: 30px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #000000;
+        opacity: 0.9;
+
+
+
+
+
+    }
+
+    @property --c1 {
+        syntax: "<color>";
+        initial-value: #00ff00;
+        inherits: false;
+    }
+
+    @property --c2 {
+        syntax: "<color>";
+        initial-value: #00ffff;
+        inherits: false;
+    }
+
+    @property --size1 {
+        syntax: "<length>";
+        initial-value: 200px;
+        inherits: false;
+    }
+
+    @property --size2 {
+        syntax: "<length>";
+        initial-value: 240px;
+        inherits: false;
+    }
+
+
+
+
+
+
+
+
+    .description {
+        width: 50%;
+        font-size: 18px;
+        color: #000000;
+        position: fixed;
+        top: 5%;
+        transition: opacity 0.2s;
+        opacity: 0;
+
+    }
+
+    .projects {
+        opacity: 0;
+    }
+
+    .next {
+        font-size: 20px;
+        position: fixed;
+        top: 50%;
+        left: 90%;
+        color: rgb(255, 255, 255);
+    }
+
+    .previous {
+        font-size: 20px;
+        position: fixed;
+        top: 50%;
+        right: 90%;
+        color: rgb(255, 255, 255);
+
+    }
+
+    .a img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .a {
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+        position: fixed;
+        display: block;
+    }
+
+    .a1 {
+        position: absolute;
+        font-size: 18px;
+        display: block;
+        color: rgb(0, 0, 0);
+        z-index: 100000;
+        filter: invert(100%);
+        mix-blend-mode: difference;
+    }
+</style>
+
+<head> </head>
+
+<body>
+
+    <div class="next"></div>
+    <div class="previous"></div>
+
+
+    <div class="description1">
+    </div>
+    <div class="about turn " onclick="about()">about
+    </div>
+    <div class="projects turn" onclick="about()">projects</div>
+
+
+    <div class="container1">
+        <div class="cube1" onclick="rotate()">
+
+            <div class="face front">
+                <img src="1-1.jpg" class="img1">
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="cube" onclick="rotate()">
+
+            <div class="face front">
+                <img src="1-1.jpg" class="img">
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="description a1" id="a1">This series combines halves of everyday dual-part objects into fully functional
+        items.</div>
+
+
+</body>
+
+<script>
+    function preloadList(list) {
+        list.forEach(item => {
+            const img = new Image();
+            img.src = item.url;
+        });
+    }
+
+
+
+
+    let myInterval1;
+
+    function start1() {
+        clearInterval(myInterval1);
+        myInterval1 = setInterval(neximg1, 2000);
+    }
+
+    /**************** 颜色等 ****************/
+    const colors = [
+        "rgb(0,255,0)", "rgb(0,0,255)", "aqua", "purple", "pink",
+        "yellow", "orange", "red", "grey", "#b9ff00", "#00ffec",
+        "#008fff", "#e800ff", "#cfffd8", "#fbffcf", "#ffbbbb",
+        "#bbe7ff", "#f1eeff", "#ffeefe", "rgb(0,0,0)",
+    ];
+
+    let deg1 = 0;
+
+    /**************** 图片列表 ****************/
+    const urlList = [
+        { url: "1-1.jpg" }, { url: "2-1.jpg" }, { url: "3-1.jpg" },
+        { url: "4-1.png" }, { url: "5-1.jpg" }, { url: "6.png" },
+        { url: "7.png" }, { url: "8.png" }, { url: "9.png" },
+    ];
+
+    const destext = [
+        { text: "This series combines halves of everyday dual-part objects into fully functional items." },
+        { text: "Photographers become a tripod by inventively adding a third point of contact." },
+        { text: "A variation on a Coca-Cola can design created by sunlight." },
+        { text: "Two outdoor electrical boxes with identical taggs and stickers." },
+        { text: "This series combines halves of everyday dual-part objects into fully functional items." },
+        { text: "Three sheets of standard consecutive paper sizes form a snowman." },
+        { text: "A collection of used coloring pencils arranged in size order." },
+        { text: "Three videos of moving tape." },
+        { text: "Rearranging removable stickers into permanent chaos." },
+    ];
+
+    const urlLists = {
+        urlList1: [
+            { url: "1-1.jpg" }, { url: "1-2.jpg" }, { url: "1-3.jpg" },
+            { url: "1-4.jpg" }, { url: "1-5.jpg" }, { url: "1-6.jpg" },
+        ],
+        urlList2: [
+            { url: "2-1.jpg" }, { url: "2-2.jpg" }, { url: "2-3.jpg" },
+            { url: "2-4.jpg" }, { url: "2-5.jpg" },
+        ],
+        urlList3: [
+            { url: "3-1.jpg" }, { url: "3-2.jpg" }, { url: "3-3.jpg" },
+        ],
+        urlList4: [
+            { url: "4-1.png" }, { url: "4-2.png" }, { url: "4-3.png" },
+            { url: "4-4.png" }, { url: "4-5.png" }, { url: "4-6.png" },
+            { url: "4-7.png" }, { url: "4-8.png" },
+        ],
+        urlList5: [
+            { url: "5-1.jpg" }, { url: "5-2.jpg" }, { url: "5-3.jpg" },
+            { url: "5-4.jpg" }, { url: "5-5.jpg" }, { url: "5-6.jpg" },
+            { url: "5-7.jpg" }, { url: "5-8.jpg" },
+        ],
+    };
+
+    let current1 = 1;
+
+    /**************** hover 切换（关键修复点） ****************/
+    function swapimg1() {
+        const imgs = document.querySelectorAll(".img1");
+        const currentList1 = urlLists[`urlList${current1 + 1}`];
+
+        imgs.forEach(img => {
+            let safeIndex = 0;
+
+            img.onmousemove = (e) => {
+                clearInterval(myInterval1);
+
+                const total = currentList1.length;
+                const w = img.offsetWidth;
+                const dist = w / total;
+                const x = e.offsetX;
+                const index = Math.floor(x / dist);
+                safeIndex = Math.min(Math.max(index, 0), total - 1);
+
+                document.querySelectorAll(".img1").forEach(el => {
+                    el.src = currentList1[safeIndex].url;
+                    el.style.width = "80%";
+
+                });
+
+
+                document.querySelector(".description").style.opacity = "1";
+            };
+
+            img.onmouseleave = () => {
+                clearInterval(myInterval1);
+                myInterval1 = setInterval(neximg1, 2000);
+
+                document.querySelectorAll(".img1").forEach(el => {
+                    el.src = currentList1[safeIndex].url;
+                    el.style.width = "20%";
+                });
+
+                document.querySelector(".description").style.opacity = "0";
+            };
+
+        });
+    }
+
+    /**************** 下一张 ****************/
+    function neximg1() {
+        current1 = (current1 + 1) % urlList.length;
+        let width1 = Math.floor(Math.random() * 15 + 10);
+        document.querySelectorAll(".img1").forEach(img => {
+            img.src = urlList[current1].url;
+            img.style.width = width1 + "%";
+        });
+
+        document.querySelector(".description").textContent = destext[current1].text;
+
+        let angle1 = Math.floor(Math.random() * 5 - 2.5);
+        let angle2 = Math.floor(Math.random() * 5 - 2.5);
+        let angle3 = Math.floor(Math.random() * 5 - 2.5);
+
+        document.querySelectorAll(".cube1").forEach(cube => {
+            cube.style.setProperty("--b", deg1 + angle1 + "deg");
+            cube.style.setProperty("--f", angle2 + "deg");
+            cube.style.setProperty("--g", angle3 + "deg");
+        });
+
+        swapimg1();
+    }
+
+let myInterval;
+
+function start() {
+    clearInterval(myInterval);
+    myInterval = setInterval(neximg, 2000);
+}
+
+
+
+let deg = 0;
+
+ 
+
+let current = 0;
+
+/**************** hover 切换（关键修复点） ****************/
+function swapimg() {
+    const imgs = document.querySelectorAll(".img");
+    const currentList = urlLists[`urlList${current + 1}`];
+
+    imgs.forEach(img => {
+        let safeIndex = 0;
+
+       img.onmousemove = (e) => {
+    clearInterval(myInterval);
+
+    const total = currentList.length;
+    const w = img.offsetWidth;
+    const dist = w / total;
+    const x = e.offsetX;
+    const index = Math.floor(x / dist);
+    safeIndex = Math.min(Math.max(index, 0), total - 1);
+
+    document.querySelectorAll(".img").forEach(el => {
+        el.src = currentList[safeIndex].url;
+        el.style.width = "80%";
+
+    });
+
+
+    document.querySelector(".description").style.opacity="1";
+};
+
+img.onmouseleave = () => {
+    clearInterval(myInterval);
+    myInterval = setInterval(neximg, 2000);
+
+    document.querySelectorAll(".img").forEach(el => {
+        el.src = currentList[safeIndex].url;
+        el.style.width = "37%";
+    });
+
+    document.querySelector(".description").style.opacity = "0";
+};
+
+    });
+}
+
+/**************** 下一张 ****************/
+function neximg() {
+    current = (current + 1) % urlList.length;
+let width1 =Math.floor(Math.random() * 15 + 10);
+    document.querySelectorAll(".img").forEach(img => {
+        img.src = urlList[current].url;
+        img.style.width = width1 + "%";
+    });
+
+    document.querySelector(".description").textContent = destext[current].text;
+
+    let angle1 = Math.floor(Math.random() * 5 - 2.5);
+    let angle2 = Math.floor(Math.random() * 5 - 2.5);
+    let angle3 = Math.floor(Math.random() * 5 - 2.5);
+
+    document.querySelectorAll(".cube").forEach(cube => {
+        cube.style.setProperty("--b", deg + angle1 + "deg");
+        cube.style.setProperty("--f", angle2 + "deg");
+        cube.style.setProperty("--g", angle3 + "deg");
+    });
+
+    swapimg();
+}
+
+
+
+    window.onload = () => {
+        preloadList(urlList);
+        Object.values(urlLists).forEach(preloadList);
+        swapimg1();
+        start1();
+        swapimg();
+        start();
+    };
+
+</script>
+
+</html>
