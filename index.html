@@ -464,30 +464,7 @@ filter: invert(100%);
 
     // }
 
-    interact('.work')
-        .resizable({
-            edges: { right: true, bottom: true },
-            modifiers: [
-                interact.modifiers.aspectRatio({
-                    ratio: 'preserve'
-                })
-            ],
-            listeners: {
-                move(event) {
-                    let x = parseFloat(event.target.dataset.x) || 0
-                    let y = parseFloat(event.target.dataset.y) || 0
-
-                    Object.assign(event.target.style, {
-                        width: `${event.rect.width}px`,
-                        height: `${event.rect.height}px`,
-                        transform: `translate(${x + event.deltaRect.left}px, ${y + event.deltaRect.top}px)`
-                    })
-
-                    event.target.dataset.x = x + event.deltaRect.left
-                    event.target.dataset.y = y + event.deltaRect.top
-                }
-            }
-        })
+   
 
     const urlLists = {
         urlList1: [
