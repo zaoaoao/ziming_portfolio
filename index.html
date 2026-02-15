@@ -436,19 +436,20 @@ filter: invert(100%);
             });
         };
     }
-    window.onload = () => {
+   window.onload = () => {
+    // 初始化显示第一张
+    document.querySelectorAll(".work").forEach(img => {
+        const indexnr = img.dataset.nr;
+        const currentList = urlLists[`urlList${indexnr}`];
+        img.src = currentList[0].url;
 
-        // randomwidth();
-        document.querySelectorAll(".work").forEach(img => {
-
-            const indexnr = img.dataset.nr;
-
-            const currentList = urlLists[`urlList${indexnr}`];
-            const initial = 0;
-
-            img.src = currentList[initial].url;
-        });
-    };
+        // 预加载剩余图片
+        for (let i = 1; i < currentList.length; i++) {
+            const pre = new Image();
+            pre.src = currentList[i].url;
+        }
+    });
+};
 
 
     // function randomwidth() {
