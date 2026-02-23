@@ -15,7 +15,7 @@
         font-family: "BellGothic-Light", sans-serif;
 
         text-transform: lowercase;
-overflow-x: hidden;
+
 
     }
 
@@ -28,17 +28,9 @@ overflow-x: hidden;
         font-style: normal;
     }
 
-    @font-face {
-        font-family: "Impact";
-        src: url("./fonts/Impact.ttf") format("truetype");
-        font-weight: 300;
-        font-style: normal;
-    }
-
     figure {
         margin-left: 0;
         margin-top: 0;
-        margin-bottom: 14em;
         position: relative;
         width: 100%;
     }
@@ -47,6 +39,7 @@ overflow-x: hidden;
         width: 700px;
         max-width: 100%;
         opacity: 1;
+        margin-left: 0EM;
         color: rgb(195, 195, 195);
         color: rgb(205, 205, 205);
 
@@ -56,27 +49,28 @@ overflow-x: hidden;
 
 
     }
- 
 
     .work {
-        width: 500px;
+        height: 300px;
         cursor: pointer;
         max-width: 80%;
-        margin-left: 4em;
 
       
 
-      /* box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+       /* box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
         box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;*/
 
     }
 
     select {
-        width: 500px;
+        width: 40%;
+        margin: 1em;
+        position: fixed;
         display: block;
-        opacity: 1;
-                font-family: "BellGothic-Light", sans-serif;
-font-size: 0.8em;
+        right: 0;
+        top: 0;
+        opacity: 0;
+
     }
 
 
@@ -92,7 +86,6 @@ font-size: 0.8em;
 filter: invert(100%);
         mix-blend-mode: difference;
         z-index: 10;
-    color: rgb(0, 0, 255);
 
     }
 
@@ -107,22 +100,31 @@ filter: invert(100%);
     }
 
    
- 
+    .info {
+        color: rgb(205, 205, 205);
 
-  
+    }
 
+     .topper{
+                margin-top: 5em;
+                    margin-left: 4em;
+        color: rgb(104, 104, 104);
+    }
+.notice{
+    color: rgb(0, 0, 255);
+                        margin-left: 4em;
+
+}
 
 
     @media (max-width: 1000px) {
-    .work,select {
-        width: 90% !important;
-        max-width: 90% !important;
-                margin-left: 5% !important;
+    .work {
+        width: 100% !important;
+        max-width: 100% !important;
+                margin-left: 0em !important;
 
     }
-select{
-    font-size: 17px;
-}
+
     .right {
         width: 80% !important;
     }
@@ -133,34 +135,15 @@ select{
     figcaption {
        
         font-size: 22px !important;
-        width: 90% !important;
-margin-left: 5%!important;
+        width: 100% !important;
+
     }
 
     .counter{
         opacity: 0 !important;
     }
-figure{
-    width: 100% !important;
-    max-width: 100% !important;
-}
 
-
-.selection{
-    margin-left: 0 !important;
-}
-
-
-.info{
-    margin-left: 0% !important;
-
-}
-
-.short{
-                margin-left: 10% !important;
-
-}
-  
+    
 }
 .short{
             margin-left: 4em;
@@ -181,53 +164,60 @@ figure{
 
 }
 
-.about{
-    color: rgb(0, 0, 0);
+summary{
+    list-style: none;
+    cursor: pointer;
 }
-
-.info{
- margin-left: 4em;
-    width: 500px;
-
-}
-
-.selection{
-    margin-bottom: 0.3em;
-    margin-top: 1em;
-    margin-left: 4em;
-}
-
 </style>
 
 <head> </head>
 
 <body>
-   
+    <select id="category">
+
+        <option value="0">all</option>
+        <option value="1">publication, typeface, poster</option>
+        <option value="2">installation, objects, performance, photography</option>
+        <option value="3">web</option>
+    </select>
     <div class="counter"></div>
 
 
-
-   
-<figure class="one selection"> <select id="category">
-
-        <option value="0">projects</option>
-        <option value="1">about</option>
-      
-    </select></figure>
+    
+   <figure class="work-unit" data-type="1">
 
 
-    <figure  class="one info" style="display: none;">
-        <figcaption class="about">
-           <span>ziming ao</span> is an artist and graphic designer. 
-           currently studying at artez university of arts (2023-), arnhem. 
-           <br>cookieblock2023@proton.me
-           <br>@ziming_ao
-
+      <details>
+        <summary class="topper">ziming ao</summary>
+         <figcaption class="info" >ziming ao
         </figcaption>
-    </figure>
-    <figure class="work-unit" data-type="1">
+    </details>
+<br>
+<br>
+<br>
+         <figcaption class="info notice" >Click images to view more
+        </figcaption>
 
-        <img class="work" data-nr="20" data-imgnr="0">
+       
+    </figure>
+   
+
+    <figure class="work-unit one" data-type="1">
+
+        <img src="t-y3s11.jpg" class="work" data-nr="20" data-imgnr="0">
+        <img src="t-y3s12.jpg" class="work" data-nr="20" data-imgnr="0">
+        <img src="t-y3s13.jpg" class="work" data-nr="20" data-imgnr="0">
+        <img src="t-y3s14.jpg" class="work" data-nr="20" data-imgnr="0">
+ <img src="t-y3s15.jpg" class="work" data-nr="20" data-imgnr="0">
+        <img src="t-y3s16.jpg" class="work" data-nr="20" data-imgnr="0">
+        <img src="t-y3s17.jpg" class="work" data-nr="20" data-imgnr="0">
+        <img src="t-y3s18.jpg" class="work" data-nr="20" data-imgnr="0"> 
+        <img src="t-y3s19.jpg" class="work" data-nr="20" data-imgnr="0">
+        <img src="t-y3s110.jpg" class="work" data-nr="20" data-imgnr="0">
+        <img src="t-y3s111.jpg" class="work" data-nr="20" data-imgnr="0">
+                <img src="t-y3s112.jpg" class="work" data-nr="20" data-imgnr="0">
+        <img src="t-y3s113.jpg" class="work" data-nr="20" data-imgnr="0">
+        <img src="t-y3s114.jpg" class="work" data-nr="20" data-imgnr="0">
 
         <figcaption class="short">
             <span class="title">Daily truth</span>
@@ -240,16 +230,24 @@ figure{
             moti-vational calendar has a year full of inspirational truths, the truth social posts from president trump
             that encourage your daily life.
         </figcaption>
-        <img class="work right" data-nr="21" data-imgnr="0">
-        <figcaption>pages are printed twice, first time riso printed the golden decorational layer, second time laser
-            printed text layer.
-        </figcaption>
+       
     </figure>
 
 
-    <figure class="work-unit" data-type="2">
+    <figure class="work-unit two" data-type="2">
 
-        <img class="work" data-nr="1" data-imgnr="0">
+        <img src="dr-y3s11.jpg" class="work" data-nr="1" data-imgnr="0">
+                <img src="dr-y3s12.jpg" class="work" data-nr="1" data-imgnr="0">
+        <img src="dr-y3s13.jpg" class="work" data-nr="1" data-imgnr="0">
+        <img src="dr-y3s14.jpg" class="work" data-nr="1" data-imgnr="0">
+        <img src="dr-y3s15.jpg" class="work" data-nr="1" data-imgnr="0">
+        <img src="dr-y3s16.jpg" class="work" data-nr="1" data-imgnr="0">
+        <img src="dr-y3s17.jpg" class="work" data-nr="1" data-imgnr="0">
+        <img src="dr-y3s18.jpg" class="work" data-nr="1" data-imgnr="0">
+        <img src="dr-y3s19.jpg" class="work" data-nr="1" data-imgnr="0">
+        <img src="dr-y3s110.jpg" class="work" data-nr="1" data-imgnr="0">
+        <img src="dr-y3s111.jpg" class="work" data-nr="1" data-imgnr="0">
+
 <figcaption class="short">
             <span class="title">suggestion for you</span>
             <span class="year"> (2025).</span>
@@ -281,7 +279,7 @@ figure{
     </figure>
 
 
-    <figure class="work-unit" data-type="1">
+    <figure class="work-unit one" data-type="1">
 
         <img class="work" data-nr="13" data-imgnr="0">
 <figcaption class="short">
@@ -305,7 +303,7 @@ figure{
 
 
 
-    <figure class="work-unit" data-type="1">
+    <figure class="work-unit one" data-type="1">
 
         <img class="work" data-nr="15" data-imgnr="0">
 <figcaption class="short">
@@ -326,7 +324,7 @@ figure{
 
 
 
-    <figure class="work-unit" data-type="1">
+    <figure class="work-unit one" data-type="1">
 
         <img class="work" data-nr="18" data-imgnr="0">
 <figcaption class="short">
@@ -359,7 +357,7 @@ figure{
 
 
 
-    <figure class="work-unit" data-type="1">
+    <figure class="work-unit one" data-type="1">
 
         <img class="work" data-nr="17" data-imgnr="0">
 <figcaption class="short">
@@ -384,7 +382,7 @@ figure{
 
     </figure>
 
-    <figure class="work-unit" data-type="1">
+    <figure class="work-unit one" data-type="1">
 
         <img class="work" data-nr="26" data-imgnr="0">
 <figcaption class="short">
@@ -401,7 +399,7 @@ figure{
 
     </figure>
 
-    <figure class="work-unit" data-type="1">
+    <figure class="work-unit one" data-type="1">
 
         <img class="work" data-nr="23" data-imgnr="0">
 <figcaption class="short">
@@ -415,7 +413,7 @@ figure{
 
 
 
-    <figure class="work-unit" data-type="1">
+    <figure class="work-unit one" data-type="1">
 
         <img class="work" data-nr="25" data-imgnr="0">
         <figcaption class="short">
@@ -428,7 +426,7 @@ figure{
     </figure>
 
 
-    <figure class="work-unit" data-type="1">
+    <figure class="work-unit one" data-type="1">
         <img class="work" data-nr="28" data-imgnr="0">
 <figcaption class="short">
             <span class="title">why do i feel so sad</span>
@@ -536,8 +534,6 @@ figure{
             document.querySelectorAll("figure").forEach(e => {
 
                 e.style.display = "block"
-                 if (e.classList.contains('info')) {
-                    e.style.display = "none"}
             });
         };
         if (value == 1) {
@@ -548,23 +544,26 @@ figure{
 
             });
         }
-  
+        if (value == 2) {
+            document.querySelectorAll("figure").forEach(e => {
+                if (e.classList.contains('two')) {
+                    e.style.display = "block"
+                } else { e.style.display = "none" }
+
+            });
+        }
+        if (value == 3) {
+            document.querySelectorAll("figure").forEach(e => {
+                if (e.classList.contains('three')) {
+                    e.style.display = "block"
+                } else { e.style.display = "none" }
+
+            });
+        };
     }
    window.onload = () => {
-
-    const select = document.getElementById("category");
-    select.value = "0";
-    myFunction(0);
-    document.querySelectorAll(".work").forEach(img => {
-        const indexnr = img.dataset.nr;
-        const currentList = urlLists[`urlList${indexnr}`];
-        img.src = currentList[0].url;
-
-        for (let i = 1; i < currentList.length; i++) {
-            const pre = new Image();
-            pre.src = currentList[i].url;
-        }
-    });
+    // 初始化显示第一张
+   
 };
 
 
