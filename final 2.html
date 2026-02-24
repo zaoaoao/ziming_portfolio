@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        function makeNewPosition() {
+            const h = window.innerHeight;
+            const w = window.innerWidth;
+
+            return {
+                top: Math.random() * (h - 50),
+                left: Math.random() * (w - 50)
+            };
+        }
+
+
+  
+       
+        function animateDiv() {
+
+            document.querySelectorAll('.mos').forEach(el => {
+
+                const duration = Math.floor(Math.random() * 10000 + 1000);
+                el.style.transition = `top ${duration / 1000}s linear, left ${duration / 1000}s linear`;
+
+                setInterval(() => {
+                    const pos = makeNewPosition();
+                    el.style.top = pos.top + 'px';
+                    el.style.left = pos.left + 'px';
+
+                }, duration);
+
+            });
+
+        }
+
+
+
+
+        window.onload = () => {
+            for (let i = 0; i < 30; i++) {
+                const firstPosition = makeNewPosition();
+                const img = document.createElement('img');
+
+                img.src = 'mos.gif';
+                img.alt = 'image';
+                img.classList.add('mos');
+
+                img.style.width = '50px';
+                img.style.height = '50px';
+                img.style.position = 'fixed';
+                img.style.top = firstPosition.top + 'px';
+                img.style.left = firstPosition.left + 'px';
+
+                document.body.appendChild(img);
+
+
+            }
+            animateDiv();
+        };
+
+
+    </script>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        @property --p {
+            syntax: "<length>";
+            initial-value: 5px;
+            inherits: false;
+        }
+
+        @property --o {
+            syntax: "<color>";
+            initial-value: white;
+            inherits: false;
+        }
+
+
+        @property --u {
+            syntax: "<length>";
+            initial-value: 150px;
+            inherits: false;
+        }
+
+        .box {
+            width: 100%;
+            height: 100%;
+            transition: --p 2s, --o 2s, --u 4s;
+            background: none;
+            pointer-events: none;
+            box-shadow: inset 0 0 var(--u) var(--p) var(--o);
+            z-index: 1;
+            position: absolute;
+        }
+
+        .box1 {
+            width: 100%;
+            height: 100%;
+            transition: background-color 3s;
+            z-index: -1;
+            background-color: white;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+
+
+
+</body>
+
+</html>
