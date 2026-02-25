@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+
+      
+
+
+        function getRandomColor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+        document.addEventListener('click', img => {
+            if (img.target.classList.contains('mos')) {
+
+             
+
+                document.querySelector(".boxa").style.setProperty("--ab", Math.floor(Math.random() * 300 + 5) + "px");
+                                document.querySelector(".boxb").style.setProperty("--bb", Math.floor(Math.random() * 400 + 5) + "px");
+                document.querySelector(".boxc").style.setProperty("--cb", Math.floor(Math.random() * 300 + 5)  + "px");
+                document.querySelector(".boxd").style.setProperty("--db", Math.floor(Math.random() * 300 + 5) + "px");
+                document.querySelector(".boxe").style.setProperty("--eb", Math.floor(Math.random() *300  + 5) + "px");
+
+                document.querySelector(".boxa").style.setProperty("--ac", Math.floor(Math.random() * 100 + 20) + "px");
+                document.querySelector(".boxa").style.setProperty("--bc", Math.floor(Math.random() * 100 + 20) + "px");
+                document.querySelector(".boxa").style.setProperty("--cc", Math.floor(Math.random() * 100 + 20) + "px");
+                document.querySelector(".boxa").style.setProperty("--dc", Math.floor(Math.random() * 100 + 20) + "px");
+                document.querySelector(".boxa").style.setProperty("--ec", Math.floor(Math.random() * 100 + 20) + "px");
+
+
+                document.querySelector(".boxa").style.setProperty("--a", getRandomColor());
+                                document.querySelector(".boxb").style.setProperty("--b", getRandomColor());
+                document.querySelector(".boxc").style.setProperty("--c", getRandomColor());
+                document.querySelector(".boxd").style.setProperty("--d", getRandomColor());
+                document.querySelector(".boxe").style.setProperty("--e", getRandomColor());
+
+                document.querySelector(".box1").style.backgroundColor = getRandomColor();
+
+            }
+
+        })
+
+       
+       
+
+function change1(){
+    const colore = getRandomColor();
+   document.querySelector(".boxa").style.setProperty("--ab", Math.floor(Math.random() * 100 + 20) + "px");
+                                document.querySelector(".boxb").style.setProperty("--bb", Math.floor(Math.random() * 400 + 5) + "px");
+                document.querySelector(".boxc").style.setProperty("--cb", Math.floor(Math.random() * 300 + 5)  + "px");
+                document.querySelector(".boxd").style.setProperty("--db", Math.floor(Math.random() * 300 + 5) + "px");
+                document.querySelector(".boxe").style.setProperty("--eb", Math.floor(Math.random() *300  + 5) + "px");
+
+                document.querySelector(".boxa").style.setProperty("--ac", Math.floor(Math.random() * 30 + 20) + "px");
+                document.querySelector(".boxa").style.setProperty("--bc", Math.floor(Math.random() * 100 + 20) + "px");
+                document.querySelector(".boxa").style.setProperty("--cc", Math.floor(Math.random() * 100 + 20) + "px");
+                document.querySelector(".boxa").style.setProperty("--dc", Math.floor(Math.random() * 100 + 20) + "px");
+                document.querySelector(".boxa").style.setProperty("--ec", Math.floor(Math.random() * 100 + 20) + "px");
+
+
+                document.querySelector(".boxe").style.setProperty("--e", getRandomColor());
+                                document.querySelector(".boxb").style.setProperty("--b", getRandomColor());
+                document.querySelector(".boxc").style.setProperty("--c", getRandomColor());
+                document.querySelector(".boxd").style.setProperty("--d", getRandomColor());
+document.querySelectorAll(".boxa, .boxaa").forEach(el => {
+  el.style.setProperty("--a", colore);
+});
+                document.querySelector(".box1").style.backgroundColor = getRandomColor();
+
+
+                document.querySelector(".boxaa").style.setProperty("--ab", Math.floor(Math.random() * 100 + 20) + "px");
+                                document.querySelector(".boxba").style.setProperty("--bb", Math.floor(Math.random() * 400 + 5) + "px");
+                document.querySelector(".boxca").style.setProperty("--cb", Math.floor(Math.random() * 300 + 5)  + "px");
+                document.querySelector(".boxda").style.setProperty("--db", Math.floor(Math.random() * 300 + 5) + "px");
+                document.querySelector(".boxea").style.setProperty("--eb", Math.floor(Math.random() *300  + 5) + "px");
+
+                document.querySelector(".boxaa").style.setProperty("--ac", Math.floor(Math.random() * 30 + 20) + "px");
+                document.querySelector(".boxaa").style.setProperty("--bc", Math.floor(Math.random() * 100 + 20) + "px");
+                document.querySelector(".boxaa").style.setProperty("--cc", Math.floor(Math.random() * 100 + 20) + "px");
+                document.querySelector(".boxaa").style.setProperty("--dc", Math.floor(Math.random() * 100 + 20) + "px");
+                document.querySelector(".boxaa").style.setProperty("--ec", Math.floor(Math.random() * 100 + 20) + "px");
+
+
+                document.querySelector(".boxea").style.setProperty("--e", getRandomColor());
+                                document.querySelector(".boxba").style.setProperty("--b", getRandomColor());
+                document.querySelector(".boxca").style.setProperty("--c", getRandomColor());
+                document.querySelector(".boxda").style.setProperty("--d", getRandomColor());
+               // document.querySelector(".boxea").style.setProperty("--e", getRandomColor());
+
+                document.querySelector(".box1a").style.backgroundColor = getRandomColor();
+}
+setInterval(change1, 4000)
+        window.onload = () => {
+           
+            change1();
+        };
+
+
+    </script>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        @property --a {
+            syntax: "<color>";
+            initial-value: rgb(255, 255, 255);
+            inherits: false;
+        }
+
+        @property --b {
+            syntax: "<color>";
+            initial-value: rgb(255, 255, 255);
+            inherits: false;
+        }
+
+        @property --c {
+            syntax: "<color>";
+            initial-value: rgb(255, 255, 255);
+            inherits: false;
+        }
+
+        @property --d {
+            syntax: "<color>";
+            initial-value: rgb(255, 255, 255);
+            inherits: false;
+        }
+
+        @property --e {
+            syntax: "<color>";
+            initial-value: rgb(255, 255, 255);
+            inherits: false;
+        }
+
+
+
+        @property --ab {
+            syntax: "<length>";
+            initial-value: 5px;
+            inherits: false;
+        }
+
+        @property --bb {
+            syntax: "<length>";
+            initial-value: 50px;
+            inherits: false;
+        }
+
+        @property --cb {
+            syntax: "<length>";
+            initial-value: 150px;
+            inherits: false;
+        }
+
+        @property --db {
+            syntax: "<length>";
+            initial-value: 200px;
+            inherits: false;
+        }
+
+        @property --eb {
+            syntax: "<length>";
+            initial-value: 210px;
+            inherits: false;
+        }
+
+
+
+
+        @property --ac {
+            syntax: "<length>";
+            initial-value:5px;
+            inherits: false;
+        }
+
+        @property --bc {
+            syntax: "<length>";
+            initial-value: 10px;
+            inherits: false;
+        }
+
+        @property --cc {
+            syntax: "<length>";
+            initial-value: 15px;
+            inherits: false;
+        }
+
+        @property --dc {
+            syntax: "<length>";
+            initial-value: 20px;
+            inherits: false;
+        }
+
+        @property --ec {
+            syntax: "<length>";
+            initial-value: 25px;
+            inherits: false;
+        }
+
+         .boxa {
+width: 50%;
+            left: 0%;            height: 100%;
+            transition: 
+             --a 5s, --b 5s, --c 1s, --d 3s, --e 2s,
+                        --ab 4s, --bb 5s, --cb 3s, --db 5s, --eb 5s,
+            --ac 3s, --bc 5s, --cc 5s, --dc 4s, --ec 5s;
+
+            background: none;
+            pointer-events: none;
+            box-shadow:
+
+                inset 0 0 var(--ac) var(--ab) var(--a)
+                
+
+            ;
+            z-index: 10;
+            position: absolute;
+                        margin: 0;
+
+        }
+        .boxb {
+width: 50%;
+            left: 0%;            height: 100%;
+            transition: 
+             --a 5s, --b 5s, --c 1s, --d 3s, --e 2s,
+                        --ab 4s, --bb 5s, --cb 3s, --db 5s, --eb 5s,
+            --ac 3s, --bc 5s, --cc 5s, --dc 4s, --ec 5s;
+
+            background: none;
+            pointer-events: none;
+            box-shadow:
+
+                inset 0 0 var(--bc) var(--bb) var(--b)
+
+            ;
+            z-index: 8;
+            position: absolute;
+                        margin: 0;
+
+        }
+        .boxc {
+width: 50%;
+            left: 0%;            height: 100%;
+           transition: 
+             --a 5s, --b 5s, --c 1s, --d 3s, --e 2s,
+                        --ab 4s, --bb 5s, --cb 3s, --db 5s, --eb 5s,
+            --ac 3s, --bc 5s, --cc 5s, --dc 4s, --ec 5s;
+            background: none;
+            pointer-events: none;
+            box-shadow:
+
+                
+                inset 0 0 var(--cc) var(--cb) var(--c)
+            ;
+            z-index: 6;
+            position: absolute;
+                        margin: 0;
+
+        }
+        .boxd {
+width: 50%;
+            left: 0%;            height: 100%;
+            transition: 
+             --a 5s, --b 5s, --c 1s, --d 3s, --e 2s,
+                        --ab 4s, --bb 5s, --cb 3s, --db 5s, --eb 5s,
+            --ac 3s, --bc 5s, --cc 5s, --dc 4s, --ec 5s;
+            background: none;
+            pointer-events: none;
+            box-shadow:
+
+              
+                inset 0 0 var(--dc) var(--db) var(--d)
+            ;
+            z-index: 4;
+            position: absolute;
+                        margin: 0;
+
+        }
+        .boxe {
+            width: 50%;
+            left: 0%;
+            height: 100%;
+           transition: 
+             --a 5s, --b 5s, --c 1s, --d 3s, --e 2s,
+                        --ab 4s, --bb 5s, --cb 3s, --db 5s, --eb 5s,
+            --ac 3s, --bc 5s, --cc 5s, --dc 4s, --ec 5s;
+
+            background: none;
+            pointer-events: none;
+            box-shadow:
+
+               
+                inset 0 0 var(--ec) var(--eb) var(--e)
+
+            ;
+            z-index: 2;
+            position: absolute;
+                        margin: 0;
+
+        }
+
+        .box1 {
+            width: 50%;
+            left: 0%;
+            height: 100%;
+            transition: background-color 3s;
+            z-index: -1;
+            background-color: white;
+            position: relative;
+                        margin: 0;
+
+        }
+
+         .boxaa {
+width: 50%;
+top: 0;
+            right: 0%;            height: 100%;
+            transition: 
+            --a 5s, --b 5s, --c 1s, --d 3s, --e 2s,
+                        --ab 4s, --bb 5s, --cb 3s, --db 5s, --eb 5s,
+            --ac 3s, --bc 5s, --cc 5s, --dc 4s, --ec 5s;
+
+            background: none;
+            pointer-events: none;
+            box-shadow:
+
+                inset 0 0 var(--ac) var(--ab) var(--a)
+                
+
+            ;
+            z-index: 10;
+            position: absolute;
+                        margin: 0;
+                        display: inline-block;
+
+        }
+        .boxba {
+            top: 0;
+
+width: 50%;
+            right: 0%;            height: 100%;
+            transition: 
+             --a 5s, --b 5s, --c 1s, --d 3s, --e 2s,
+                        --ab 4s, --bb 5s, --cb 3s, --db 5s, --eb 5s,
+            --ac 3s, --bc 5s, --cc 5s, --dc 4s, --ec 5s;
+
+            background: none;
+            pointer-events: none;
+            box-shadow:
+
+                inset 0 0 var(--bc) var(--bb) var(--b)
+
+            ;
+            z-index: 8;
+            position: absolute;
+                        margin: 0;
+                                                display: inline-block;
+
+
+        }
+        .boxca {
+width: 50%;
+top: 0;
+
+            right: 0%;            height: 100%;
+           transition: 
+             --a 5s, --b 5s, --c 1s, --d 3s, --e 2s,
+                        --ab 4s, --bb 5s, --cb 3s, --db 5s, --eb 5s,
+            --ac 3s, --bc 5s, --cc 5s, --dc 4s, --ec 5s;
+            background: none;
+            pointer-events: none;
+            box-shadow:
+
+                
+                inset 0 0 var(--cc) var(--cb) var(--c)
+            ;
+            z-index: 6;
+            position: absolute;
+                        margin: 0;
+                                                display: inline-block;
+
+
+        }
+        .boxda {
+width: 50%;
+top: 0;
+
+            right: 0%;            height: 100%;
+            transition: 
+            --a 5s, --b 5s, --c 1s, --d 3s, --e 2s,
+                        --ab 4s, --bb 5s, --cb 3s, --db 5s, --eb 5s,
+            --ac 3s, --bc 5s, --cc 5s, --dc 4s, --ec 5s;
+            background: none;
+            pointer-events: none;
+            box-shadow:
+
+              
+                inset 0 0 var(--dc) var(--db) var(--d)
+            ;
+            z-index: 4;
+            position: absolute;
+                        margin: 0;
+                                                display: inline-block;
+
+
+        }
+        .boxea {
+            top: 0;
+
+            width: 50%;
+            right: 0%;
+            height: 100%;
+           transition: 
+             --a 5s, --b 5s, --c 1s, --d 3s, --e 2s,
+                        --ab 4s, --bb 5s, --cb 3s, --db 5s, --eb 5s,
+            --ac 3s, --bc 5s, --cc 5s, --dc 4s, --ec 5s;
+
+            background: none;
+            pointer-events: none;
+            box-shadow:
+
+               
+                inset 0 0 var(--ec) var(--eb) var(--e)
+
+            ;
+            z-index: 2;
+            position: absolute;
+                        margin: 0;
+                                                display: inline-block;
+
+
+        }
+
+        .box1a {
+            top: 0;
+
+            width: 50%;
+            right: 0%;
+            height: 100%;
+            transition: background-color 3s;
+            z-index: -1;
+            background-color: white;
+            position: absolute;
+            margin: 0;
+                                    display: inline-block;
+
+        }
+
+   @media (max-width: 1000px) {
+    body{
+      zoom: 0.5;
+    }
+  
+}
+        
+    </style>
+</head>
+
+<body>
+    <div class="boxe"></div>
+        <div class="boxd"></div>
+    <div class="boxc"></div>
+    <div class="boxb"></div>
+    <div class="boxa"></div>
+
+    <div class="box1"></div>
+
+ <div class="boxea"></div>
+        <div class="boxda"></div>
+    <div class="boxca"></div>
+    <div class="boxba"></div>
+    <div class="boxaa"></div>
+
+    <div class="box1a"></div>
+
+</body>
+
+</html>
