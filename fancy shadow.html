@@ -15,48 +15,20 @@
             const b = Math.floor(Math.random() * 256);
             return `rgb(${r}, ${g}, ${b})`;
         }
-        document.addEventListener('click', img => {
-            if (img.target.classList.contains('mos')) {
-
-             
-
-                document.querySelector(".boxa").style.setProperty("--ab", Math.floor(Math.random() * 300 + 5) + "px");
-                                document.querySelector(".boxb").style.setProperty("--bb", Math.floor(Math.random() * 400 + 5) + "px");
-                document.querySelector(".boxc").style.setProperty("--cb", Math.floor(Math.random() * 300 + 5)  + "px");
-                document.querySelector(".boxd").style.setProperty("--db", Math.floor(Math.random() * 300 + 5) + "px");
-                document.querySelector(".boxe").style.setProperty("--eb", Math.floor(Math.random() *300  + 5) + "px");
-
-                document.querySelector(".boxa").style.setProperty("--ac", Math.floor(Math.random() * 100 + 20) + "px");
-                document.querySelector(".boxa").style.setProperty("--bc", Math.floor(Math.random() * 100 + 20) + "px");
-                document.querySelector(".boxa").style.setProperty("--cc", Math.floor(Math.random() * 100 + 20) + "px");
-                document.querySelector(".boxa").style.setProperty("--dc", Math.floor(Math.random() * 100 + 20) + "px");
-                document.querySelector(".boxa").style.setProperty("--ec", Math.floor(Math.random() * 100 + 20) + "px");
-
-
-                document.querySelector(".boxa").style.setProperty("--a", getRandomColor());
-                                document.querySelector(".boxb").style.setProperty("--b", getRandomColor());
-                document.querySelector(".boxc").style.setProperty("--c", getRandomColor());
-                document.querySelector(".boxd").style.setProperty("--d", getRandomColor());
-                document.querySelector(".boxe").style.setProperty("--e", getRandomColor());
-
-                document.querySelector(".box1").style.backgroundColor = getRandomColor();
-
-            }
-
-        })
+       
 
        
        
 
 function change1(){
     const colore = getRandomColor();
-   document.querySelector(".boxa").style.setProperty("--ab", Math.floor(Math.random() * 100 + 20) + "px");
+   document.querySelector(".boxa").style.setProperty("--ab", Math.floor(Math.random() * 100 + 50) + "px");
                                 document.querySelector(".boxb").style.setProperty("--bb", Math.floor(Math.random() * 400 + 5) + "px");
                 document.querySelector(".boxc").style.setProperty("--cb", Math.floor(Math.random() * 300 + 5)  + "px");
                 document.querySelector(".boxd").style.setProperty("--db", Math.floor(Math.random() * 300 + 5) + "px");
                 document.querySelector(".boxe").style.setProperty("--eb", Math.floor(Math.random() *300  + 5) + "px");
 
-                document.querySelector(".boxa").style.setProperty("--ac", Math.floor(Math.random() * 30 + 20) + "px");
+                document.querySelector(".boxa").style.setProperty("--ac", Math.floor(Math.random() * 20 + 30) + "px");
                 document.querySelector(".boxa").style.setProperty("--bc", Math.floor(Math.random() * 100 + 20) + "px");
                 document.querySelector(".boxa").style.setProperty("--cc", Math.floor(Math.random() * 100 + 20) + "px");
                 document.querySelector(".boxa").style.setProperty("--dc", Math.floor(Math.random() * 100 + 20) + "px");
@@ -73,13 +45,13 @@ document.querySelectorAll(".boxa, .boxaa").forEach(el => {
                 document.querySelector(".box1").style.backgroundColor = getRandomColor();
 
 
-                document.querySelector(".boxaa").style.setProperty("--ab", Math.floor(Math.random() * 100 + 20) + "px");
+                document.querySelector(".boxaa").style.setProperty("--ab", Math.floor(Math.random() * 100 + 50) + "px");
                                 document.querySelector(".boxba").style.setProperty("--bb", Math.floor(Math.random() * 400 + 5) + "px");
                 document.querySelector(".boxca").style.setProperty("--cb", Math.floor(Math.random() * 300 + 5)  + "px");
                 document.querySelector(".boxda").style.setProperty("--db", Math.floor(Math.random() * 300 + 5) + "px");
                 document.querySelector(".boxea").style.setProperty("--eb", Math.floor(Math.random() *300  + 5) + "px");
 
-                document.querySelector(".boxaa").style.setProperty("--ac", Math.floor(Math.random() * 30 + 20) + "px");
+                document.querySelector(".boxaa").style.setProperty("--ac", Math.floor(Math.random() * 20 + 40) + "px");
                 document.querySelector(".boxaa").style.setProperty("--bc", Math.floor(Math.random() * 100 + 20) + "px");
                 document.querySelector(".boxaa").style.setProperty("--cc", Math.floor(Math.random() * 100 + 20) + "px");
                 document.querySelector(".boxaa").style.setProperty("--dc", Math.floor(Math.random() * 100 + 20) + "px");
@@ -456,7 +428,7 @@ top: 0;
 
    @media (max-width: 1000px) {
     body{
-      zoom: 0.5;
+      zoom: 0.4;
     }
   
 }
