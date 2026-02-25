@@ -8,6 +8,17 @@
 </script>
 
 <style>
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
+}
+
+* {
+  -ms-overflow-style: none;
+}
     body {
         margin: 0%;
         font-size: 17px;
@@ -194,7 +205,7 @@ figure{
 }
 
 .about{
-    color: rgb(0, 0, 0);
+    color: rgb(0, 0, 255);
 }
 
 .info{
@@ -215,6 +226,7 @@ position: fixed;
 z-index: 99;
 top: 0%;
 left: 95%;
+cursor: pointer;
 }
 
 .fly img{
@@ -223,6 +235,10 @@ left: 95%;
 
 }
 
+.guide{
+    margin-left: 4em;
+    color: blue;
+}
 
 </style>
 
@@ -243,9 +259,7 @@ left: 95%;
       
     </select></figure>
 
- <figure  >
-     
-    </figure>
+
     <figure  class="one info" style="display: none;">
         <figcaption class="about">
            <span>ziming ao</span> is an artist and graphic designer. 
@@ -255,7 +269,16 @@ left: 95%;
 
         </figcaption>
     </figure>
+
+ 
     <figure class="work-unit" data-type="1">
+ <figcaption class="guide">
+    
+           click images to view more
+        </figcaption>
+                   <br>
+           <br>
+           <br>
 
         <img class="work" data-nr="20" data-imgnr="0">
 
