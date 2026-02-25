@@ -84,11 +84,10 @@ border: 0cm;
 
     select {
         width: 500px;
-        display: none;
+        display: block;
         opacity: 1;
                 font-family: "BellGothic-Light", sans-serif;
 font-size: 0.8em;
-
     }
 
 
@@ -209,12 +208,10 @@ figure{
     margin-left: 4em;
 }
 .fly{
-width: 40px;
-height: 40px;
+width: 50px;
+height: 50px;
 position: fixed;
 z-index: 99;
-top: 0%;
-left: 95%;
 }
 
 .fly img{
@@ -243,9 +240,7 @@ left: 95%;
       
     </select></figure>
 
- <figure  >
-     
-    </figure>
+
     <figure  class="one info" style="display: none;">
         <figcaption class="about">
            <span>ziming ao</span> is an artist and graphic designer. 
@@ -574,69 +569,65 @@ left: 95%;
 
 <script>
 
-document.querySelector(".fly").addEventListener("click", function () {
-    myFunction();
-});
+    document.getElementById("category").addEventListener("change", function () {
+        myFunction(this.value);
+    });
 
-let clicktime = 0;
+    function myFunction(value) {
+        if (value == 0) {
+            document.querySelectorAll("figure").forEach(e => {
 
-function myFunction() {
+                e.style.display = "block"
+                 if (e.classList.contains('info')) {
+                    e.style.display = "none"}
+            });
+        };
+        if (value == 1) {
+            document.querySelectorAll("figure").forEach(e => {
+                if (e.classList.contains('one')) {
+                    e.style.display = "block"
+                } else { e.style.display = "none" }
 
-    clicktime += 1;
-
-    if (clicktime % 2 === 0) {
-        document.querySelectorAll("figure").forEach(e => {
-            e.style.display = "block";
-
-            if (e.classList.contains('info')) {
-                e.style.display = "none";
-            }
-        });
+            });
+        }
+  
     }
-
-    else {
-        document.querySelectorAll("figure").forEach(e => {
-            if (e.classList.contains('one')) {
-                e.style.display = "block";
-            } else {
-                e.style.display = "none";
-            }
-        });
-    }
-}
    window.onload = () => {
 
-animateDiv();
-
-   
+    const select = document.getElementById("category");
+    select.value = "0";
+    myFunction(0);
     document.querySelectorAll(".work").forEach(img => {
         const indexnr = img.dataset.nr;
         const currentList = urlLists[`urlList${indexnr}`];
         img.src = currentList[0].url;
 
-    
+        for (let i = 1; i < currentList.length; i++) {
+            const pre = new Image();
+            pre.src = currentList[i].url;
+        }
     });
+animateDiv();
     
 };
 
  function animateDiv() {
 
-    const el = document.querySelector('.fly');
+            const el=document.querySelector('.fly')
 
-    move(el);
+                const duration = Math.floor(Math.random() * 10000 + 1000);
+                el.style.transition = `top ${duration / 1000}s linear, left ${duration / 1000}s linear`;
 
-    function move(element) {
+                setInterval(() => {
+                    const pos = makeNewPosition();
+                    el.style.top = pos.top + 'px';
+                    el.style.left = pos.left + 'px';
 
-        const duration = Math.floor(Math.random() * 5000 + 10000);
-        const pos = makeNewPosition();
+                }, duration);
 
-        element.style.transition = `top ${duration / 100}s linear, left ${duration / 100}s linear`;
-        element.style.top = pos.top + 'px';
-        element.style.left = pos.left + 'px';
+          
 
-        setTimeout(() => move(element), duration);
-    }
-}
+        }
 function makeNewPosition() {
             const h = window.innerHeight;
             const w = window.innerWidth;
