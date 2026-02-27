@@ -8,38 +8,15 @@
 </script>
 
 <style>
-/* Firefox */
-* {
-  scrollbar-width:thin; /* auto | thin | none */
-}
 
-/* Chrome, Safari, Edge */
-::-webkit-scrollbar {
-  width: 40px;  /* scrollbar width */
-}
-
-::-webkit-scrollbar-track {
-  background: #000000; /* track color */
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #888; /* thumb color */
-  border-radius: 6px;
-  border: 3px solid #f0f0f0; /* optional padding */
-}
-
-/* IE/Edge Legacy */
-* {
-  -ms-overflow-style: auto;
-}
     body {
         margin: 0%;
         font-size: 17px;
-            background-color: rgb(255, 255, 255);
+        background-color: rgb(255, 255, 255);
         font-family: "BellGothic-Light", sans-serif;
 
         text-transform: lowercase;
-overflow-x: hidden;
+        overflow-x: hidden;
 
     }
 
@@ -52,13 +29,6 @@ overflow-x: hidden;
         font-style: normal;
     }
 
-    @font-face {
-        font-family: "Impact";
-        src: url("./fonts/Impact.ttf") format("truetype");
-        font-weight: 300;
-        font-style: normal;
-    }
-
     figure {
         margin-left: 0;
         margin-top: 0;
@@ -67,91 +37,53 @@ overflow-x: hidden;
         width: 100%;
     }
 
-    figcaption {
-        width: 700px;
-        max-width: 100%;
-        opacity: 1;
-        color: rgb(195, 195, 195);
-        color: rgb(205, 205, 205);
+   
 
-        opacity: 1;
-        margin-left: 0.7em;
-        font-size: 17px;
-
-
-    }
  
 
     .work {
-        width: 500px;
-        cursor: pointer;
-        max-width: 80%;
         margin-left: 4em;
+    }
 
+     .normal{
+        width:500px
+     }
+     .wide{
+        width: 600px;
+     }
+     .thin{
+        width: 400px;
+     }
+
+     .clickable{
+        cursor: pointer;
+
+     }
       
 
-      /* box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
-        box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;*/
-
-    }
-
-     .work1 {
-        width: 500px;
-        cursor: pointer;
-        max-width: 80%;
-        margin-left: 4em;
-
-      
-
-      /* box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
-        box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;*/
-
-    }
-
-      .workvideo {
-        width: 500px;
-        cursor: pointer;
-        max-width: 80%;
-        margin-left: 4em;
-
-      
-
-      /* box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
-        box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;*/
-
-    }
-
-    .mos{
-        height: 4000px;
-border: 0cm;   
- }
-
- .button{
-    height: 600px;
-    border: 0cm;   
-
- }
- .hahaweb{
-    height: 200px;
-    border: 0cm;   
-
- }
- .gradient{
-    height: 250px;
-    border: 0cm;   
- }
-
-    select {
-        width: 500px;
-        display: none;
-        opacity: 1;
-                font-family: "BellGothic-Light", sans-serif;
-font-size: 0.8em;
-
-    }
 
 
-    .counter {
+
+
+.heading{
+    margin-top: 1em;
+    margin-bottom: 3em;
+    color: blue;
+}
+
+
+.info-page{
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+    display: none;
+    z-index: 1;
+    background-color: white;
+}
+
+ .counter {
         display: block;
         text-align: center;
         margin-left: 2em;
@@ -164,18 +96,7 @@ font-size: 0.8em;
 
     }
 
-    .right {
-        width: 600px;
-
-    }
-
-    .small {
-        width: 400px;
-
-    }
-
-   
- 
+    
 .work-unit a {
     display: block;
 }
@@ -183,32 +104,48 @@ font-size: 0.8em;
 
 
 
+    figcaption {
+        font-size: 1em;
+    }
+
+
+.short{
+            color: rgb(104, 104, 104);
+
+}
+.long{
+        color: rgb(205, 205, 205);
+        margin-left: 0.7em;
+                width: 700px;
+}
+
+.title{
+                text-transform:uppercase;
+}
+
+
+
+
+
+
     @media (max-width: 1000px) {
-    .work,select,.work1 {
-        width: 90% !important;
+
+.wide, .normal, .thin, .long,.heading{
+ width: 90% !important;
         max-width: 90% !important;
                 margin-left: 5% !important;
-
-    }
-
-    .workvideo{
-        display: none;
-    }
-select{
-    font-size: 22px;
 }
-    .right {
-        width: 80% !important;
-    }
 
-    .small {
-        width: 80% !important;
-    }
-    figcaption {
+.short{
+    width: 85% !important;
+        max-width: 85% !important;
+                margin-left: 10% !important;
+}
+
+figcaption {
        
         font-size: 22px !important;
-        width: 90% !important;
-margin-left: 5%!important;
+       
     }
 
     .counter{
@@ -220,67 +157,23 @@ figure{
 }
 
 
-.selection{
-    margin-left: 0 !important;
-}
-
-
-.info{
-    margin-left: 0% !important;
-
-}
-
-.short{
-                margin-left: 10% !important;
-
-}
 
 
   
 }
-.short{
-            margin-left: 4em;
-
-}
-
-.title{
-        color: rgb(104, 104, 104);
-                text-transform:uppercase;
 
 
-}
-
-.year{
-        color: rgb(104, 104, 104);
-}
-
-.material{
-        color: rgb(0, 0, 0);
-                color: rgb(104, 104, 104);
 
 
-}
 
-.about{
-    color: rgb(0, 0, 255);
-}
 
-.info{
- margin-left: 4em;
-    width: 500px;
 
-}
 
-.selection{
-    margin-bottom: 0.3em;
-    margin-top: 1em;
-    margin-left: 4em;
-}
 .fly{
 width: 40px;
 height: 40px;
 position: fixed;
-z-index: 99;
+z-index: 2;
 top: 0%;
 left: 95%;
 cursor: pointer;
@@ -292,39 +185,17 @@ cursor: pointer;
 
 }
 
-.guide{
-    margin-left: 4em;
-    color: blue;
-}
-
-.long{
-    display: block;
-}
 
 
- header{
-        position:sticky;
 
-    top: 0%;
-    z-index: 1;
 
- }
- .project-title {
-    position: fixed;
-    top: 50%;
-    left: 80%;
-    width: 100%;
-    opacity: 0;
-    pointer-events: none;
-    font-size: 1em;
-    color: blue;
-            color: rgb(104, 104, 104);
-display: none;
-}
 
-.project-title.active {
-    opacity: 1;
-}
+
+
+
+
+
+
 
 </style>
 
@@ -334,42 +205,40 @@ display: none;
    
     <div class="counter"></div>
 
-<div class="fly"> <img src="mos.gif"  alt="image"></div>
+    <div class="fly"> <img src="mos.gif"  alt="image"></div>
 
-<header class="project-title"></header>
    
-<figure class="one selection"> <select id="category">
+<div class="info-page" >
 
-        <option value="0">projects</option>
-        <option value="1">about</option>
-      
-    </select></figure>
-
-
-    <figure  class="one info" style="display: none;">
-        <figcaption class="about">
-           <span>ziming ao</span> is an artist and graphic designer. 
+<figcaption class="heading work">
+<span>ziming ao</span> is an artist and graphic designer. 
            currently studying at artez university of arts (2023-), arnhem. 
            <br>cookieblock2023@proton.me
            <br>@ziming_ao
+           
+        </figcaption>
 
-        </figcaption>
-    </figure>
-<figcaption class="guide">
-    
-           click images to view more
-        </figcaption>
-                   <br>
-           <br>
-           <br>
+</div>
+
+
   
+        
+    
+   
 
-    <figure class="work-unit" data-type="1" trump-calender>
+<figcaption class="heading work">
+           click images to view more
+           
+        </figcaption>
+                 
+       
+
+    <figure class="work-unit" trump-calender>
  
 
-        <img class="work" data-nr="20" data-imgnr="0">
+        <img class="work normal clickable" data-nr="20" data-imgnr="0">
 
-        <figcaption class="short">
+        <figcaption class="work short">
             <span class="title">Daily truth</span>
             <span class="year"> (2025).</span>
                         <span class="material">Risograph and laser print on paper, metal</span>
@@ -381,16 +250,16 @@ display: none;
             moti-vational calendar has a year full of inspirational truths, the truth social posts from president trump
             that encourage your daily life.
         </figcaption>
-        <img class="work right" data-nr="21" data-imgnr="0">
-        <figcaption>pages are printed twice, first time riso printed the golden decorational layer, second time laser
+        <img class="work wide clickable" data-nr="21" data-imgnr="0">
+        <figcaption class="long">pages are printed twice, first time riso printed the golden decorational layer, second time laser
             printed text layer.
         </figcaption>
     </figure>
 
-      <figure class="work-unit" data-type="2" plastic-book>
+      <figure class="work-unit" plastic-book>
 
-        <img class="work" data-nr="1" data-imgnr="0">
-<figcaption class="short">
+        <img class="work normal clickable" data-nr="1" data-imgnr="0">
+<figcaption class="work short">
             <span class="title">suggestion for you</span>
             <span class="year"> (2025).</span>
                         <span class="material">screen print on plastic, wood and ceramic panels</span>
@@ -415,46 +284,33 @@ display: none;
 
             this project is about the process of digital posts permeate our design practices, along with their
             limitations.</figcaption>
-        <img class="work" data-nr="2" data-imgnr="0">
+        <img class="work normal clickable" data-nr="2" data-imgnr="0">
 
         <figcaption class="long">complete collection of SUGGESTION FOR YOU</figcaption>
     </figure>
 
 
+    <figure class="work-unit"  punctuation-poster>
 
-
-
-
-
-
-
-  
-   
-
-  
-
-
-    <figure class="work-unit" data-type="1" punctuation-poster>
-
-        <img class="work" data-nr="15" data-imgnr="0">
-<figcaption class="short">
+        <img class="work normal clickable" data-nr="15" data-imgnr="0">
+<figcaption class="work short">
             <span class="title">...?*</span>
-            <span class="year"> (2024).<br></span>
+            <span class="year"> (2024).</span>
                         <span class="material">photography</span>
         </figcaption>
         <figcaption class="long">
             A series of posters about punctuation. All the posters are photographic images without digital editing. The
             play with perspective is inspired by Jan Dibbets. </figcaption>
-            <video src="IMG_3446.MOV" class="workvideo" autoplay muted loop></video>
+            <video src="IMG_3446.MOV" class="work thin" autoplay muted loop></video>
       
       
     </figure>
 
 
-    <figure class="work-unit" data-type="1" parkett-mag>
+    <figure class="work-unit" parkett-mag>
 
-        <img class="work" data-nr="18" data-imgnr="0">
-<figcaption class="short">
+        <img class="work normal clickable" data-nr="18" data-imgnr="0">
+<figcaption class="work short">
             <span class="title">parkett</span>
             <span class="year"> (2024).</span>
                         <span class="material">book</span>
@@ -467,16 +323,16 @@ display: none;
             pinterest, or google. mismatched images and false footnotes disrupt expectations, mirroring online
             information's unreliability—a reflection of how we consume art today.
         </figcaption>
-        <img class="work" data-nr="19" data-imgnr="0">
+        <img class="work normal clickable" data-nr="19" data-imgnr="0">
         <figcaption class="long">back cover
         </figcaption>
     </figure>
 
 
-    <figure class="work-unit" data-type="1" product-information>
+    <figure class="work-unit" product-information>
 
-        <img class="work" data-nr="17" data-imgnr="0">
-<figcaption class="short">
+        <img class="work normal clickable" data-nr="17" data-imgnr="0">
+<figcaption class="work short">
             <span class="title">product information (i am visible)</span>
             <span class="year"> (2025).</span>
                         <span class="material">zine</span>
@@ -499,10 +355,10 @@ display: none;
     </figure>
 
 
-    <figure class="work-unit" data-type="1" typeface-hair>
+    <figure class="work-unit"  typeface-hair>
 
-        <img class="work" data-nr="13" data-imgnr="0">
-<figcaption class="short">
+        <img class="work normal clickable" data-nr="13" data-imgnr="0">
+<figcaption class="work short">
             <span class="title">what sould be the name of it</span>
             <span class="year"> (2024).</span>
                         <span class="material">typeface design</span>
@@ -515,16 +371,16 @@ display: none;
             this typeface has three different weights and for each weight I designed five different variations(not shown
             in this post), to have more possibilities of typography.
         </figcaption>
-        <img class="work" data-nr="14" data-imgnr="0">
+        <img class="work normal clickable" data-nr="14" data-imgnr="0">
 
         <figcaption class="long">typeface poster
         </figcaption>
     </figure>
 
-    <figure class="work-unit" data-type="1" on-bed>
+    <figure class="work-unit"  on-bed>
 
-        <img class="work" data-nr="26" data-imgnr="0">
-<figcaption class="short">
+        <img class="work normal clickable" data-nr="26" data-imgnr="0">
+<figcaption class="work short">
             <span class="title">on bed</span>
             <span class="year"> (2024).</span>
                         <span class="material">book</span>
@@ -534,13 +390,14 @@ display: none;
 
             content images originate from rijksmuseum archive.
         </figcaption>
-        <img class="work" data-nr="27" data-imgnr="0">
+        <img class="work normal clickable" data-nr="27" data-imgnr="0">
 
     </figure>
-    <figure class="work-unit" data-type="1" pingpong-calender>
 
-        <img class="work" data-nr="25" data-imgnr="0">
-        <figcaption class="short">
+    <figure class="work-unit"  pingpong-calender>
+
+        <img class="work normal clickable" data-nr="25" data-imgnr="0">
+        <figcaption class="work short">
             <span class="title">calendar</span>
             <span class="year"> (2024).</span>
                         <span class="material">print on paper, mixed threads</span>
@@ -548,9 +405,10 @@ display: none;
         <figcaption class="long">calendar for my chaotic 2023, from 1st to 365th day
         </figcaption>
     </figure>
-    <figure class="work-unit" data-type="1" mouse-type>
-        <img class="work" data-nr="28" data-imgnr="0">
-<figcaption class="short">
+
+    <figure class="work-unit" mouse-type>
+        <img class="work normal clickable" data-nr="28" data-imgnr="0">
+<figcaption class="work short">
             <span class="title">why do i feel so sad</span>
             <span class="year"> (2024).</span>
                         <span class="material">photography, zine</span>
@@ -560,24 +418,26 @@ display: none;
             letters. i put white thread in my mouse, and try to compose letters out of it, only with the help my tongue.
             it's the reason why some letters are lack of legibility. and thanks to everyone that i took photos with.
         </figcaption>
-        <img class="work" data-nr="22" data-imgnr="0">
+        <img class="work normal clickable" data-nr="22" data-imgnr="0">
         <figcaption class="long">jiwon with the specimen
         </figcaption>
     </figure>
-    <figure class="work-unit" data-type="1" dance>
 
-            <video src="bell 2.mov" class="work1 workvideo" autoplay muted loop></video>
-<figcaption class="short">
+
+    <figure class="work-unit"  dance>
+
+            <video src="bell 2.mov" class="work normal" autoplay muted loop></video>
+<figcaption class="work short">
             <span class="title">jingle bell dance (eyes on hand version)</span>
             <span class="year"> (2024).</span>
                         <span class="material">performance</span>
         </figcaption>
     </figure>
 
-    <figure class="work-unit" data-type="1" piss-meme>
+    <figure class="work-unit"  piss-meme>
 
-        <img class="work" data-nr="23" data-imgnr="0">
-<figcaption class="short">
+        <img class="work normal clickable" data-nr="23" data-imgnr="0">
+<figcaption class="work short">
             <span class="title">"you don't really hate trump, karen. you're just stupid."</span>
             <span class="year"> (2025).</span>
                         <span class="material">photograph</span>
@@ -587,14 +447,9 @@ display: none;
     </figure>
 
 
-
-
-
-
-
-    <figure class="work-unit two" data-type="2" pyramid>
-        <img class="work" data-nr="4" data-imgnr="0">
-<figcaption class="short">
+    <figure class="work-unit"  pyramid>
+        <img class="work normal clickable" data-nr="4" data-imgnr="0">
+<figcaption class="work short">
             <span class="title">fuck you pyramid</span>
             <span class="year"> (2024).</span>
                         <span class="material">gold foil, ceramic, cardboard, toiletpaper</span>
@@ -607,12 +462,11 @@ display: none;
             paper.</figcaption>
     </figure>
 
-   
 
-    <figure class="work-unit two" data-type="2" toilet-ceramic>
+    <figure class="work-unit" toilet-ceramic>
 
-        <img class="work" data-nr="10" data-imgnr="0">
-<figcaption class="short">
+        <img class="work normal clickable" data-nr="10" data-imgnr="0">
+<figcaption class="work short">
             <span class="title">toilet</span>
             <span class="year"> (2024).</span>
                         <span class="material">ceramic, collage on paper</span>
@@ -634,23 +488,19 @@ display: none;
     </figure>
 
 
- <figure class="work-unit two" data-type="2" plastic-room>
-        <img class="work" data-nr="3" data-imgnr="0">
-<figcaption class="short">
+ <figure class="work-unit"  plastic-room>
+        <img class="work normal clickable" data-nr="3" data-imgnr="0">
+<figcaption class="work short">
             <span class="title">room r1.08</span>
             <span class="year"> (2025).</span>
                         <span class="material">plastic bag installation on wall</span>
         </figcaption>
     </figure>
 
-
-
-
-
-    <figure class="work-unit three" data-type="3">
+    <figure class="work-unit">
  
-        <iframe src="final 2.html" class="work1 web mos"></iframe>
-<figcaption class="short">
+        <iframe src="final 2.html" class="work normal"></iframe>
+<figcaption class="work short">
             <span class="title">pets</span>
             <span class="year"> (2024).</span>
                         <span class="material">html webpage</span>
@@ -658,40 +508,40 @@ display: none;
         </figcaption>
     </figure>
 
-           <figure class="work-unit three" data-type="3">
+    <figure class="work-unit">
 
 <a href="hahaweb copy.html" target="_blank">
   <iframe 
     src="hahaweb copy.html"
-    class="work1 button web"
-    style="height: 300px; pointer-events: none;"
+    class="work normal"
   ></iframe>
-</a><figcaption class="short">
+</a><figcaption class="work short">
             <span class="title">ha ha ha</span>
             <span class="year"> (2024).</span>
                         <span class="material">html webpage</span>
         </figcaption>
-              <figcaption>(click to open in new page, same for following web projects)</figcaption>  
+              <figcaption class="long">(click to open in new page, same for following web projects)</figcaption>  
 
     </figure>
- <figure class="work-unit three" data-type="3">
+ 
+    <figure class="work-unit">
      <a href="fancy shadow.html" target="_blank">
 
-        <iframe src="fancy shadow.html" class="work1 gradient web" style="height: 300px; pointer-events: none;" scrolling="auto"></iframe>
+        <iframe src="fancy shadow.html" class="work normal" scrolling="auto"></iframe>
 </a>
-<figcaption class="short">
+<figcaption class="work short">
             <span class="title">gradient box</span>
             <span class="year"> (2026).</span>
                         <span class="material">html webpage</span>
         </figcaption>
     </figure>
 
-  <figure class="work-unit three" data-type="3" >
+  <figure class="work-unit"  >
          <a href="index 2.html" target="_blank">
 
-        <iframe src="index 2.html" class="work1 web button" style="height: 300px; pointer-events: none;"></iframe>
+        <iframe src="index 2.html" class="work normal" ></iframe>
          </a>
-<figcaption class="short">
+<figcaption class="work short">
             <span class="title">two squares</span>
             <span class="year"> (2025).</span>
                         <span class="material">html webpage</span>
@@ -699,12 +549,12 @@ display: none;
 
     </figure>
 
-     <figure class="work-unit three" data-type="3">
+     <figure class="work-unit">
                  <a href="newnew copy.html" target="_blank">
 
-                <iframe src="newnew copy.html" class="work1 button web"  style="height: 300px; pointer-events: none;"scrolling="auto"></iframe>
+                <iframe src="newnew copy.html" class="work normal" ></iframe>
                  </a>
-<figcaption class="short">
+<figcaption class="work short">
             <span class="title">cube</span>
             <span class="year"> (2026).</span>
                         <span class="material">html webpage</span>
@@ -716,11 +566,11 @@ display: none;
 
 
 
-       <figure class="work-unit three" data-type="3" >
+     <figure class="work-unit">
 <a href="portfolio for post.html" target="_blank">
-        <iframe src="portfolio for post.html" class="work1 web button" style="pointer-events: none;"></iframe>
+        <iframe src="portfolio for post.html" class="work normal"></iframe>
         </a>
-<figcaption class="short">
+<figcaption class="work short">
             <span class="title">button</span>
             <span class="year"> (2026).</span>
                         <span class="material">html webpage</span>
@@ -741,23 +591,14 @@ function myFunction() {
     clicktime += 1;
 
     if (clicktime % 2 === 0) {
-        document.querySelectorAll("figure").forEach(e => {
-            e.style.display = "block";
-
-            if (e.classList.contains('info')) {
-                e.style.display = "none";
-            }
-        });
+        document.querySelector(".info-page").style.display="none";
+        document.body.style.overflowY="auto"
     }
 
     else {
-        document.querySelectorAll("figure").forEach(e => {
-            if (e.classList.contains('one')) {
-                e.style.display = "block";
-            } else {
-                e.style.display = "none";
-            }
-        });
+                document.querySelector(".info-page").style.display="block"
+        document.body.style.overflowY="hidden"
+
     }
 }
    window.onload = () => {
@@ -765,7 +606,7 @@ function myFunction() {
 animateDiv();
 
    
-    document.querySelectorAll(".work").forEach(img => {
+    document.querySelectorAll(".clickable").forEach(img => {
         const indexnr = img.dataset.nr;
         const currentList = urlLists[`urlList${indexnr}`];
         img.src = currentList[0].url;
@@ -803,18 +644,6 @@ function makeNewPosition() {
             };
         }
 
-
-    // function randomwidth() {
-    //  document.querySelectorAll(".work").forEach(cube => {
-
-
-
-    // cube.style.width = Math.floor(Math.random() * 600 + 200) + "px";
-
-    // })
-
-
-    // }
 
    
 
@@ -1096,7 +925,7 @@ function makeNewPosition() {
         counter.style.display = 'block';
     }
     document.addEventListener('click', e => {
-        if (e.target.classList.contains('work')) {
+        if (e.target.classList.contains('clickable')) {
             let inr = parseInt(e.target.dataset.imgnr || 0, 10);
             const indexnr = e.target.dataset.nr;
 
@@ -1111,7 +940,7 @@ function makeNewPosition() {
 
     })
 
-    document.querySelectorAll('.work').forEach(img => {
+    document.querySelectorAll('.clickable').forEach(img => {
 
         img.addEventListener('mouseenter', function () {
             updateCounter(img);
