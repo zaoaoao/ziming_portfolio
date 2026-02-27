@@ -102,7 +102,20 @@
 
         background-color: rgb(0, 0, 0);
         z-index: 9;
-        opacity: 0;
+        opacity: 1;
+    }
+
+     .front {
+        transform: translateZ(25vw);
+        border: 0px solid rgb(255, 0, 0);
+        box-sizing: border-box;
+
+        width: 50vw;
+        height: 40vh;
+
+        background-color: rgb(0, 0, 0);
+        z-index: 9;
+        opacity: 1;
     }
 
 .left {
@@ -162,7 +175,7 @@ body {
   overflow: hidden;
   font-family: "BellGothic-Light", sans-serif; /* Fallback is allowed here */
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        transition: background-color 2s;
+        transition: background-color 0s;
 
 }
 
@@ -231,6 +244,9 @@ opacity: 0;
             <div class="face right">
 
             </div>
+             <div class="face front">
+
+            </div>
             <div class="face top">
 
             </div>
@@ -260,8 +276,8 @@ window.onload = () => {
     start();
     const front = document.body;
 
-    front.addEventListener("mouseenter", speedUp);
-    front.addEventListener("mouseleave", speedNormal);
+   // front.addEventListener("mouseenter", speedUp);
+   // front.addEventListener("mouseleave", speedNormal);
 }
 
 function start() {
@@ -279,10 +295,17 @@ function start() {
 function neximg() {
     document.querySelector(".joke").textContent += " ha";
     const color = getRandomColor();
+        const color1 = getRandomColor();
+        const color2 = getRandomColor();
+        const color3 = getRandomColor();
+        const color4 = getRandomColor();
+
    document.querySelector(".left").style.backgroundColor = color;
 document.querySelector(".right").style.backgroundColor = color;
 document.querySelector(".back").style.backgroundColor = color;
-document.body.style.backgroundColor = color;
+document.querySelector(".front").style.backgroundColor = color;
+
+document.body.style.backgroundColor = color1;
     randomRotate();
 }
 let currentY = 0;
@@ -297,7 +320,7 @@ function randomRotate() {
     document.querySelector(".cube").style.setProperty("--g", angle3 + "deg");
 }
 
-function speedUp() {
+/*function speedUp() {
     clearInterval(myInterval);
     myInterval = setInterval(neximg, 1); 
 }
@@ -305,7 +328,7 @@ function speedUp() {
 function speedNormal() {
     clearInterval(myInterval);
     myInterval = setInterval(neximg, 2000); 
-}
+}*/
 </script>
 
 </html>

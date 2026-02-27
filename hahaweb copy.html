@@ -43,9 +43,8 @@ let removeInterval;
 
 document.addEventListener("DOMContentLoaded", () => {
   initialize();
-
-  document.body.addEventListener("mouseenter", startAdding);
-  document.body.addEventListener("mouseleave", startRemoving);
+startAdding();
+ 
 });
       var speed = 2000;
       var words;
@@ -60,15 +59,10 @@ function getRandomColor() {
   clearInterval(removeInterval);
   clearInterval(addInterval);
 
-  addInterval = setInterval(loadNext, 10); // 速度自己调
+  addInterval = setInterval(loadNext, 10);
 }
 
-function startRemoving() {
-  clearInterval(addInterval);
-  clearInterval(removeInterval);
 
-  removeInterval = setInterval(loadPrevious, 10);
-}
 function loadNext() {
   const paragraph = document.getElementById("gogo");
 
@@ -78,28 +72,14 @@ function loadNext() {
   let random = Math.floor(Math.random() * colors.length);
   newSpan.style.color = colors[random];
 
-  fs += 0.05;
-  newSpan.style.fontSize = fs + "px";
 
   paragraph.appendChild(newSpan);
 
-  window.scrollTo(0, document.body.scrollHeight); // 👈 自动滚到底
+  window.scrollTo(0, document.body.scrollHeight); 
 
   words = document.querySelectorAll("#gogo span");
 }
-function loadPrevious() {
-  const paragraph = document.getElementById("gogo");
 
-  if (paragraph.children.length > 1) {
-    paragraph.removeChild(paragraph.lastElementChild);
-  }
-
-  if (fs > 10) {
-    fs -= 0.05;
-  }
-
-  words = document.querySelectorAll("#gogo span");
-}
       function bElement() {
         words[index].classList.add("active");
       }
@@ -114,20 +94,13 @@ function loadPrevious() {
       function getNextIndex() {
         return index + 1 === words.length ? 0 : index + 1;
       }
-      function getPreviousIndex() {
-        return index - 1 === -1 ? words.length - 1 : index - 1;
-      }
+    
 
       function aElement() {
         words[index].classList.add("active");
       }
 
-      function dElement() {
-        var element = words[getPreviousIndex()];
-        if (element.classList.contains("active")) {
-          element.classList.remove("active");
-        }
-      }
+ 
     </script>
 
     <style>
@@ -152,7 +125,7 @@ function loadPrevious() {
         color: black;
       }
       .haha {
-        font-size: 10px;
+        font-size: 30px;
         display: block;
         word-wrap: break-word;
         font-family:helvetica;
@@ -179,7 +152,7 @@ function loadPrevious() {
 }
 
       body{
-        background-color:rgb(182, 246, 255);
+        background-color:rgb(255, 255, 255);
         transition: background-color 1s;
 overflow-y: scroll;
   scrollbar-width: none;
