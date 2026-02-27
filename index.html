@@ -234,6 +234,8 @@ figure{
                 margin-left: 10% !important;
 
 }
+
+
   
 }
 .short{
@@ -1143,7 +1145,20 @@ window.addEventListener("scroll", () => {
     });
 
 });
+const video = document.querySelector("video");
 
+function checkScreen() {
+    if (window.matchMedia("(max-width: 1000px)").matches) {
+        video.autoplay = false;
+        video.pause();
+    } else {
+        video.autoplay = true;
+        video.play();
+    }
+}
+
+checkScreen(); 
+window.addEventListener("resize", checkScreen);
 </script>
 
 </html>
