@@ -57,9 +57,9 @@
 
 
     .container {
-        width: 50vw;
+        width: 60vw;
         height: 40vh;
-        perspective: 10vw;
+        perspective: 50vw;
         z-index: 1;
         position: fixed;
         top: 50%;
@@ -74,7 +74,7 @@
     .cube {
 
 
-        width: 50vw;
+        width: 60vw;
         height: 40vh;
         transform-style: preserve-3d;
         transition: --a 2s, --b 1s, --c 2s, --d 2s, --e 2s, --f 1s, --g 1s;
@@ -90,27 +90,40 @@
     }
 
 
- 
-
- .back {
-        transform: translateZ(-25vw);
+    .front {
+        transform: translateZ(30vw);
+        transition: background-color 2s;
         border: 0px solid rgb(255, 0, 0);
         box-sizing: border-box;
 
-        width: 50vw;
+        width: 60vw;
         height: 40vh;
 
-        background-color: rgb(0, 0, 0);
+        background-color: rgb(0, 0, 0,0.5);
         z-index: 9;
         opacity: 0;
     }
 
-.left {
-        transform: translateX(-25vw) rotateY(90deg) ;
+ .back {
+        transform: translateZ(-30vw);
+        transition: background-color 2s;
         border: 0px solid rgb(255, 0, 0);
         box-sizing: border-box;
 
-        width: 50vw;
+        width: 60vw;
+        height: 40vh;
+
+        background-color: rgb(0, 0, 0);
+        z-index: 9;
+    }
+
+.left {
+        transform: translateX(-30vw) rotateY(90deg) ;
+        transition: background-color 2s;
+        border: 0px solid rgb(255, 0, 0);
+        box-sizing: border-box;
+
+        width: 60vw;
         height: 40vh;
 
         background-color: rgb(0, 0, 0);
@@ -118,11 +131,12 @@
     }
   
 .right {
-        transform: translateX(25vw) rotateY(90deg) ;
+        transform: translateX(30vw) rotateY(90deg) ;
+        transition: background-color 2s;
         border: 0px solid rgb(255, 0, 0);
         box-sizing: border-box;
 
-        width: 50vw;
+        width: 60vw;
         height: 40vh;
 
         background-color: rgb(0, 0, 0);
@@ -140,7 +154,6 @@
         overflow: hidden;
         word-wrap: break-word;
 
-        transition: background-color 0s;
 
 
     }
@@ -160,9 +173,9 @@ body {
   opacity: 1;
   cursor: w-resize;
   overflow: hidden;
+  transition: all 0.3s;
   font-family: "BellGothic-Light", sans-serif; /* Fallback is allowed here */
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        transition: background-color 2s;
 
 }
 
@@ -207,7 +220,6 @@ opacity: 0;
         color: #ff0000;
         z-index: 10;
         font-size: 40px;
-        opacity: 0;
     }
 
 
@@ -224,7 +236,9 @@ opacity: 0;
     <div class="container">
         <div class="cube" onclick="rotate()">
           
-          
+            <div class="face front">
+
+            </div>
             <div class="face left">
 
             </div>
@@ -258,53 +272,68 @@ let myInterval;
 
 window.onload = () => {
     start();
-    const front = document.body;
+    const front = document.querySelector(".front");
 
     front.addEventListener("mouseenter", speedUp);
     front.addEventListener("mouseleave", speedNormal);
 }
 
 function start() {
-    myInterval = setInterval(neximg, 2000);
+    myInterval = setInterval(changeha, 2000);
 }
- function getRandomColor() {
-            const r = Math.floor(Math.random() * 256);
-            const g = Math.floor(Math.random() * 256);
-            const b = Math.floor(Math.random() * 256);
-            return `rgb(${r}, ${g}, ${b})`;
-        }
-       
 
+function changeha() {
+
+    ha += direction;
+
+    if (direction === 1) {
+        neximg();
+    } else {
+        preimg();
+    }
+
+    if (ha >= 5) {
+        direction = -1;
+    }
+
+    if (ha <= 1) {
+        direction = 1;
+    }
+}
 
 function neximg() {
     document.querySelector(".joke").textContent += " ha";
-    const color = getRandomColor();
-   document.querySelector(".left").style.backgroundColor = color;
-document.querySelector(".right").style.backgroundColor = color;
-document.querySelector(".back").style.backgroundColor = color;
-document.body.style.backgroundColor = color;
     randomRotate();
 }
-let currentY = 0;
 
+function preimg() {
+    let joke = document.querySelector(".joke").textContent;
+
+    if (joke.endsWith(" ha")) {
+        document.querySelector(".joke").textContent = joke.slice(0, -3);
+    }
+
+    randomRotate();
+}
 
 function randomRotate() {
-    currentY += 90;
+    let angle1 = Math.floor(Math.random() * 20 - 10);
     let angle2 = Math.floor(Math.random() * 20 - 10);
     let angle3 = Math.floor(Math.random() * 20 - 10);
-    document.querySelector(".cube").style.setProperty("--b", currentY + "deg");
+
+    document.querySelector(".cube").style.setProperty("--b", angle1 + "deg");
     document.querySelector(".cube").style.setProperty("--f", angle2 + "deg");
     document.querySelector(".cube").style.setProperty("--g", angle3 + "deg");
 }
 
 function speedUp() {
     clearInterval(myInterval);
-    myInterval = setInterval(neximg, 1); 
+    myInterval = setInterval(changeha, 50); 
 }
 
 function speedNormal() {
     clearInterval(myInterval);
-    myInterval = setInterval(neximg, 2000); 
+    myInterval = setInterval(changeha, 2000); 
 }
 </script>
 
