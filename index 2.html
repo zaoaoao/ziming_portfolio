@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <script>
+    
+    
+    const colors = [
+        
+        "rgb(0,255,0)",
+        "rgb(0,0,255)",
+        "aqua",
+        "purple",
+        "pink",
+        "yellow",
+        "orange",
+        "red",
+        "grey",
+        "#b9ff00",
+        "#00ffec",
+        "#008fff",
+        "#e800ff",
+        "#cfffd8",
+        "#fbffcf",
+        "#ffbbbb",
+        " #bbe7ff",
+        "#f1eeff",
+        " #ffeefe",
+
+      ];
+    
+function change(){
+       let random1 = Math.floor(Math.random() * colors.length);
+       let random2 = Math.floor(Math.random() * colors.length);
+       let random3 = Math.floor(Math.random() * 80+20);
+       let random4 = Math.floor(Math.random() * 80+20);
+
+        let color1 = colors[random1];  
+                let color2 = colors[random2];  
+                     //document.querySelector(".a").style.setProperty("--c1", color1);
+                     //document.querySelector(".a").style.setProperty("--c2", color2);
+                     //document.querySelector(".a").style.setProperty("--size1", random3+"px");
+                    // document.querySelector(".a").style.setProperty("--size2", random4+"px");
+document.querySelectorAll('.a, .b, .c').forEach(el => {
+  el.style.setProperty("--c1", color1);
+});
+document.querySelectorAll('.a, .b, .c').forEach(el => {
+  el.style.setProperty("--c2", color2);
+})
+document.querySelectorAll('.a, .b, .c').forEach(el => {
+  el.style.setProperty("--size1", random3+"px");
+});
+document.querySelectorAll('.a, .b, .c').forEach(el => {
+  el.style.setProperty("--size2", random4+"px");
+})
+
+document.querySelector(".b").style.width=Math.floor(Math.random() * 55+40)+"vw";
+document.querySelector(".b").style.height=Math.floor(Math.random() * 55+40)+"vh";
+
+document.querySelector(".c").style.width=Math.floor(Math.random() * 35+5)+"vw";
+document.querySelector(".c").style.height=Math.floor(Math.random() * 35+5)+"vh";
+
+}
+   setInterval(change, 2000);
+
+  </script>
+
+  <style>
+
+    html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      @property --c1 {
+            syntax: "<color>";
+            initial-value: #00ff00;
+            inherits: false;
+          }
+
+          @property --c2 {
+            syntax: "<color>";
+            initial-value: #00ffff;
+            inherits: false;
+          }
+           @property --size1 {
+            syntax: "<length>";
+            initial-value: 20px;
+            inherits: false;
+          }
+           @property --size2 {
+            syntax: "<length>";
+            initial-value: 64px;
+            inherits: false;
+          }
+
+
+   .a {
+	background-image: repeating-conic-gradient(var(--c1) 0% 25%, var(--c2) 0% 50%);
+	background-position: calc(50% - var(--size1)/2) calc(50% - var(--size2)/2),
+        50% 50%;
+	background-size: var(--size1) var(--size2);
+  display: block;
+  width:100%;
+  height:100%;
+      transition: --c1 2s, --size1 1s, --size2 1s;
+
+}
+
+.b{
+  	background-image: repeating-conic-gradient(var(--c2) 0% 25%, var(--c1) 0% 50%);
+	background-position: calc(50% - var(--size1)/2) calc(50% - var(--size2)/2),
+        50% 50%;
+	background-size: var(--size1) var(--size2);
+  display: block;
+  width:300px;
+  height:300px;
+      transition: --c1 2s, --size1 1s, --size2 1s, width 1.2s, height 1.2s;
+z-index: 999;
+left: 50%;
+top:50%;
+  transform: translate(-50%,-50%);
+position: fixed;
+
+        box-shadow: inset 0 0 30px 30px rgba(255, 255, 255, 0.1);
+
+}
+
+.c{
+  background-image: repeating-conic-gradient(var(--c1) 0% 25%, var(--c2) 0% 50%);
+	background-position: calc(50% - var(--size1)/2) calc(50% - var(--size2)/2),
+        50% 50%;
+	background-size: var(--size1) var(--size2);
+  display: block;
+  width:30px;
+  height:30px;
+      transition: --c1 2s, --size1 1s, --size2 1s, width 1s, height 1s;
+z-index: 999;
+left: 50%;
+top:50%;
+  transform: translate(-50%,-50%);
+position: fixed;
+
+        box-shadow: inset 0 0 30px 30px rgba(255, 255, 255, 0.1);
+}
+  </style>
+  <head> </head>
+  
+  <body>
+   <div class="a"></div>
+   <div class="b"></div>
+   <div class="c"></div>
+
+  </body>
+
+  <script></script>
+</html>

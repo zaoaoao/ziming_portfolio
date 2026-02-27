@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      const colors = [
+        "rgb(0,255,0)",
+        "rgb(0,0,255)",
+        "aqua",
+        "purple",
+        "pink",
+        "yellow",
+        "orange",
+        "red",
+        "grey",
+        "#b9ff00",
+        "#00ffec",
+        "#008fff",
+        "#e800ff",
+        "#cfffd8",
+        "#fbffcf",
+        "#ffbbbb",
+        " #bbe7ff",
+        "#f1eeff",
+        " #ffeefe",
+      ];
+      
+      const typeface =[
+        
+    "Arial",
+    "Verdana","Tahoma","Trebuchet MS","Times New Roman","Georgia","Garamond","Courier New","Brush Script MT",
+     
+
+      ]
+       const colors1 = [
+       "#white", 
+      ];
+let fs=10;
+      function initialize() {
+        words = document.querySelectorAll("span");
+      }
+let addInterval;
+let removeInterval;
+
+document.addEventListener("DOMContentLoaded", () => {
+  initialize();
+
+  document.body.addEventListener("mouseenter", startAdding);
+  document.body.addEventListener("mouseleave", startRemoving);
+});
+      var speed = 2000;
+      var words;
+      var index = -1;
+function getRandomColor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+      function startAdding() {
+  clearInterval(removeInterval);
+  clearInterval(addInterval);
+
+  addInterval = setInterval(loadNext, 10); // 速度自己调
+}
+
+function startRemoving() {
+  clearInterval(addInterval);
+  clearInterval(removeInterval);
+
+  removeInterval = setInterval(loadPrevious, 10);
+}
+function loadNext() {
+  const paragraph = document.getElementById("gogo");
+
+  const newSpan = document.createElement("span");
+  newSpan.textContent = "ha ";
+
+  let random = Math.floor(Math.random() * colors.length);
+  newSpan.style.color = colors[random];
+
+  fs += 0.2;
+  newSpan.style.fontSize = fs + "px";
+
+  paragraph.appendChild(newSpan);
+
+  window.scrollTo(0, document.body.scrollHeight); // 👈 自动滚到底
+
+  words = document.querySelectorAll("#gogo span");
+}
+function loadPrevious() {
+  const paragraph = document.getElementById("gogo");
+
+  if (paragraph.children.length > 1) {
+    paragraph.removeChild(paragraph.lastElementChild);
+  }
+
+  if (fs > 10) {
+    fs -= 0.2;
+  }
+
+  words = document.querySelectorAll("#gogo span");
+}
+      function bElement() {
+        words[index].classList.add("active");
+      }
+
+      function cElement() {
+        var element = words[getNextIndex()];
+        if (element.classList.contains("active")) {
+          element.classList.remove("active");
+        }
+      }
+
+      function getNextIndex() {
+        return index + 1 === words.length ? 0 : index + 1;
+      }
+      function getPreviousIndex() {
+        return index - 1 === -1 ? words.length - 1 : index - 1;
+      }
+
+      function aElement() {
+        words[index].classList.add("active");
+      }
+
+      function dElement() {
+        var element = words[getPreviousIndex()];
+        if (element.classList.contains("active")) {
+          element.classList.remove("active");
+        }
+      }
+    </script>
+
+    <style>
+     html, body {
+    overscroll-behavior: contain;
+}
+      html {
+    overflow-y: auto;
+}
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+      
+      
+      
+      .active {
+        color: black;
+      }
+      .haha {
+        font-size: 10px;
+        display: block;
+        word-wrap: break-word;
+        font-family:helvetica;
+          text-align: justify;
+           text-align-last: center;
+       
+        overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  
+      }
+      
+      .haha::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
+
+      .ha {
+        color: red;
+        
+      }
+      body::-webkit-scrollbar {
+  display: none; /* Chrome 和 Safari */
+        
+}
+
+      body{
+        background-color:rgb(0, 0, 0);
+        transition: background-color 1s;
+overflow-y: scroll;
+  scrollbar-width: none;
+        -ms-overflow-style: none;
+     }
+      
+      .empty{
+        height:100vh;
+        width: 100vw;
+         overflow: hidden;
+         position: fixed;
+background-color: rgb(255, 255, 255,0);   
+z-index: 1;     
+      }
+    </style>
+  </head>
+  <body>
+    <div class="haha" id="gogo">
+      <span class="ha">ha</span>
+    </div>
+     <div class="empty"></div> 
+  </body>
+</html>
