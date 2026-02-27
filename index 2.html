@@ -26,15 +26,20 @@
         " #ffeefe",
 
       ];
-    
+     function getRandomColor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+       
 function change(){
-       let random1 = Math.floor(Math.random() * colors.length);
-       let random2 = Math.floor(Math.random() * colors.length);
-       let random3 = Math.floor(Math.random() * 80+20);
-       let random4 = Math.floor(Math.random() * 80+20);
 
-        let color1 = colors[random1];  
-                let color2 = colors[random2];  
+       let random3 = Math.floor(Math.random() * 150+10);
+       let random4 = Math.floor(Math.random() * 150+10);
+
+        let color1 = getRandomColor();  
+                let color2 = getRandomColor();  
                      //document.querySelector(".a").style.setProperty("--c1", color1);
                      //document.querySelector(".a").style.setProperty("--c2", color2);
                      //document.querySelector(".a").style.setProperty("--size1", random3+"px");
