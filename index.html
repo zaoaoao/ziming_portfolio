@@ -52,7 +52,7 @@
         width: 600px;
      }
      .thin{
-        width: 400px;
+        width: 300px;
      }
 
      .clickable{
@@ -68,10 +68,14 @@
 .heading{
     margin-top: 1em;
     margin-bottom: 3em;
-    color: blue;
+    color: rgb(0, 0, 255);
 }
 
-
+.bottom{
+    margin-top: 10em;
+    color: rgb(0, 0, 255);
+    cursor: pointer;
+}
 .info-page{
     width: 100%;
     height: 100%;
@@ -106,6 +110,8 @@
 
     figcaption {
         font-size: 1em;
+                        width: 700px;
+
     }
 
 
@@ -116,7 +122,6 @@
 .long{
         color: rgb(205, 205, 205);
         margin-left: 0.7em;
-                width: 700px;
 }
 
 .title{
@@ -124,9 +129,15 @@
 }
 
 
-
-
-
+.web{
+    border: 0cm;
+}
+.display-only{
+pointer-events: none;
+}
+.color-web{
+    height: 300px;
+}
 
     @media (max-width: 1000px) {
 
@@ -296,7 +307,7 @@ cursor: pointer;
 <figcaption class="work short">
             <span class="title">...?*</span>
             <span class="year"> (2024).</span>
-                        <span class="material">photography</span>
+                        <span class="material">photograph</span>
         </figcaption>
         <figcaption class="long">
             A series of posters about punctuation. All the posters are photographic images without digital editing. The
@@ -329,39 +340,16 @@ cursor: pointer;
     </figure>
 
 
-    <figure class="work-unit" product-information>
-
-        <img class="work normal clickable" data-nr="17" data-imgnr="0">
-<figcaption class="work short">
-            <span class="title">product information (i am visible)</span>
-            <span class="year"> (2025).</span>
-                        <span class="material">zine</span>
-        </figcaption>
-        <figcaption class="long">product information (I AM VISIBLE)
-            a zine inspired by Katarina Jazbec's YOU CAN'T AUTOMATE ME (2021), a flim about the port workers.
-
-            port workers usually need to wear various safety gear, such as safety shoes, helmets, and gloves. however,
-            in a port filled with stacked shipping containers, faced with iron sheets, steel bars, and concrete, these
-            protective measures seem insignificant. confronted with these industrial machines and materials, we truly
-            see the fragility of the human body.
-
-            at the same time, when workers put on their uniforms, what we see are prepared workers, not individuals with
-            their own emotions and experiences. work uniforms objectify us.
-
-            based on these ideas, in this zine, I want to express the vast gap between humans and machines, humans and
-            products, and how we fall into the trap of dehumanization.
-        </figcaption>
-
-    </figure>
+   
 
 
     <figure class="work-unit"  typeface-hair>
 
         <img class="work normal clickable" data-nr="13" data-imgnr="0">
 <figcaption class="work short">
-            <span class="title">what sould be the name of it</span>
+            <span class="title">hair</span>
             <span class="year"> (2024).</span>
-                        <span class="material">typeface design</span>
+                        <span class="material">typeface</span>
         </figcaption>
         <figcaption class="long">in this my first typeface design, i deconstruct the letters into parts by how visually they look
             without considering how
@@ -393,7 +381,30 @@ cursor: pointer;
         <img class="work normal clickable" data-nr="27" data-imgnr="0">
 
     </figure>
+ <figure class="work-unit" product-information>
 
+        <img class="work normal clickable" data-nr="17" data-imgnr="0">
+<figcaption class="work short">
+            <span class="title">product information (i am visible)</span>
+            <span class="year"> (2025).</span>
+                        <span class="material">zine</span>
+        </figcaption>
+        <figcaption class="long">product information (I AM VISIBLE)
+            a zine inspired by Katarina Jazbec's YOU CAN'T AUTOMATE ME (2021), a flim about the port workers.
+
+            port workers usually need to wear various safety gear, such as safety shoes, helmets, and gloves. however,
+            in a port filled with stacked shipping containers, faced with iron sheets, steel bars, and concrete, these
+            protective measures seem insignificant. confronted with these industrial machines and materials, we truly
+            see the fragility of the human body.
+
+            at the same time, when workers put on their uniforms, what we see are prepared workers, not individuals with
+            their own emotions and experiences. work uniforms objectify us.
+
+            based on these ideas, in this zine, I want to express the vast gap between humans and machines, humans and
+            products, and how we fall into the trap of dehumanization.
+        </figcaption>
+
+    </figure>
     <figure class="work-unit"  pingpong-calender>
 
         <img class="work normal clickable" data-nr="25" data-imgnr="0">
@@ -411,7 +422,7 @@ cursor: pointer;
 <figcaption class="work short">
             <span class="title">why do i feel so sad</span>
             <span class="year"> (2024).</span>
-                        <span class="material">photography, zine</span>
+                        <span class="material">photograph zine</span>
         </figcaption>
 
         <figcaption class="long">why do i feel so sad is a type specimen that explores extremes of human body as a tool to compose
@@ -430,7 +441,7 @@ cursor: pointer;
 <figcaption class="work short">
             <span class="title">jingle bell dance (eyes on hand version)</span>
             <span class="year"> (2024).</span>
-                        <span class="material">performance</span>
+                        <span class="material">video</span>
         </figcaption>
     </figure>
 
@@ -499,7 +510,7 @@ cursor: pointer;
 
     <figure class="work-unit">
  
-        <iframe src="final 2.html" class="work normal"></iframe>
+        <iframe src="final 2.html" class="work normal web" style="height: 2500px;"></iframe>
 <figcaption class="work short">
             <span class="title">pets</span>
             <span class="year"> (2024).</span>
@@ -510,10 +521,10 @@ cursor: pointer;
 
     <figure class="work-unit">
 
-<a href="hahaweb copy.html" target="_blank">
+<a href="ha.html" target="_blank">
   <iframe 
-    src="hahaweb copy.html"
-    class="work normal"
+    src="ha.html"
+    class="work normal web display-only color-web" 
   ></iframe>
 </a><figcaption class="work short">
             <span class="title">ha ha ha</span>
@@ -525,9 +536,9 @@ cursor: pointer;
     </figure>
  
     <figure class="work-unit">
-     <a href="fancy shadow.html" target="_blank">
+     <a href="gradient.html" target="_blank">
 
-        <iframe src="fancy shadow.html" class="work normal" scrolling="auto"></iframe>
+        <iframe src="gradient.html" class="work normal web display-only color-web" scrolling="auto"></iframe>
 </a>
 <figcaption class="work short">
             <span class="title">gradient box</span>
@@ -537,9 +548,9 @@ cursor: pointer;
     </figure>
 
   <figure class="work-unit"  >
-         <a href="index 2.html" target="_blank">
+         <a href="square.html" target="_blank">
 
-        <iframe src="index 2.html" class="work normal" ></iframe>
+        <iframe src="square.html" class="work normal web display-only color-web" ></iframe>
          </a>
 <figcaption class="work short">
             <span class="title">two squares</span>
@@ -550,9 +561,9 @@ cursor: pointer;
     </figure>
 
      <figure class="work-unit">
-                 <a href="newnew copy.html" target="_blank">
+                 <a href="cube.html" target="_blank">
 
-                <iframe src="newnew copy.html" class="work normal" ></iframe>
+                <iframe src="cube.html" class="work normal web display-only color-web" ></iframe>
                  </a>
 <figcaption class="work short">
             <span class="title">cube</span>
@@ -567,15 +578,33 @@ cursor: pointer;
 
 
      <figure class="work-unit">
-<a href="portfolio for post.html" target="_blank">
-        <iframe src="portfolio for post.html" class="work normal"></iframe>
+<a href="buttons.html" target="_blank">
+        <iframe src="buttons.html" class="work normal web display-only" style="height: 600px;"></iframe>
         </a>
 <figcaption class="work short">
             <span class="title">button</span>
             <span class="year"> (2026).</span>
                         <span class="material">html webpage</span>
         </figcaption>
+
+        <figcaption class="bottom work">
+           back to top
+           
+        </figcaption>
     </figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 <script>
@@ -911,7 +940,7 @@ function makeNewPosition() {
 
 
         ],
-
+     
     };
     function updateCounter(img) {
         const counter = document.querySelector('.counter');
@@ -952,42 +981,46 @@ function makeNewPosition() {
         });
 
     });
-const sections = document.querySelectorAll(".work-unit");
-const header = document.querySelector(".project-title");
 
-const total = sections.length;
-
-window.addEventListener("scroll", () => {
-
-    sections.forEach((section, index) => {
-
-        const rect = section.getBoundingClientRect();
-
-        if (rect.top <= 0 && rect.bottom > 0) {
-
-            const number = total - index;
-
-            header.textContent = number;
-            header.classList.add("active");
-        }
-
-    });
-
-});
 const video = document.querySelector("video");
 
 function checkScreen() {
     if (window.matchMedia("(max-width: 1000px)").matches) {
-        video.autoplay = false;
-        video.pause();
+       document.querySelectorAll("video").forEach(el =>{
+el.autoplay = false;
+       // video.pause();
+
+
+       }
+ 
+       )
+       
+       
     } else {
-        video.autoplay = true;
-        video.play();
+       document.querySelectorAll("video").forEach(el =>{
+el.autoplay = true;
+       // video.pause();
+
+
+       }
+ 
+       )
+       
     }
 }
 
 checkScreen(); 
 window.addEventListener("resize", checkScreen);
+
+
+document.querySelector(".bottom").addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+
 </script>
 
 </html>

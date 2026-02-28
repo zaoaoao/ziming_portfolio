@@ -24,8 +24,11 @@
             document.querySelectorAll('.mos').forEach(el => {
 
                 const duration = Math.floor(Math.random() * 10000 + 1000);
-                el.style.transition = `top ${duration / 1000}s linear, left ${duration / 1000}s linear`;
-
+el.style.transition = `
+    top ${duration / 1000}s linear,
+    left ${duration / 1000}s linear,
+    transform 1s ease
+`;
                 setInterval(() => {
                     const pos = makeNewPosition();
                     el.style.top = pos.top + 'px';
@@ -41,7 +44,7 @@
 
 
         window.onload = () => {
-            for (let i = 0; i < 30; i++) {
+            for (let i = 0; i < 35; i++) {
                 const firstPosition = makeNewPosition();
                 const img = document.createElement('img');
 
@@ -52,9 +55,17 @@
                 img.style.width = '50px';
                 img.style.height = '50px';
                 img.style.position = 'fixed';
+
                 img.style.top = firstPosition.top + 'px';
                 img.style.left = firstPosition.left + 'px';
+ img.addEventListener('mouseenter', function () {
+img.style.transform = "scale(3) rotate(360deg)";
 
+        });
+
+        img.addEventListener('mouseleave', function () {
+img.style.transform = "scale(1)";
+        });
                 document.body.appendChild(img);
 
 
@@ -72,50 +83,13 @@
             margin: 0;
         }
 
-        @property --p {
-            syntax: "<length>";
-            initial-value: 5px;
-            inherits: false;
-        }
-
-        @property --o {
-            syntax: "<color>";
-            initial-value: white;
-            inherits: false;
-        }
-
-
-        @property --u {
-            syntax: "<length>";
-            initial-value: 150px;
-            inherits: false;
-        }
-
-        .box {
-            width: 100%;
-            height: 100%;
-            transition: --p 2s, --o 2s, --u 4s;
-            background: none;
-            pointer-events: none;
-            box-shadow: inset 0 0 var(--u) var(--p) var(--o);
-            z-index: 1;
-            position: absolute;
-        }
-
-        .box1 {
-            width: 100%;
-            height: 100%;
-            transition: background-color 3s;
-            z-index: -1;
-            background-color: white;
-            position: relative;
-        }
+    
+        
     </style>
 </head>
 
 <body>
-    <div class="box"></div>
-    <div class="box1"></div>
+   
 
 
 
