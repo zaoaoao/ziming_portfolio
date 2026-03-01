@@ -34,6 +34,9 @@
         margin-bottom: 20em;
         position: relative;
         width: 100%;
+          user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
     }
 
 
@@ -74,7 +77,7 @@
     }
 
     .about {
-        color: rgb(104, 104, 104);
+        color: rgb(0, 0, 0);
 
     }
 
@@ -102,14 +105,23 @@
 
     .counter {
         display: block;
-        text-align: center;
-        margin-left: 2em;
         font-size: 17px;
+
+        color: rgb(0, 0, 255);
+        margin-right: 0.7em;
+
+    }
+
+    .counter-container {
+        width: 4em;
+        text-align: right;
         position: fixed;
         left: 0%;
         top: 50%;
         z-index: 10;
-        color: rgb(0, 0, 255);
+        transform: translate(0, -50%);
+
+
 
     }
 
@@ -126,19 +138,30 @@
     figcaption {
         font-size: 1em;
         width: 700px;
+          user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
 
     }
 
 
     .short {
         color: rgb(104, 104, 104);
-
+       
     }
 
     .long {
         color: rgb(205, 205, 205);
         margin-left: 0.7em;
 
+
+    }
+
+    img,
+    video {
+        user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
     }
 
     .title {
@@ -183,7 +206,7 @@
 
         }
 
-        .counter {
+        .counter-container {
             opacity: 0 !important;
         }
 
@@ -227,23 +250,38 @@
 <head> </head>
 
 <body>
-
-    <div class="counter"></div>
-
+    <div class="counter-container">
+        <span class="counter"></span>
+    </div>
     <div class="fly"> <img src="mos.gif" alt="image"></div>
 
 
     <div class="info-page">
 
         <figcaption class="heading work about">
-            <span>ziming ao</span> is a graphic designer based in the netherlands.<br>
-            currently studying at artez university of arts, arnhem (2023-).
-            <br>
-            <span class="contact"><br>cookieblock2023@proton.me
+            <span>ziming ao</span> is an artist and graphic designer based in the netherlands.<br>
+
+            <span class="contact">
+                currently studying at artez university of arts, arnhem (2023-).
+                <br>
+                <br>cookieblock2023@proton.me
                 <br>@ziming_ao
             </span>
         </figcaption>
+        <figure class="work-unit" pyramid>
+            <img class="work normal clickable" data-nr="29" data-imgnr="0">
+            <figcaption class="work short">
+                <span class="title">ziming</span>
+                <span class="year"> (2023-).</span>
+                <span class="material">photography series</span>
+            </figcaption>
+            <figcaption class="long">
+                i have a large collection of photos that i took in museums and galleries. the photos above are part of
+                the collection,
+                and were selected because i appear in them with artworks unintentionally.
 
+            </figcaption>
+        </figure>
     </div>
 
 
@@ -276,10 +314,7 @@
             that encourage your daily life.
         </figcaption>
         <img class="work wide clickable" data-nr="21" data-imgnr="0">
-        <figcaption class="long">pages are printed twice, first time riso printed the golden decorational layer, second
-            time laser
-            printed text layer.
-        </figcaption>
+
     </figure>
 
     <figure class="work-unit" plastic-book>
@@ -312,7 +347,7 @@
             limitations.</figcaption>
         <img class="work normal clickable" data-nr="2" data-imgnr="0">
 
-        <figcaption class="long">complete collection of SUGGESTION FOR YOU</figcaption>
+        <figcaption class="long">complete collection</figcaption>
     </figure>
 
 
@@ -325,10 +360,16 @@
             <span class="material">photograph</span>
         </figcaption>
         <figcaption class="long">
-            A series of posters about punctuation. All the posters are photographic images without digital editing. The
-            play with perspective is inspired by Jan Dibbets. </figcaption>
-        <video src="IMG_3446.MOV" class="work thin" autoplay muted loop></video>
-
+            A series of posters about three punctuation marks: “…”, “?” and “*”. Each poster explores a different
+            perspective on these punctuation marks—their function, appearance, and usage in internet culture, such as in
+            memes. Unlike regular typography posters, this series consists entirely of photographic works without any
+            digital editing, which raises questions about the boundaries between image and typography. The play with
+            perspective is inspired by the works of Jan Dibbets.
+        </figcaption>
+        <video class="work thin clickable" data-nr="30" data-imgnr="0" autoplay muted loop></video>
+        <figcaption class="long">
+            the process of photographing of the posters
+        </figcaption>
 
     </figure>
 
@@ -363,22 +404,20 @@
 
         <img class="work normal clickable" data-nr="13" data-imgnr="0">
         <figcaption class="work short">
-            <span class="title">hair</span>
+            <span class="title">kapsalon</span>
             <span class="year"> (2024).</span>
             <span class="material">typeface</span>
         </figcaption>
         <figcaption class="long">in this my first typeface design, i deconstruct the letters into parts by how visually
-            they look
-            without considering how
+            they look without considering how
             they are written, and rebuild new-structured letters by using two different type of hand-drawn lines.
             because of huge contrast of thin line(initial inspiration is curves of hair) and chaotic line, the structure
             of letter became more unbalanced and unrecognizable.
-            this typeface has three different weights and for each weight I designed five different variations(not shown
-            in this post), to have more possibilities of typography.
+            this typeface has three different weights and for each weight I designed five different variations, to have more possibilities of typography.
         </figcaption>
         <img class="work normal clickable" data-nr="14" data-imgnr="0">
 
-        <figcaption class="long">typeface poster
+        <figcaption class="long">typeface posters in different formats
         </figcaption>
     </figure>
 
@@ -407,7 +446,7 @@
             <span class="year"> (2025).</span>
             <span class="material">zine</span>
         </figcaption>
-        <figcaption class="long">product information (I AM VISIBLE)
+        <figcaption class="long">
             a zine inspired by Katarina Jazbec's YOU CAN'T AUTOMATE ME (2021), a flim about the port workers.
 
             port workers usually need to wear various safety gear, such as safety shoes, helmets, and gloves. however,
@@ -433,6 +472,7 @@
         </figcaption>
         <figcaption class="long">calendar for my chaotic 2023, from 1st to 365th day
         </figcaption>
+
     </figure>
 
     <figure class="work-unit" mouse-type>
@@ -440,7 +480,7 @@
         <figcaption class="work short">
             <span class="title">why do i feel so sad</span>
             <span class="year"> (2024).</span>
-            <span class="material">photograph zine</span>
+            <span class="material">photograph, zine</span>
         </figcaption>
 
         <figcaption class="long">why do i feel so sad is a type specimen that explores extremes of human body as a tool
@@ -456,7 +496,7 @@
 
     <figure class="work-unit" dance>
 
-        <video src="bell 2.mov" class="work normal" autoplay muted loop></video>
+        <video class="work normal clickable" data-nr="31" autoplay muted loop></video>
         <figcaption class="work short">
             <span class="title">jingle bell dance (eyes on hand version)</span>
             <span class="year"> (2024).</span>
@@ -502,15 +542,15 @@
             <span class="year"> (2024).</span>
             <span class="material">ceramic, collage on paper</span>
         </figcaption>
-        <figcaption class="long">project “toilet” focused only on toilet, an white and ceramic object.
+        <figcaption class="long">project “toilet” focused on toilet, an white and ceramic object.
 
-            started same as previous works, i took photos of every inch of toilet, collaged these images to construct a
+            i took photos of every inch of toilet, collaged these images to construct a
             complete toilet on paper.
             in the next step, i evened the difference of light, which caused difference of brightness and darkness in
             photo, toilet became a white color block.
             after this i changed the medium of work(from paper to ceramic, which is normally the raw material of
             toilet), to get a flattened ceramic toilet, and originally it should be one piece of white ceramic
-            piece(similar with image 4), but it was broken into pieces accidentally.
+            piece, but it was broken into pieces accidentally.
             and i collaged the original photos three dimensionally.
             at the end, i replaced the paper photo with ceramic plates that has same shape, built a three dimensional
             ceramic toilet. same as the toilet we see, it's touchable, white and made of ceramic. the camera, became a
@@ -537,7 +577,29 @@
             <span class="material">html webpage</span>
 
         </figcaption>
+                <figcaption class="bottom work">click to open the following web projects in a new page</figcaption>
+
     </figure>
+
+
+
+    <figure class="work-unit">
+        <a href="buttons.html" class="work normal" target="_blank">
+            <iframe src="buttons.html" class=" web display-only" style="height: 600px;"></iframe>
+        </a>
+        <figcaption class="work short">
+            <span class="title">button</span>
+            <span class="year"> (2026).</span>
+            <span class="material">html webpage</span>
+        </figcaption>
+
+       
+    </figure>
+
+
+
+
+
 
     <figure class="work-unit">
 
@@ -549,7 +611,6 @@
             <span class="year"> (2024).</span>
             <span class="material">html webpage</span>
         </figcaption>
-        <figcaption class="long">(click to open in new page, same for following web projects)</figcaption>
 
     </figure>
 
@@ -588,28 +649,12 @@
             <span class="year"> (2026).</span>
             <span class="material">html webpage</span>
         </figcaption>
-
-    </figure>
-
-
-
-
-
-    <figure class="work-unit">
-        <a href="buttons.html" class="work normal" target="_blank">
-            <iframe src="buttons.html" class=" web display-only" style="height: 600px;"></iframe>
-        </a>
-        <figcaption class="work short">
-            <span class="title">button</span>
-            <span class="year"> (2026).</span>
-            <span class="material">html webpage</span>
-        </figcaption>
-
-        <figcaption class="bottom work">
+ <figcaption class="bottom work">
             back to top
 
         </figcaption>
     </figure>
+
 
 
 
@@ -657,10 +702,10 @@
             const indexnr = img.dataset.nr;
             const currentList = urlLists[`urlList${indexnr}`];
             img.src = currentList[0].url;
+img.setAttribute("draggable", "false");
 
 
         });
-
     };
 
     function animateDiv() {
@@ -920,12 +965,15 @@
 
         urlList25: [
             { url: "6-1.jpg" },
+
             { url: "6-2.jpg" },
             { url: "6-3.jpg" },
             { url: "6-4.jpg" },
             { url: "6-5.jpg" },
             { url: "6-6.jpg" },
             { url: "6-7.jpg" },
+            { url: "IMG_7754.jpg" },
+                         { url: "IMG_7971.JPG" },
 
 
         ],
@@ -958,7 +1006,173 @@
 
 
         ],
+        urlList29: [
+                        { url: "IMG_1394.JPG" },
 
+                        { url: "IMG_1857.JPG" },
+
+                        { url: "IMG_2494.JPG" },
+
+
+            { url: "IMG_2479.JPG" },
+            { url: "IMG_2448.JPG" },
+            { url: "IMG_2404.JPG" },
+            { url: "IMG_2395.JPG" },
+            { url: "IMG_2389.JPG" },
+            { url: "IMG_2373.JPG" },
+            { url: "IMG_2359.JPG" },
+            { url: "IMG_2353.JPG" },
+            { url: "IMG_2352.JPG" },
+            { url: "IMG_2121.JPG" },
+            { url: "IMG_2118.JPG" },
+            { url: "IMG_2113.JPG" },
+            { url: "IMG_2112.JPG" },
+            { url: "IMG_2105.JPG" },
+            { url: "IMG_2104.JPG" },
+            { url: "IMG_2103.JPG" },
+            { url: "IMG_2095.JPG" },
+            { url: "IMG_2027.JPG" },
+            { url: "IMG_2016.JPG" },
+            { url: "IMG_2006 2.JPG" },
+            { url: "IMG_1958.JPG" },
+            { url: "IMG_1946.JPG" },
+            { url: "IMG_1904.JPG" },
+            { url: "IMG_1902.JPG" },
+            { url: "IMG_1872.JPG" },
+            { url: "IMG_1864.JPG" },
+            { url: "IMG_1838.JPG" },
+            { url: "IMG_1649.JPG" },
+            { url: "IMG_1599.JPG" },
+            { url: "IMG_1598.JPG" },
+            { url: "IMG_1591.JPG" },
+            { url: "IMG_1561.JPG" },
+            { url: "IMG_1401.JPG" },
+            { url: "IMG_1293.JPG" },
+            { url: "IMG_1214.JPG" },
+            { url: "IMG_1210.JPG" },
+            { url: "IMG_0933.JPG" },
+            { url: "IMG_0931.JPG" },
+            { url: "IMG_0894.JPG" },
+            { url: "IMG_0884.JPG" },
+            { url: "IMG_0881.JPG" },
+            { url: "IMG_0874.JPG" },
+            { url: "IMG_0871.JPG" },
+            { url: "IMG_0865.JPG" },
+            { url: "IMG_0863.JPG" },
+            { url: "IMG_0842.JPG" },
+            { url: "IMG_0702.JPG" },
+            { url: "IMG_0669.JPG" },
+            { url: "IMG_0646.JPG" },
+            { url: "IMG_0630.JPG" },
+            { url: "IMG_0597.JPG" },
+            { url: "IMG_9823.JPG" },
+            { url: "IMG_9750.JPG" },
+            { url: "IMG_9350.JPG" },
+            { url: "IMG_9248.JPG" },
+            { url: "IMG_9047.JPG" },
+            { url: "IMG_9035.JPG" },
+            { url: "IMG_9032.JPG" },
+            { url: "IMG_8996.JPG" },
+            { url: "IMG_8994.JPG" },
+            { url: "IMG_7780.JPG" },
+            { url: "IMG_7703.JPG" },
+            { url: "IMG_7690.JPG" },
+            { url: "IMG_6301.JPG" },
+            { url: "IMG_6300.JPG" },
+            { url: "IMG_5050.JPG" },
+            { url: "IMG_4578.JPG" },
+            { url: "IMG_4547.JPG" },
+            { url: "IMG_4539.JPG" },
+            { url: "IMG_4515.JPG" },
+            { url: "IMG_4084.JPG" },
+            { url: "IMG_4075.JPG" },
+            { url: "IMG_4052.JPG" },
+            { url: "IMG_3681.JPG" },
+            { url: "IMG_3385.JPG" },
+            { url: "IMG_3349.JPG" },
+            { url: "1000132122.jpg" },
+            { url: "IMG_8954.JPG" },
+            { url: "IMG_7289.JPG" },
+    { url: "IMG_8113.JPG" },
+    { url: "IMG_7619.JPG" },
+    { url: "1000132135.jpg" },
+    { url: "1000145966.jpg" },
+    { url: "IMG_1740.JPG" },
+    { url: "IMG_4326.JPG" },
+    { url: "IMG_8587.JPG" },
+    { url: "IMG_4318.JPG" },
+    { url: "IMG_7614.JPG" },
+    { url: "IMG_7630.JPG" },
+    { url: "IMG_9858.JPG" },
+    { url: "IMG_4810.JPG" },
+    { url: "IMG_8540.JPG" },
+    { url: "IMG_8900.JPG" },
+    { url: "IMG_8735.JPG" },
+    { url: "IMG_4120.JPG" },
+                    { url: "IMG_1742.JPG" },
+
+    { url: "IMG_1719.JPG" },
+    { url: "IMG_1764.JPG" },
+    { url: "IMG_3477.JPG" },
+    { url: "IMG_3999.JPG" },
+    { url: "IMG_8893.JPG" },
+    { url: "IMG_4290.JPG" },
+    { url: "IMG_7631.JPG" },
+    { url: "IMG_4319.JPG" },
+    { url: "1000132251.jpg" },
+    { url: "IMG_4292.JPG" },
+    { url: "IMG_1809.JPG" },
+    { url: "IMG_7616.JPG" },
+    { url: "IMG_8541.JPG" },
+    { url: "IMG_8140.JPG" },
+    { url: "IMG_4218.JPG" },
+    { url: "IMG_4225.JPG" },
+    { url: "IMG_5034.JPG" },
+    { url: "IMG_8066.JPG" },
+    { url: "IMG_4422.JPG" },
+    { url: "IMG_7640.JPG" },
+    { url: "1000145313.jpg" },
+    { url: "IMG_1774.JPG" },
+    { url: "IMG_9573.JPG" },
+    { url: "IMG_9759.JPG" },
+    { url: "IMG_1765.JPG" },
+    { url: "IMG_4207.JPG" },
+    { url: "1000145965.jpg" },
+    { url: "IMG_7613.JPG" },
+    { url: "IMG_9758.JPG" },
+    { url: "IMG_4280.JPG" },
+    { url: "IMG_8948.JPG" },
+    { url: "IMG_9757.JPG" },
+    { url: "1000132257.jpg" },
+    { url: "IMG_4971.JPG" },
+                { url: "IMG_2475.JPG" },
+
+    { url: "IMG_4176.JPG" },
+    { url: "IMG_8733.JPG" },
+    { url: "IMG_8921.JPG" },
+    { url: "IMG_7624.JPG" },
+    { url: "IMG_8887.JPG" },
+    { url: "IMG_8579.JPG" },
+    { url: "IMG_4209.JPG" },
+    { url: "IMG_4288.JPG" },
+    { url: "IMG_7615.JPG" },
+    { url: "IMG_8241.JPG" },
+    { url: "IMG_8555.JPG" },
+    { url: "IMG_7060.JPG" },
+    { url: "IMG_4260.JPG" },
+    { url: "IMG_7276.JPG" }
+        ],
+       urlList30: [
+            { url: "IMG_3446.MOV" },
+                        { url: "IMG_3297.MOV" },
+
+
+        ],
+        urlList31: [
+            { url: "bell 2.mov" }
+
+
+        ],
     };
     function updateCounter(img) {
         const counter = document.querySelector('.counter');
