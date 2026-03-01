@@ -8,7 +8,6 @@
 </script>
 
 <style>
-
     body {
         margin: 0%;
         font-size: 17px;
@@ -20,7 +19,7 @@
 
     }
 
- 
+
 
     @font-face {
         font-family: "BellGothic-Light";
@@ -37,57 +36,71 @@
         width: 100%;
     }
 
-   
 
- 
+
+
 
     .work {
         margin-left: 4em;
     }
 
-     .normal{
-        width:500px
-     }
-     .wide{
-        width: 600px;
-     }
-     .thin{
-        width: 300px;
-     }
+    .normal {
+        width: 500px
+    }
 
-     .clickable{
+    .wide {
+        width: 600px;
+    }
+
+    .thin {
+        width: 300px;
+    }
+
+    .clickable {
         cursor: pointer;
 
-     }
-      
+    }
 
 
 
 
 
-.heading{
-    margin-top: 1em;
-    margin-bottom: 3em;
-    color: rgb(0, 0, 255);
-}
 
-.bottom{
-    margin-top: 10em;
-    color: rgb(0, 0, 255);
-    cursor: pointer;
-}
-.info-page{
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    position: fixed;
-    display: none;
-    z-index: 1;
-    background-color: white;
-}
+    .heading {
+        margin-top: 1em;
+        margin-bottom: 3em;
+        color: rgb(0, 0, 255);
+        font-size: 1em;
+    }
 
- .counter {
+    .about {
+        color: rgb(104, 104, 104);
+
+    }
+
+    .contact {
+        color: rgb(205, 205, 205);
+
+    }
+
+    .bottom {
+        margin-top: 10em;
+        color: rgb(0, 0, 255);
+        cursor: pointer;
+    }
+
+    .info-page {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: fixed;
+        display: none;
+        z-index: 1;
+        background-color: white;
+    }
+
+    .counter {
         display: block;
         text-align: center;
         margin-left: 2em;
@@ -96,186 +109,186 @@
         left: 0%;
         top: 50%;
         z-index: 10;
-    color: rgb(0, 0, 255);
+        color: rgb(0, 0, 255);
 
     }
 
-    
-.work-unit a {
-    display: block;
-}
-  
+
+    .work-unit a {
+        display: block;
+        margin-left: 4em;
+        width: 500px;
+    }
+
 
 
 
     figcaption {
         font-size: 1em;
-                        width: 700px;
+        width: 700px;
 
     }
 
 
-.short{
-            color: rgb(104, 104, 104);
+    .short {
+        color: rgb(104, 104, 104);
 
-}
-.long{
+    }
+
+    .long {
         color: rgb(205, 205, 205);
         margin-left: 0.7em;
-}
 
-.title{
-                text-transform:uppercase;
-}
+    }
+
+    .title {
+        text-transform: uppercase;
+    }
 
 
-.web{
-    border: 0cm;
-}
-.display-only{
-pointer-events: none;
-}
-.color-web{
-    height: 300px;
-}
+    .web {
+        border: 0cm;
+    }
+
+    .display-only {
+        pointer-events: none;
+        width: 100%;
+    }
+
+    .color-web {
+        height: 300px;
+    }
 
     @media (max-width: 1000px) {
 
-.wide, .normal, .thin, .long,.heading{
- width: 90% !important;
-        max-width: 90% !important;
-                margin-left: 5% !important;
-}
+        .wide,
+        .normal,
+        .thin,
+        .long,
+        .heading {
+            width: 90% !important;
+            max-width: 90% !important;
+            margin-left: 5% !important;
+        }
 
-.short{
-    width: 85% !important;
-        max-width: 85% !important;
-                margin-left: 10% !important;
-}
+        .short {
+            width: 85% !important;
+            max-width: 85% !important;
+            margin-left: 10% !important;
+        }
 
-figcaption {
-       
-        font-size: 22px !important;
-       
+        figcaption {
+
+            font-size: 22px !important;
+
+        }
+
+        .counter {
+            opacity: 0 !important;
+        }
+
+        figure {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+
+
+        .color-web {
+            height: 60vw !important;
+        }
+
     }
 
-    .counter{
-        opacity: 0 !important;
+
+
+
+
+
+
+
+    .fly {
+        width: 40px;
+        height: 40px;
+        position: fixed;
+        z-index: 2;
+        top: 0%;
+        left: 95%;
+        cursor: pointer;
     }
-figure{
-    width: 100% !important;
-    max-width: 100% !important;
-}
 
-
-
-.color-web{
-    height: 60vw;
-}
-  
-}
-
-
-
-
-
-
-
-
-.fly{
-width: 40px;
-height: 40px;
-position: fixed;
-z-index: 2;
-top: 0%;
-left: 95%;
-cursor: pointer;
-}
-
-.fly img{
-    width: 100%;
+    .fly img {
+        width: 100%;
         height: 100%;
 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 </style>
 
 <head> </head>
 
 <body>
-   
+
     <div class="counter"></div>
 
-    <div class="fly"> <img src="mos.gif"  alt="image"></div>
+    <div class="fly"> <img src="mos.gif" alt="image"></div>
 
-   
-<div class="info-page" >
 
-<figcaption class="heading work">
-<span>ziming ao</span> is an artist and graphic designer. 
-           currently studying at artez university of arts (2023-), arnhem. 
-           <br>cookieblock2023@proton.me
-           <br>@ziming_ao
-           
+    <div class="info-page">
+
+        <figcaption class="heading work about">
+            <span>ziming ao</span> is a graphic designer based in the netherlands.<br>
+            currently studying at artez university of arts, arnhem (2023-).
+            <br>
+            <span class="contact"><br>cookieblock2023@proton.me
+                <br>@ziming_ao
+            </span>
         </figcaption>
 
-</div>
+    </div>
 
 
-  
-        
-    
-   
 
-<figcaption class="heading work">
-           click images to view more
-           
-        </figcaption>
-                 
-       
+
+
+
+    <figcaption class="heading work">
+        click images to view more
+
+    </figcaption>
+
+
 
     <figure class="work-unit" trump-calender>
- 
+
 
         <img class="work normal clickable" data-nr="20" data-imgnr="0">
 
         <figcaption class="work short">
             <span class="title">Daily truth</span>
             <span class="year"> (2025).</span>
-                        <span class="material">Risograph and laser print on paper, metal</span>
+            <span class="material">Risograph and laser print on paper, metal</span>
 
         </figcaption>
-    <figcaption class="long">
-    
+        <figcaption class="long">
+
             Be reminded how blessed you are every day with this inspiring daily calendar. This golden and
             moti-vational calendar has a year full of inspirational truths, the truth social posts from president trump
             that encourage your daily life.
         </figcaption>
         <img class="work wide clickable" data-nr="21" data-imgnr="0">
-        <figcaption class="long">pages are printed twice, first time riso printed the golden decorational layer, second time laser
+        <figcaption class="long">pages are printed twice, first time riso printed the golden decorational layer, second
+            time laser
             printed text layer.
         </figcaption>
     </figure>
 
-      <figure class="work-unit" plastic-book>
+    <figure class="work-unit" plastic-book>
 
         <img class="work normal clickable" data-nr="1" data-imgnr="0">
-<figcaption class="work short">
+        <figcaption class="work short">
             <span class="title">suggestion for you</span>
             <span class="year"> (2025).</span>
-                        <span class="material">screen print on plastic, wood and ceramic panels</span>
+            <span class="material">screen print on plastic, wood and ceramic panels</span>
         </figcaption>
 
         <figcaption class="long">SUGGESTION FOR YOU is a series of book-like screen-printed pieces created
@@ -303,32 +316,33 @@ cursor: pointer;
     </figure>
 
 
-    <figure class="work-unit"  punctuation-poster>
+    <figure class="work-unit" punctuation-poster>
 
         <img class="work normal clickable" data-nr="15" data-imgnr="0">
-<figcaption class="work short">
+        <figcaption class="work short">
             <span class="title">...?*</span>
             <span class="year"> (2024).</span>
-                        <span class="material">photograph</span>
+            <span class="material">photograph</span>
         </figcaption>
         <figcaption class="long">
             A series of posters about punctuation. All the posters are photographic images without digital editing. The
             play with perspective is inspired by Jan Dibbets. </figcaption>
-            <video src="IMG_3446.MOV" class="work thin" autoplay muted loop></video>
-      
-      
+        <video src="IMG_3446.MOV" class="work thin" autoplay muted loop></video>
+
+
     </figure>
 
 
     <figure class="work-unit" parkett-mag>
 
         <img class="work normal clickable" data-nr="18" data-imgnr="0">
-<figcaption class="work short">
+        <figcaption class="work short">
             <span class="title">parkett</span>
             <span class="year"> (2024).</span>
-                        <span class="material">book</span>
+            <span class="material">book</span>
         </figcaption>
-        <figcaption class="long">parkett is a contemporary art magazine. in 2017 it published its closing print issue in response to
+        <figcaption class="long">parkett is a contemporary art magazine. in 2017 it published its closing print issue in
+            response to
             people's
             digital reading habits.
             therefore, blending parkett's print legacy with digital content is basic concept of this redesigned edition:
@@ -342,18 +356,19 @@ cursor: pointer;
     </figure>
 
 
-   
 
 
-    <figure class="work-unit"  typeface-hair>
+
+    <figure class="work-unit" typeface-hair>
 
         <img class="work normal clickable" data-nr="13" data-imgnr="0">
-<figcaption class="work short">
+        <figcaption class="work short">
             <span class="title">hair</span>
             <span class="year"> (2024).</span>
-                        <span class="material">typeface</span>
+            <span class="material">typeface</span>
         </figcaption>
-        <figcaption class="long">in this my first typeface design, i deconstruct the letters into parts by how visually they look
+        <figcaption class="long">in this my first typeface design, i deconstruct the letters into parts by how visually
+            they look
             without considering how
             they are written, and rebuild new-structured letters by using two different type of hand-drawn lines.
             because of huge contrast of thin line(initial inspiration is curves of hair) and chaotic line, the structure
@@ -367,15 +382,16 @@ cursor: pointer;
         </figcaption>
     </figure>
 
-    <figure class="work-unit"  on-bed>
+    <figure class="work-unit" on-bed>
 
         <img class="work normal clickable" data-nr="26" data-imgnr="0">
-<figcaption class="work short">
+        <figcaption class="work short">
             <span class="title">on bed</span>
             <span class="year"> (2024).</span>
-                        <span class="material">book</span>
+            <span class="material">book</span>
         </figcaption>
-        <figcaption class="long">a book about people in bed. the pages follow both chronological order and the activities of people,
+        <figcaption class="long">a book about people in bed. the pages follow both chronological order and the
+            activities of people,
             from being awake (printed on yellow paper) to sleeping (printed on white paper and folded inside).
 
             content images originate from rijksmuseum archive.
@@ -383,13 +399,13 @@ cursor: pointer;
         <img class="work normal clickable" data-nr="27" data-imgnr="0">
 
     </figure>
- <figure class="work-unit" product-information>
+    <figure class="work-unit" product-information>
 
         <img class="work normal clickable" data-nr="17" data-imgnr="0">
-<figcaption class="work short">
+        <figcaption class="work short">
             <span class="title">product information (i am visible)</span>
             <span class="year"> (2025).</span>
-                        <span class="material">zine</span>
+            <span class="material">zine</span>
         </figcaption>
         <figcaption class="long">product information (I AM VISIBLE)
             a zine inspired by Katarina Jazbec's YOU CAN'T AUTOMATE ME (2021), a flim about the port workers.
@@ -407,13 +423,13 @@ cursor: pointer;
         </figcaption>
 
     </figure>
-    <figure class="work-unit"  pingpong-calender>
+    <figure class="work-unit" pingpong-calender>
 
         <img class="work normal clickable" data-nr="25" data-imgnr="0">
         <figcaption class="work short">
             <span class="title">calendar</span>
             <span class="year"> (2024).</span>
-                        <span class="material">print on paper, mixed threads</span>
+            <span class="material">print on paper, mixed threads</span>
         </figcaption>
         <figcaption class="long">calendar for my chaotic 2023, from 1st to 365th day
         </figcaption>
@@ -421,13 +437,14 @@ cursor: pointer;
 
     <figure class="work-unit" mouse-type>
         <img class="work normal clickable" data-nr="28" data-imgnr="0">
-<figcaption class="work short">
+        <figcaption class="work short">
             <span class="title">why do i feel so sad</span>
             <span class="year"> (2024).</span>
-                        <span class="material">photograph zine</span>
+            <span class="material">photograph zine</span>
         </figcaption>
 
-        <figcaption class="long">why do i feel so sad is a type specimen that explores extremes of human body as a tool to compose
+        <figcaption class="long">why do i feel so sad is a type specimen that explores extremes of human body as a tool
+            to compose
             letters. i put white thread in my mouse, and try to compose letters out of it, only with the help my tongue.
             it's the reason why some letters are lack of legibility. and thanks to everyone that i took photos with.
         </figcaption>
@@ -437,37 +454,38 @@ cursor: pointer;
     </figure>
 
 
-    <figure class="work-unit"  dance>
+    <figure class="work-unit" dance>
 
-            <video src="bell 2.mov" class="work normal" autoplay muted loop></video>
-<figcaption class="work short">
+        <video src="bell 2.mov" class="work normal" autoplay muted loop></video>
+        <figcaption class="work short">
             <span class="title">jingle bell dance (eyes on hand version)</span>
             <span class="year"> (2024).</span>
-                        <span class="material">video</span>
+            <span class="material">video</span>
         </figcaption>
     </figure>
 
-    <figure class="work-unit"  piss-meme>
+    <figure class="work-unit" piss-meme>
 
         <img class="work normal clickable" data-nr="23" data-imgnr="0">
-<figcaption class="work short">
+        <figcaption class="work short">
             <span class="title">"you don't really hate trump, karen. you're just stupid."</span>
             <span class="year"> (2025).</span>
-                        <span class="material">photograph</span>
+            <span class="material">photograph</span>
         </figcaption>
-       
+
 
     </figure>
 
 
-    <figure class="work-unit"  pyramid>
+    <figure class="work-unit" pyramid>
         <img class="work normal clickable" data-nr="4" data-imgnr="0">
-<figcaption class="work short">
+        <figcaption class="work short">
             <span class="title">fuck you pyramid</span>
             <span class="year"> (2024).</span>
-                        <span class="material">gold foil, ceramic, cardboard, toiletpaper</span>
+            <span class="material">gold foil, ceramic, cardboard, toiletpaper</span>
         </figcaption>
-        <figcaption class="long">drawings of swearing words engraved on golden pyramid, written wishes of people screen printed on toilet
+        <figcaption class="long">drawings of swearing words engraved on golden pyramid, written wishes of people screen
+            printed on toilet
             paper, after ten thousand years, would “fuck you” be more important than euro, skating, chanel bag, tesla
             truck, porsche gt3, soo kim's curry, bjork's house, solo exhibition in moma, engineering position in aston
             martin?
@@ -479,10 +497,10 @@ cursor: pointer;
     <figure class="work-unit" toilet-ceramic>
 
         <img class="work normal clickable" data-nr="10" data-imgnr="0">
-<figcaption class="work short">
+        <figcaption class="work short">
             <span class="title">toilet</span>
             <span class="year"> (2024).</span>
-                        <span class="material">ceramic, collage on paper</span>
+            <span class="material">ceramic, collage on paper</span>
         </figcaption>
         <figcaption class="long">project “toilet” focused only on toilet, an white and ceramic object.
 
@@ -501,97 +519,95 @@ cursor: pointer;
     </figure>
 
 
- <figure class="work-unit"  plastic-room>
+    <figure class="work-unit" plastic-room>
         <img class="work normal clickable" data-nr="3" data-imgnr="0">
-<figcaption class="work short">
+        <figcaption class="work short">
             <span class="title">room r1.08</span>
             <span class="year"> (2025).</span>
-                        <span class="material">plastic bag installation on wall</span>
+            <span class="material">plastic bag installation on wall</span>
         </figcaption>
     </figure>
 
     <figure class="work-unit">
- 
+
         <iframe src="final 2.html" class="work normal web" style="height: 2500px;"></iframe>
-<figcaption class="work short">
+        <figcaption class="work short">
             <span class="title">pets</span>
             <span class="year"> (2024).</span>
-                        <span class="material">html webpage</span>
-                    
+            <span class="material">html webpage</span>
+
         </figcaption>
     </figure>
 
     <figure class="work-unit">
 
-<a href="ha.html" target="_blank">
-  <iframe 
-    src="ha.html"
-    class="work normal web display-only color-web" 
-  ></iframe>
-</a><figcaption class="work short">
+        <a href="ha.html" class="work normal" target="_blank">
+            <iframe src="ha.html" class="web display-only color-web"></iframe>
+        </a>
+        <figcaption class="work short">
             <span class="title">ha ha ha</span>
             <span class="year"> (2024).</span>
-                        <span class="material">html webpage</span>
+            <span class="material">html webpage</span>
         </figcaption>
-              <figcaption class="long">(click to open in new page, same for following web projects)</figcaption>  
+        <figcaption class="long">(click to open in new page, same for following web projects)</figcaption>
 
     </figure>
- 
-    <figure class="work-unit">
-     <a href="gradient.html" target="_blank">
 
-        <iframe src="gradient.html" class="work normal web display-only color-web" scrolling="auto"></iframe>
-</a>
-<figcaption class="work short">
+    <figure class="work-unit">
+        <a href="gradient.html" class="work normal" target="_blank">
+
+            <iframe src="gradient.html" class="web display-only color-web" scrolling="auto"></iframe>
+        </a>
+        <figcaption class="work short">
             <span class="title">gradient box</span>
             <span class="year"> (2026).</span>
-                        <span class="material">html webpage</span>
+            <span class="material">html webpage</span>
         </figcaption>
     </figure>
 
-  <figure class="work-unit"  >
-         <a href="square.html" target="_blank">
+    <figure class="work-unit">
+        <a href="square.html" class="work normal" target="_blank">
 
-        <iframe src="square.html" class="work normal web display-only color-web" ></iframe>
-         </a>
-<figcaption class="work short">
+            <iframe src="square.html" class="web display-only color-web"></iframe>
+        </a>
+        <figcaption class="work short">
             <span class="title">two squares</span>
             <span class="year"> (2025).</span>
-                        <span class="material">html webpage</span>
+            <span class="material">html webpage</span>
         </figcaption>
 
     </figure>
 
-     <figure class="work-unit">
-                 <a href="cube.html" target="_blank">
+    <figure class="work-unit">
+        <a href="cube.html" class="work normal" target="_blank">
 
-                <iframe src="cube.html" class="work normal web display-only color-web" ></iframe>
-                 </a>
-<figcaption class="work short">
+            <iframe src="cube.html" class="web display-only color-web"></iframe>
+        </a>
+        <figcaption class="work short">
             <span class="title">cube</span>
             <span class="year"> (2026).</span>
-                        <span class="material">html webpage</span>
+            <span class="material">html webpage</span>
         </figcaption>
 
     </figure>
 
-     
 
 
 
-     <figure class="work-unit">
-<a href="buttons.html" target="_blank">
-        <iframe src="buttons.html" class="work normal web display-only" style="height: 600px;"></iframe>
+
+    <figure class="work-unit">
+        <a href="buttons.html" class="work normal" target="_blank">
+            <iframe src="buttons.html" class=" web display-only" style="height: 600px;"></iframe>
         </a>
-<figcaption class="work short">
+        <figcaption class="work short">
             <span class="title">button</span>
             <span class="year"> (2026).</span>
-                        <span class="material">html webpage</span>
+            <span class="material">html webpage</span>
         </figcaption>
 
         <figcaption class="bottom work">
-           back to top
-           
+            back to top
+
         </figcaption>
     </figure>
 
@@ -611,72 +627,72 @@ cursor: pointer;
 
 <script>
 
-document.querySelector(".fly").addEventListener("click", function () {
-    myFunction();
-});
-
-let clicktime = 0;
-
-function myFunction() {
-
-    clicktime += 1;
-
-    if (clicktime % 2 === 0) {
-        document.querySelector(".info-page").style.display="none";
-        document.body.style.overflowY="auto"
-    }
-
-    else {
-                document.querySelector(".info-page").style.display="block"
-        document.body.style.overflowY="hidden"
-
-    }
-}
-   window.onload = () => {
-
-animateDiv();
-
-   
-    document.querySelectorAll(".clickable").forEach(img => {
-        const indexnr = img.dataset.nr;
-        const currentList = urlLists[`urlList${indexnr}`];
-        img.src = currentList[0].url;
-
-    
+    document.querySelector(".fly").addEventListener("click", function () {
+        myFunction();
     });
-    
-};
 
- function animateDiv() {
+    let clicktime = 0;
 
-    const el = document.querySelector('.fly');
+    function myFunction() {
 
-    move(el);
+        clicktime += 1;
 
-    function move(element) {
-
-        const duration = Math.floor(Math.random() * 5000 + 10000);
-        const pos = makeNewPosition();
-
-        element.style.transition = `top ${duration / 100}s linear, left ${duration / 100}s linear`;
-        element.style.top = pos.top + 'px';
-        element.style.left = pos.left + 'px';
-
-        setTimeout(() => move(element), duration);
-    }
-}
-function makeNewPosition() {
-            const h = window.innerHeight;
-            const w = window.innerWidth;
-
-            return {
-                top: Math.random() * (h - 50),
-                left: Math.random() * (w - 50)
-            };
+        if (clicktime % 2 === 0) {
+            document.querySelector(".info-page").style.display = "none";
+            document.body.style.overflowY = "auto"
         }
 
+        else {
+            document.querySelector(".info-page").style.display = "block"
+            document.body.style.overflowY = "hidden"
 
-   
+        }
+    }
+    window.onload = () => {
+
+        animateDiv();
+
+
+        document.querySelectorAll(".clickable").forEach(img => {
+            const indexnr = img.dataset.nr;
+            const currentList = urlLists[`urlList${indexnr}`];
+            img.src = currentList[0].url;
+
+
+        });
+
+    };
+
+    function animateDiv() {
+
+        const el = document.querySelector('.fly');
+
+        move(el);
+
+        function move(element) {
+
+            const duration = Math.floor(Math.random() * 5000 + 10000);
+            const pos = makeNewPosition();
+
+            element.style.transition = `top ${duration / 100}s linear, left ${duration / 100}s linear`;
+            element.style.top = pos.top + 'px';
+            element.style.left = pos.left + 'px';
+
+            setTimeout(() => move(element), duration);
+        }
+    }
+    function makeNewPosition() {
+        const h = window.innerHeight;
+        const w = window.innerWidth;
+
+        return {
+            top: Math.random() * (h - 50),
+            left: Math.random() * (w - 50)
+        };
+    }
+
+
+
 
     const urlLists = {
         urlList1: [
@@ -685,7 +701,7 @@ function makeNewPosition() {
 
             { url: "dr-y3s13.jpg" },
             { url: "dr-y3s14.jpg" },
-                        { url: "dr-y3s15.jpg" },
+            { url: "dr-y3s15.jpg" },
             { url: "dr-y3s16.jpg" },
             { url: "dr-y3s17.jpg" },
             { url: "dr-y3s18.jpg" },
@@ -727,7 +743,7 @@ function makeNewPosition() {
             { url: "IMG_5604.jpg" },
 
         ],
-       
+
         urlList6: [
             { url: "Untitled.mov" }
 
@@ -810,11 +826,11 @@ function makeNewPosition() {
             { url: "7-311.jpg" },
         ],
 
-       
+
 
         urlList17: [
             { url: "t-y2s21.jpg" },
-                        { url: "t-y2s22.jpg" },
+            { url: "t-y2s22.jpg" },
             { url: "t-y2s23.jpg" },
             { url: "t-y2s24.jpg" },
             { url: "t-y2s25.jpg" },
@@ -829,9 +845,9 @@ function makeNewPosition() {
 
         ],
         urlList18: [
-                        { url: "typo 1211 1.jpg" },
+            { url: "typo 1211 1.jpg" },
 
-        { url: "typo 111.jpg" },
+            { url: "typo 111.jpg" },
             { url: "typo 211.jpg" },
             { url: "typo 411.jpg" },
             { url: "typo 511.jpg" },
@@ -862,7 +878,7 @@ function makeNewPosition() {
 
         urlList20: [
             { url: "t-y3s11.jpg" },
-                        { url: "t-y3s12.jpg" },
+            { url: "t-y3s12.jpg" },
             { url: "t-y3s13.jpg" },
             { url: "t-y3s14.jpg" },
             { url: "t-y3s15.jpg" },
@@ -874,8 +890,8 @@ function makeNewPosition() {
 
         ],
         urlList21: [
-            { url: "t-y3s110.jpg" },           
-             { url: "t-y3s111.jpg" },
+            { url: "t-y3s110.jpg" },
+            { url: "t-y3s111.jpg" },
             { url: "t-y3s112.jpg" },
             { url: "t-y3s113.jpg" },
             { url: "t-y3s114.jpg" },
@@ -942,7 +958,7 @@ function makeNewPosition() {
 
 
         ],
-     
+
     };
     function updateCounter(img) {
         const counter = document.querySelector('.counter');
@@ -984,43 +1000,43 @@ function makeNewPosition() {
 
     });
 
-const video = document.querySelector("video");
+    const video = document.querySelector("video");
 
-function checkScreen() {
-    if (window.matchMedia("(max-width: 1000px)").matches) {
-       document.querySelectorAll("video").forEach(el =>{
-el.autoplay = false;
-       // video.pause();
-
-
-       }
- 
-       )
-       
-       
-    } else {
-       document.querySelectorAll("video").forEach(el =>{
-el.autoplay = true;
-       // video.pause();
+    function checkScreen() {
+        if (window.matchMedia("(max-width: 1000px)").matches) {
+            document.querySelectorAll("video").forEach(el => {
+                el.autoplay = false;
+                // video.pause();
 
 
-       }
- 
-       )
-       
+            }
+
+            )
+
+
+        } else {
+            document.querySelectorAll("video").forEach(el => {
+                el.autoplay = true;
+                // video.pause();
+
+
+            }
+
+            )
+
+        }
     }
-}
 
-checkScreen(); 
-window.addEventListener("resize", checkScreen);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
 
 
-document.querySelector(".bottom").addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+    document.querySelector(".bottom").addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
     });
-});
 
 
 </script>
