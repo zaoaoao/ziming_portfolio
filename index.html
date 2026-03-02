@@ -28,6 +28,19 @@
         font-style: normal;
     }
 
+     @font-face {
+        font-family: "Candice-Regular";
+        src: url("./fonts/Candice-Regular.ttf") format("truetype");
+        font-weight: 300;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: "Artistik-Regular";
+        src: url("./fonts/Artistik-Regular.ttf") format("truetype");
+        font-weight: 300;
+        font-style: normal;
+    }
+
     figure {
         margin-left: 0;
         margin-top: 0;
@@ -77,12 +90,20 @@
     }
 
     .about {
-        color: rgb(0, 0, 0);
+
+       
+background-image: linear-gradient(to left, violet, indigo, blue, green, rgb(200, 200, 0), orange, red);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
 
     }
+  
 
     .contact {
-        color: rgb(205, 205, 205);
+        color: rgb(0, 0, 255);
+                color: rgb(205, 205, 205);
+
 
     }
 
@@ -98,7 +119,7 @@
         left: 0;
         top: 0;
         position: fixed;
-        display: none;
+        display: block;
         z-index: 1;
         background-color: white;
     }
@@ -188,7 +209,7 @@
         height: 300px;
     }
 
-    @media (max-width: 1000px) {
+    @media (max-width: 850px) {
 
         .wide,
         .normal,
@@ -226,7 +247,9 @@
         .color-web {
             height: 60vw !important;
         }
-
+.empty-space{
+    display: none;
+}
     }
 
 
@@ -265,15 +288,17 @@
     <div class="info-page">
 
         <figcaption class="heading work about">
-            <span>ziming ao</span> is an artist and graphic designer based in the netherlands.<br>
+            <span class="name">ziming ao
+            </span>is an artist and graphic designer based in the netherlands.<br>
 
             <span class="contact">
-                currently studying at artez university of arts, arnhem (2023-).
-                <br>
-                <br>cookieblock2023@proton.me
+                    currently studying at artez university of arts, arnhem (2023-).
+
+                <br><br>cookieblock2023@proton.me
                 <br>@ziming_ao
             </span>
         </figcaption>
+        <figure class="empty-space"></figure>
         <figure class="work-unit" pyramid>
             <img class="work thin clickable" data-nr="29" data-imgnr="0">
             <figcaption class="work short">
@@ -1006,6 +1031,8 @@
 
         ],
         urlList29: [
+                        { url: "./29/t-y3s1 33.jpg" },
+
             { url: "./29/IMG_1394.webp" },
             { url: "./29/IMG_1857.webp" },
             { url: "./29/IMG_2494.webp" },
@@ -1104,7 +1131,6 @@
             { url: "./29/IMG_8900.webp" },
             { url: "./29/IMG_8735.webp" },
             { url: "./29/IMG_4120.webp" },
-            { url: "./29/IMG_1742.webp" },
             { url: "./29/IMG_1719.webp" },
             { url: "./29/IMG_1764.webp" },
             { url: "./29/IMG_3477.webp" },
