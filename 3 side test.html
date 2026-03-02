@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+    let degr = 0;
+
+    // function rotate() {
+    degr += 90;
+
+    document.querySelectorAll(".cube").forEach(cube => { cube.style.setProperty("--b", degr + "deg"); })
+        ;
+    document.querySelectorAll(".cube").forEach(cube => { cube.style.setProperty("--f", degr + "deg"); })
+        ;
+
+    // }
+
+
+</script>
+
+<style>
+    @property --a {
+        syntax: "<number>";
+        initial-value: 1;
+        inherits: false;
+    }
+
+    @property --b {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    @property --c {
+        syntax: "<number>";
+        initial-value: 1;
+        inherits: false;
+    }
+
+    @property --d {
+        syntax: "<number>";
+        initial-value: 1;
+        inherits: false;
+    }
+
+    @property --e {
+        syntax: "<length>";
+        initial-value: 1000px;
+        inherits: false;
+    }
+
+    @property --f {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    @property --g {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+
+
+    .container {
+        width: 36vw;
+        height: 70vh;
+        perspective: 100vw;
+        z-index: 1;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(calc(-50% - 0vw), calc(-50% - 0vw));
+    }
+
+
+
+
+    .cube {
+
+
+        width: 36vw;
+        height: 70vh;
+        transform-style: preserve-3d;
+        transition: --a 2s, --b 2s, --c 2s, --d 2s, --e 2s, --f 2s, --g 2s;
+        transform:
+            scaleX(var(--a)) scaleY(var(--c)) scaleZ(var(--d)) rotateX(var(--f)) rotateY(var(--b)) rotateZ(var(--g)) translateX(0px) translateY(0px) translateZ(0px) skewX(0deg) skewY(0deg);
+    }
+
+
+
+    .cube-wrap {
+        perspective: 1000px;
+        perspective-origin: 50% 50%;
+    }
+
+
+    .front {
+        transform: translateZ(18vw);
+        transition: background-color 2s;
+        border: 1px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 36vw;
+        height: 70vh;
+
+        background-color: rgba(255, 0, 0, 0);
+        z-index: 999;
+    }
+
+    .back {
+        transform: translateZ(-18vw) rotateY(180deg);
+        background-color: rgba(255, 0, 0, 0);
+        transition: background-color 2s;
+        border: 0px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 36vw;
+        height: 70vh;
+        opacity: 0;
+
+    }
+
+    .left {
+        transform: translateX(-18vw) rotateY(-90deg);
+        background-color: rgba(255, 0, 0, 0);
+        transition: background-color 2s;
+        border: 1px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 36vw;
+        height: 70vh;
+        opacity: 1;
+
+    }
+
+    .right {
+        transform: translateX(18vw) rotateY(90deg);
+        background-color: rgba(255, 0, 0, 0);
+        transition: background-color 2s;
+        border: 1px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 36vw;
+        height: 70vh;
+        opacity: 1;
+
+
+    }
+
+    .bottom {
+        transform: translateY(45vh) rotateX(90deg);
+        background-color: rgb(0, 0, 0, 0);
+        transition: background-color 2s;
+        border: 0px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 36vw;
+        height: 36vw;
+        opacity: 1;
+
+
+
+    }
+
+    .top {
+        transform: translateY(-35vh) rotateX(-90deg);
+        background: rgb(255, 255, 255, 0);
+        transition: background-color 2s;
+        border: 1px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 40vw;
+        height: 40vw;
+        opacity: 0;
+
+
+    }
+
+
+    .face {
+
+        position: absolute;
+        display: block;
+        align-items: normal;
+        justify-content: left;
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        line-break: strict;
+        overflow: scroll;
+        word-wrap: break-word;
+
+
+
+    }
+
+
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+    }
+
+    body {
+        margin: 0;
+
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        z-index: 99;
+        color: transparent;
+        background-color: transparent;
+        border: none;
+    }
+
+    .nex {
+        left: 50%;
+        cursor: e-resize;
+    }
+
+    .pre {
+        cursor: w-resize;
+
+    }
+
+    .img {
+        width: 70%;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        /*box-shadow: 0px 0px 60px 10px var(--c1);*/
+        transition: --c1 2s;
+    }
+
+    .turn {
+        bottom: 2%;
+        position: absolute;
+        font-size: 12px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+        cursor: alias;
+
+    }
+
+    .info {
+        top: 50%;
+        position: absolute;
+        font-size: 28px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: rgb(255, 0, 0);
+    }
+
+    @property --c1 {
+        syntax: "<color>";
+        initial-value: #00ff00;
+        inherits: false;
+    }
+
+    @property --c2 {
+        syntax: "<color>";
+        initial-value: #00ffff;
+        inherits: false;
+    }
+
+    @property --size1 {
+        syntax: "<length>";
+        initial-value: 200px;
+        inherits: false;
+    }
+
+    @property --size2 {
+        syntax: "<length>";
+        initial-value: 240px;
+        inherits: false;
+    }
+
+
+    .a {
+        background-image: repeating-conic-gradient(var(--c1) 0% 25%, var(--c2) 0% 50%);
+        background-position: calc(50% - var(--size1)/2) calc(50% - var(--size2)/2),
+            50% 50%;
+        background-size: var(--size1) var(--size2);
+        display: block;
+        width: 100%;
+        height: 100%;
+        transition: --c1 2s, --size1 1s, --size2 1s, opacity 2s;
+        opacity: 0;
+
+    }
+
+    .des {
+        bottom: 50%;
+        position: absolute;
+        font-size: 30px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<head> </head>
+
+<body>
+
+    <div class="a"></div>
+    <div class="container">
+        <div class="cube" onclick="rotate()">
+            <div class="face top">
+
+            </div>
+            <div class="face bottom">
+                <div class="des">this is a green cube</div>
+
+            </div>
+            <div class="face left">
+                <img src="2.png" class="img c">
+
+            </div>
+
+            <div class="face right">
+                <img src="" class="img a">
+
+            </div>
+            <div class="face front">
+                <button class="nav nex" onclick="neximg()">
+                </button>
+                <button class="nav pre" onclick="preimg()">
+                </button>
+                <img src="1.png" class="img b">
+                <div class="about turn" onclick="about()">about</div>
+            </div>
+            <div class="face back">
+
+                <div class="info">a SENSE of IMMINENT HORROR made OBJECTS SHARPER,
+
+                    Just as the SHADOWS in December are SHARPER than April and the SNOW that FALLS AT NIGHT is NEVER
+                    BRIGHTER.</div>
+                <div class="projects turn" onclick="about()">projects</div>
+
+            </div>
+        </div>
+    </div>
+<button onclick="neximg()"></button>
+
+
+</body>
+
+<script>
+
+    const colors = [
+
+        "rgb(0,255,0)",
+        "rgb(0,0,255)",
+        "aqua",
+        "purple",
+        "pink",
+        "yellow",
+        "orange",
+        "red",
+        "grey",
+        "#b9ff00",
+        "#00ffec",
+        "#008fff",
+        "#e800ff",
+        "#cfffd8",
+        "#fbffcf",
+        "#ffbbbb",
+        " #bbe7ff",
+        "#f1eeff",
+        " #ffeefe",
+
+        "rgb(0,0,0)",
+    ];
+    let deg = 0
+
+    let rotatetime = 0
+    function about() {
+        rotatetime += 1;
+        let random1 = Math.floor(Math.random() * colors.length);
+        let random2 = Math.floor(Math.random() * colors.length);
+
+
+
+        if (rotatetime % 2 == 0) {
+            /*document.querySelectorAll('.a, .img').forEach(el => {
+                        el.style.setProperty("--c1", color1);
+                    });
+                    document.querySelectorAll('.a, .b').forEach(el => {
+                        el.style.setProperty("--c2", color2);
+                    })*/
+            document.body.querySelector(".a").style.opacity = 0;
+        } else {
+            document.body.querySelector(".a").style.opacity = 0;
+
+            /*document.querySelectorAll('.a, .img').forEach(el => {
+                       el.style.setProperty("--c1", "white");
+                   });
+                   document.querySelectorAll('.a, .b').forEach(el => {
+                       el.style.setProperty("--c2", "white");
+                   })
+                   }
+                  
+                  */
+
+        }
+        deg += 180
+        document.querySelector(".cube").style.setProperty("--b", deg + "deg");
+    }
+    const urlList = [
+
+        { url: "1.png" },
+        { url: "2.png" },
+        { url: "3.png" },
+        { url: "4.png" },
+        { url: "5.png" },
+        { url: "6.png" },
+        { url: "7.png" },
+        { url: "8.png" },
+        { url: "9.png" },
+
+
+    ]
+    let current = 0;
+    function neximg() {
+        current = (current + 1) % urlList.length;
+
+
+         document.body.querySelector(".b").src = urlList[current].url;
+                document.body.querySelector(".c").src = urlList[current+1].url;
+                document.body.querySelector(".a").src = urlList[current-1].url;
+
+        let random1 = Math.floor(Math.random() * colors.length);
+        let random2 = Math.floor(Math.random() * colors.length);
+        let random3 = Math.floor(Math.random() * 80 + 200);
+        let random4 = Math.floor(Math.random() * 80 + 200);
+
+        let color1 = colors[random1];
+        let color2 = colors[random2];
+        //document.querySelector(".a").style.setProperty("--c1", color1);
+        //document.querySelector(".a").style.setProperty("--c2", color2);
+        //document.querySelector(".a").style.setProperty("--size1", random3+"px");
+        // document.querySelector(".a").style.setProperty("--size2", random4+"px");
+        document.querySelectorAll('.a, .img').forEach(el => {
+            el.style.setProperty("--c1", color1);
+        });
+        document.querySelectorAll('.a, .b').forEach(el => {
+            el.style.setProperty("--c2", color2);
+        })
+        document.querySelectorAll('.a, .b').forEach(el => {
+            el.style.setProperty("--size1", random3 + "px");
+        });
+        document.querySelectorAll('.a, .b').forEach(el => {
+            el.style.setProperty("--size2", random4 + "px");
+        })
+
+
+
+    }
+    function preimg() {
+        current = (current - 1 + urlList.length) % urlList.length;
+
+
+       
+
+    }
+
+
+</script>
+
+</html>

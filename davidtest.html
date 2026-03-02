@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+   
+
+</script>
+
+<style>
+  
+</style>
+
+<head> </head>
+
+<body>
+
+<div class="randomtext"></div>
+
+</body>
+
+<script>
+
+    window.onload = function(e){ 
+                        document.querySelector(".randomtext").textContent = newword() ;
+}
+function newword(){
+   const colors = [
+
+        "rgb(0,255,0)",
+        "rgb(0,0,255)",
+        "aqua",
+        "purple",
+        "pink",
+        "yellow",
+        "orange",
+        "red",
+        "grey",
+        "#b9ff00",
+        "#00ffec",
+        "#008fff",
+        "#e800ff",
+        "#cfffd8",
+        "#fbffcf",
+        "#ffbbbb",
+        " #bbe7ff",
+        "#f1eeff",
+        " #ffeefe",
+
+        "rgb(0,0,0)",
+    ];
+     return colors[Math.floor(Math.random() * colors.length)];
+}
+
+
+</script>
+
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+
+<style>
+    @property --a {
+        syntax: "<number>";
+        initial-value: 1;
+        inherits: false;
+    }
+
+    @property --b1 {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    @property --b2 {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    @property --c {
+        syntax: "<number>";
+        initial-value: 1;
+        inherits: false;
+    }
+
+    @property --d {
+        syntax: "<number>";
+        initial-value: 1;
+        inherits: false;
+    }
+
+    @property --e {
+        syntax: "<length>";
+        initial-value: 1000px;
+        inherits: false;
+    }
+
+    @property --f {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    @property --g {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+
+
+    .container {
+        width: 36vw;
+        height: 70vh;
+        perspective: 70vw;
+        z-index: 1;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(calc(-50% - 25vw), calc(-50% - 0vw));
+    }
+
+    .container2 {
+        width: 36vw;
+        height: 70vh;
+        perspective: 70vw;
+        z-index: 1;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(calc(-50% + 25vw), calc(-50% - 0vw));
+    }
+
+
+
+
+    .cube1 {
+
+
+        width: 36vw;
+        height: 70vh;
+        transform-style: preserve-3d;
+        transition: --a 2s, --b1 2s, --c 2s, --d 2s, --e 2s, --f 2s, --g 2s;
+        transform:
+            scaleX(var(--a)) scaleY(var(--c)) scaleZ(var(--d)) rotateX(var(--f)) rotateY(var(--b1)) rotateZ(var(--g)) translateX(0px) translateY(0px) translateZ(0px) skewX(0deg) skewY(0deg);
+    }
+
+    .cube2 {
+
+
+        width: 36vw;
+        height: 70vh;
+        transform-style: preserve-3d;
+        transition: --a 2s, --b2 2s, --c 2s, --d 2s, --e 2s, --f 2s, --g 2s;
+        transform:
+            scaleX(var(--a)) scaleY(var(--c)) scaleZ(var(--d)) rotateX(var(--f)) rotateY(var(--b2)) rotateZ(var(--g)) translateX(0px) translateY(0px) translateZ(0px) skewX(0deg) skewY(0deg);
+    }
+
+
+
+    .cube-wrap {
+        perspective: 1000px;
+        perspective-origin: 50% 50%;
+    }
+
+
+    .front {
+        transform: translateZ(18vw);
+        background: #ffffff;
+        transition: background-color 2s;
+        border: 0px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 36vw;
+        height: 70vh;
+        background: rgb(255, 255, 255);
+    }
+
+    .back {
+        transform: translateZ(-18vw) translateY(30vh) translateX(13vw) rotateY(180deg);
+        background: #00ff00;
+        transition: background-color 2s;
+        border: 0px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 10vw;
+        height: 10vh;
+        background: rgba(204, 204, 204, 0);
+
+
+    }
+
+    .left {
+        transform: translateX(-18vw) rotateY(-90deg);
+        background: #00ff00;
+        transition: background-color 2s;
+        border: 1px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 36vw;
+        height: 70vh;
+        opacity: 1;
+
+    }
+
+    .right {
+        transform: translateX(18vw) rotateY(90deg);
+        background: #ff0000;
+        transition: background-color 2s;
+        border: 1px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 36vw;
+        height: 70vh;
+        opacity: 1;
+
+    }
+
+    .top {
+        transform: translateY(35vh) rotateX(90deg);
+        background: #00d5ff;
+        transition: background-color 2s;
+        border: 1px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 40vw;
+        height: 40vw;
+        opacity: 1;
+
+
+    }
+
+    .bottom {
+        transform: translateY(-35vh) rotateX(-90deg);
+        background: rgb(0, 255, 0);
+        transition: background-color 2s;
+        border: 1px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 40vw;
+        height: 40vw;
+        opacity: 1;
+
+
+    }
+
+
+    .face {
+
+        position: absolute;
+        display: block;
+        align-items: normal;
+        justify-content: left;
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        line-break: strict;
+        overflow: scroll;
+        word-wrap: break-word;
+
+    }
+
+
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+    }
+
+    body {
+        margin: 0;
+
+    }
+
+    
+</style>
+
+<head> </head>
+
+<body>
+    <div class="container">
+        <div class="cube1" onclick="rotate()">
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+            <div class="face left"></div>
+            <div class="face right"></div>
+            <div class="face front"></div>
+            <div class="face back"></div>
+        </div>
+    </div>
+
+
+
+
+
+
+</body>
+
+<script>
+
+    let degr = 0;
+
+
+    document.addEventListener("keypress", function (event) {
+        if (event.keyCode == 32) {
+            rotate();
+        }
+    });
+    function rotate() {
+        degr += 90;
+
+        const el1 = document.querySelector('.cube1');
+        const el2 = document.querySelector('.cube2');
+
+
+        el1.style.setProperty("--b1", degr + "deg");
+        el2.style.setProperty("--b2", -degr + "deg");
+
+    }
+
+    const left = (".front")[0];
+    const right = document.body.querySelectorAll(".front")[1];
+
+    let isSyncingLeft = false;
+    let isSyncingRight = false;
+
+    left.addEventListener('scroll', () => {
+        if (!isSyncingRight) {
+            isSyncingLeft = true;
+            right.scrollTop = left.scrollTop;
+        }
+        isSyncingRight = false;
+    });
+
+    right.addEventListener('scroll', () => {
+        if (!isSyncingLeft) {
+            isSyncingRight = true;
+            left.scrollTop = right.scrollTop;
+        }
+        isSyncingLeft = false;
+    });
+
+
+</script>
+
+<script></script>
+
+</html>

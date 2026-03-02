@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<script>
+   
+
+</script>
+
+<style>
+    @property --a {
+        syntax: "<number>";
+        initial-value: 1;
+        inherits: false;
+    }
+
+    @property --b {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    @property --c {
+        syntax: "<number>";
+        initial-value: 1;
+        inherits: false;
+    }
+
+    @property --d {
+        syntax: "<number>";
+        initial-value: 1;
+        inherits: false;
+    }
+
+    @property --e {
+        syntax: "<length>";
+        initial-value: 1000px;
+        inherits: false;
+    }
+
+    @property --f {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    @property --g {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+
+
+    .container {
+        width: 70vw;
+        height: 70vh;
+        perspective: 200vw;
+        z-index: 1;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(calc(-50% - 0vw), calc(-50% - 0vw));
+    }
+
+
+
+
+
+    .cube {
+
+
+        width: 70vw;
+        height: 70vh;
+        transform-style: preserve-3d;
+        transition: --a 2s, --b 2s, --c 2s, --d 2s, --e 2s, --f 2s, --g 2s;
+        transform:
+            scaleX(var(--a)) scaleY(var(--c)) scaleZ(var(--d)) rotateX(var(--f)) rotateY(var(--b)) rotateZ(var(--g)) translateX(0px) translateY(0px) translateZ(0px) skewX(0deg) skewY(0deg);
+    }
+
+
+
+    .cube-wrap {
+        perspective: 1000px;
+        perspective-origin: 50% 50%;
+    }
+
+
+    .front {
+        transform: translateZ(35vw);
+        background-color: rgb(0, 0, 0, 0);
+        transition: background-color 2s;
+        border: 0px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 70vw;
+        height: 70vh;
+
+    }
+
+    .back {
+        transform: translateZ(-35vw) rotateY(180deg);
+        background: #00ff00;
+        transition: background-color 2s;
+        border: 1px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 70vw;
+        height: 70vh;
+        opacity: 0;
+
+
+    }
+
+    .left {
+        transform: translateX(-35vw) rotateY(-90deg);
+        background: #00ff00;
+        transition: background-color 2s;
+        border: 1px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 70vw;
+        height: 70vh;
+        opacity: 0;
+
+
+    }
+
+    .right {
+        transform: translateX(35vw) rotateY(90deg);
+        background: #ff0000;
+        transition: background-color 2s;
+        border: 1px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 70vw;
+        height: 70vh;
+        opacity: 0;
+
+
+    }
+
+    .top {
+        transform: translateY(35vh) rotateX(90deg);
+        background: #00d5ff;
+        transition: background-color 2s;
+        border: 1px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 40vw;
+        height: 40vw;
+        opacity: 0;
+
+
+    }
+
+    .bottom {
+        transform: translateY(-35vh) rotateX(-90deg);
+        background: rgb(0, 255, 0);
+        transition: background-color 2s;
+        border: 1px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 40vw;
+        height: 40vw;
+        opacity: 0;
+
+
+    }
+
+
+    .face {
+
+        position: absolute;
+        display: block;
+        align-items: normal;
+        justify-content: left;
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        line-break: strict;
+        overflow: scroll;
+        word-wrap: break-word;
+
+    }
+
+
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+    }
+
+    body {
+        margin: 0;
+
+    }
+
+    .img {
+        width: 40%;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        cursor: pointer;
+
+
+    }
+</style>
+
+<head> </head>
+
+<body>
+    <div class="container">
+        <div class="cube" onclick="rotate()">
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+            <div class="face left"></div>
+            <div class="face right"></div>
+            <div class="face front">
+                <img src="1-1.jpg" class="img" onclick="detail()">
+
+
+            </div>
+            <div class="face back"></div>
+        </div>
+    </div>
+
+
+
+
+
+
+</body>
+
+<script>
+    document.addEventListener("click", (e) => {
+        const x = e.clientX;
+        const width = window.innerWidth;
+        if (e.target.closest(".about,.projects,.img")) return;
+        if (x < width / 2) {
+            preimg();
+        } else {
+            neximg();
+
+        }
+    });
+
+    const urlList = [
+        { url: "1-1.jpg" },
+        { url: "2-1.jpg" },
+        { url: "3-1.jpg" },
+        { url: "4-1.png" },
+        { url: "5-1.jpg" },
+        { url: "6.png" },
+        { url: "7.png" },
+        { url: "8.png" },
+        { url: "9.png" },
+    ];
+
+
+    let current = 0;
+
+    function neximg() {
+        current = (current + 1) % urlList.length;
+
+        
+        document.body.querySelector(".img").src = urlList[current].url;
+
+
+      
+    }
+
+   function preimg() {
+        current = (current - 1 + urlList.length) % urlList.length;
+
+
+        document.body.querySelector(".img").src = urlList[current].url;
+
+
+       
+    }
+
+</script>
+
+</html>

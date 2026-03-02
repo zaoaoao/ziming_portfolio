@@ -1,0 +1,1164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <link href="https://fonts.googleapis.com/css?family=Gaegu|Give+You+Glory|League+Script" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+        <title>constantdullaart.com</title>
+
+        <style>
+            * {
+    margin: 0;
+    padding: 0;
+    font-family: Palatino, serif;
+}
+
+body {
+    background-color: rgb(123, 117, 104);
+    height: auto;
+}
+
+img, .imgs video {
+    width: 100%;
+    background: #aaa;
+}
+h1, h2, h3, h4, h5, h6, p, li, a {
+    text-shadow: -1px -1px 1px brown, 1px 1px 0px #000;
+    color: #fff;
+}
+.page p {
+    opacity: 0.3;
+    font-size: 4em;
+    line-height: 0.5em;
+    font-weight: bold;
+}
+.page {
+    width: 100vw;
+    padding: 30px;
+    text-align: center;
+    text-decoration: none;
+    flex-shrink: 0;
+    margin: 20px;
+}
+.page.hidden {
+    display: none;
+    visibility: hidden;
+}
+.page.active p {
+    opacity: 1;
+}
+span.reference {
+    font-size: 10px;
+    vertical-align: top;
+}
+
+.sideMenu, .filterMenu {
+    position: fixed;
+    width: 100%;
+    background-color: rgba(123, 117, 104, 0.8);
+    height: 100%;
+    z-index: 30;
+    overflow-y: scroll;
+    visibility: visible;
+}
+.sideMenu {
+    left: 0;
+    transition: left 0.75s, visibility 0s 0s;
+}
+.filterMenu {
+    right: 0;
+    transition: right 0.75s, visibility 0s 0s;
+    text-align: center;
+    padding-top: 100px;
+    max-height: 100vh;
+    overflow: scroll;
+    box-sizing: border-box;
+}
+.filterMenu p {
+    font-size: 3.3em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'League Script', cursive;
+}
+
+.mobile .sideMenu, .mobile .filterMenu {
+    background-color: rgba(123, 117, 104, 0.95);
+}
+
+
+.sideMenu.hidden {
+    left: -100%;
+    pointer-events: none;
+    visibility: hidden;
+    transition: left 0.75s, visibility 0s 0.75s;
+}
+.filterMenu.hidden {
+    right: -100%;
+    pointer-events: none;
+    visibility: hidden;
+    transition: right 0.75s, visibility 0s 0.75s;
+}
+
+.sideMenu a {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 3.3em;
+    opacity: 0.3;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'League Script', cursive;
+    text-decoration: none;
+    transition: opacity 0.3s;
+    font-weight: bold;
+}
+.mobile .sideMenu a {
+    opacity: 1;
+}
+.sideMenu a:hover, .sideMenu a:focus, .closeNav:hover, .closeNav:focus {
+    opacity: 1;
+}
+
+
+.filterMenu button:not(.closeNav) {
+    background: none;
+    border: 1px solid #fff;
+    box-shadow: -1px -1px 1px brown, 1px 1px 0px #000;
+    color: #fff;
+    text-shadow: -1px -1px 1px brown, 1px 1px 0px #000;
+    border-radius: 25px;
+    height: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 20px;
+    opacity: 0.4;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.filterMenu button:not(.closeNav):not(.active) {
+    cursor: pointer;
+}
+.filterMenu button:not(.closeNav).active {
+    opacity: 1;
+}
+.filterMenu button:not(.closeNav):not(.active):hover {
+    opacity: 0.7;
+}
+.filterMenu .optionRow {
+    margin-bottom: 60px;
+}
+.filterMenu .optionGroup {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+.filterMenu .optionGroup:last-child {
+    margin-bottom: 120px;
+}
+.filterMenu .optionGroup p {
+    display: block;
+    width: calc(50% - 60px);
+    text-align: right;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: 0;
+}
+.filterMenu .optionGroup .options {
+    width: calc(50% + 60px);
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+.filterMenu .optionGroup .options label {
+    display: block;
+    width: 100%;
+    text-align: left;
+    opacity: 0.4;
+    cursor: pointer;
+}
+.filterMenu .optionGroup .options label:hover {
+    opacity: 0.7;
+}
+.filterMenu .optionGroup .options label, .filterMenu .optionGroup p {
+    font-size: 18px;
+    font-family: Palatino, serif;
+    color: #fff;
+    text-shadow: -1px -1px 1px brown, 1px 1px 0px #000;
+    padding: 2px;
+    box-sizing: border-box;
+}
+.filterMenu .optionGroup .options label:has(input:checked) {
+    opacity: 1;
+}
+.filterMenu .optionGroup .options input[type=checkbox] {
+    visibility: hidden;
+    display: none;
+}
+
+
+.toggleNav, .toggleFilters, .resetFilters {
+    border: none;
+    outline: none;
+    background: none;
+    cursor: context-menu;
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    z-index: 10;
+    font-size: 5em;
+    color: #fff;
+    text-shadow: -1px -1px 1px #808080, 1px 1px 0px #000;
+    font-weight: bold;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s 0.5s, visibility 0s 0.5s;
+}
+.toggleFilters {
+    left: unset;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+    font-size: 0;
+    top: 27px;
+}
+.toggleFilters svg {
+    width: 100%;
+    height: 100%;
+}
+.resetFilters {
+    left: 50%;
+    margin-top: 20px;
+    font-size: 20px;
+    text-shadow: -1px -1px 1px brown, 1px 1px 0px #000;
+    font-weight: normal;
+    cursor: pointer;
+    transform: translate(-50%,0);
+    opacity: 0.5;
+    transition: none;
+}
+.resetFilters:hover {
+    opacity: 1;
+}
+.resetFilters.hidden {
+    display: none;
+    visibility: hidden;
+    pointer-events: none;
+}
+.toggleNav.hidden, .toggleFilters.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s 0s, visibility 0s 0.5s;
+}
+
+.closeNav {
+    position: fixed;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    color: #fff;
+    text-shadow: -1px -1px 1px brown, 1px 1px 0px #000;
+    width: 60px;
+    height: 60px;
+    overflow: visible;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    float: right;
+    top: 20px;
+    margin-bottom: 20px;
+    opacity: 0.3;
+    transition: opacity 0.5s;
+    z-index: 1;
+}
+.sideMenu .closeNav {
+    right: calc(100% - 80px);
+    left: 20px;
+}
+.filterMenu .closeNav {
+    left: calc(100% - 80px);
+    right: 20px;
+}
+body.index .container {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+body.index .flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    min-height: calc(120vh - 200px);
+    overflow: hidden;
+    width: 100%;
+}
+
+body.index .scrollContainer {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+.scrollMarker {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: 2px;
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 30px, rgba(255,255,255,0.15) 20%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,1) calc(100% - 30px));
+    margin-top: -1px;
+    z-index: -1;
+}
+.scrollMarker::before {
+    content: "";
+    position: absolute;
+    right: -5px;
+    top: -20px;
+    height: 2px;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid #fff;
+    border-radius: 5px;
+}
+.scrollMarker::after {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: -20px;
+    height: 2px;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid #fff;
+    border-radius: 5px;
+}
+
+.backgroundVideos {
+    position: fixed;
+    z-index: -10;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.backgroundVideos div {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.backgroundVideos div.active {
+    visibility: visible;
+}
+
+.backgroundVideos video, .backgroundVideos img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.entry .homeLink {
+    background: none;
+    border: none;
+    font-size: 4em;
+    opacity: 0.3;
+    text-decoration: none;
+    position: fixed;
+    top: 0;
+    left: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    z-index: 2;
+    color: #fff;
+    text-shadow: -1px -1px 1px brown, 1px 1px 0px #000;
+    cursor: pointer;
+}
+.entry .homeLink:hover {
+    opacity: 1;
+}
+
+.column {
+    padding: 20px;
+    padding-bottom: 30px;
+    box-sizing: border-box;
+    width: 50%;
+    float: left;
+    position: relative;
+}
+
+@media (max-width: 1200px) {
+    .column {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .column1 > * {
+        width: calc(100% + 100px);
+        margin-right: -100px;
+    }
+}
+
+.column1 {
+    padding-top: 120px;
+    z-index: 1;
+}
+
+.entry h1, .entry h2, .entry h3, .entry h4, .entry p, .entry li, .entry a {
+    opacity: 1;
+    color: rgb(224, 219, 209);
+    text-shadow: -1px -1px 1px brown, 1px 1px 0px #000, 0 0 4px rgb(123, 117, 104);
+}
+.entry a:hover, .entry a:hover p {
+    color: #fff;
+}
+
+ul {
+    list-style-type: none;
+}
+li::before {
+    content: "â˜†";
+    padding-right: 3px;
+}
+li {
+    margin: 5px;
+    font-size: 20px;
+}
+.entry h3, .entry h4 {
+    font-weight: normal;
+}
+
+p.description {
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+p.description::first-letter {
+    font-size: 230%;
+    float: left;
+    margin-right: 3px;
+    margin-bottom: -10px;
+}
+
+.links {
+    margin-top: 100px;
+    margin-bottom: 10px;
+}
+.expos {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+.workLinks {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.entry h1 {
+    font-size: 2.5em;
+}
+.entry h2 {
+    font-size: 1.5em;
+}
+.entry h4 {
+    font-size: 1.1em;
+}
+.entry .backgroundVideos {
+    opacity: 0.1;
+}
+.entry .imgs.active {
+    position: fixed;
+    overflow-y: scroll;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    max-height: 100vh;
+    z-index: 2;
+}
+.entry .imgs.active > * {
+    max-height: 100vh;
+}
+.entry .close {
+    display: none;
+    visibility: hidden;
+}
+.entry .imgs.active .close {
+    display: block;
+    visibility: visible;
+    background: none;
+    border: none;
+    text-decoration: none;
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 4em;
+    color: #fff;
+    text-shadow: -1px -1px 1px brown, 1px 1px 0px #000;
+    left: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    opacity: 0.3;
+    cursor: zoom-out;
+}
+.entry .imgs.active .close:hover {
+    opacity: 1;
+}
+.entry img, .entry .imgs video, .entry .imgs audio, .entry .imgs iframe {
+    background-color: #000;
+    color: #fff;
+}
+.entry img, .entry .imgs video, .entry .imgs audio, .entry .imgs iframe, .entry .footer .logo p {
+    position: relative;
+    box-sizing: border-box;
+    border-width: 8px;
+    border-style: solid;
+    border-top-color: rgb(214, 146, 146);
+    border-left-color: rgb(199, 161, 161);
+    border-bottom-color: rgb(61, 52, 52);
+    border-right-color: rgb(51, 39, 39);
+/*    transition: border-width 0.5s;*/
+    margin: 0;
+    padding: 0;
+}
+.entry .imgs:not(.active) img, .entry .imgs:not(.active) video, .entry .imgs:not(.active) audio, .entry .imgs:not(.active) .blocker {
+    cursor: zoom-in;
+}
+.entry .imgs.active img {
+    cursor: zoom-out;
+}
+
+.entry .imgs audio {
+    width: 100%;
+    height: 65px;
+}
+.entry .imgs iframe {
+    width: 100%;
+    aspect-ratio: 1 / calc(100vh / 100vw);
+}
+.entry .imgs .blocker {
+    width: 100%;
+    aspect-ratio: 1 / calc(100vh / 100vw);
+    margin-top: calc(100% * (100vh / 100vw) * -1);
+    margin-bottom: 0;
+    position: relative;
+    z-index: 10;
+}
+.entry .imgs.active .blocker {
+    pointer-events: none;
+}
+
+/*
+.entry .imgs img:hover, .entry .imgs a:focus img {
+    z-index: 2;
+    border-width: 4px;
+    border-top-color: rgb(237, 175, 175);
+    border-left-color: rgb(217, 182, 182);
+    border-bottom-color: rgb(87, 74, 74);
+    border-right-color: rgb(77, 58, 58);
+}
+*/
+
+.footer {
+    float: left;
+    width: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+}
+
+.footer h3 {
+    text-align: center;
+}
+
+.footer .logos {
+    width: 100%;
+    margin-top: 10px;
+    min-height: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.footer .logos .logo {
+    margin: 10px;
+}
+
+.footer .logos .logo img {
+    height: 150px;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.footer .logos .logo p {
+    height: 150px;
+    font-size: 32px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+.footer .logos .logo:hover > * {
+    border-top-color: rgb(237, 175, 175);
+    border-left-color: rgb(217, 182, 182);
+    border-bottom-color: rgb(87, 74, 74);
+    border-right-color: rgb(77, 58, 58);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1;
+}
+header h2 {
+    width: 100%;
+    text-align: center;
+    font-family: 'League Script', cursive;
+    text-decoration: none;
+    font-weight: normal;
+    margin-top: 20px;
+    font-size: 2em;
+}
+:not(mobile) header h2 a {
+    text-decoration: none;
+    opacity: 0.3;
+}
+:not(mobile) header h2 a:hover {
+    opacity: 1;
+}
+header .sorting h2 {
+    width: auto;
+}
+header .sorting {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+header select {
+    margin-top: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-size: 2em;
+    font-family: 'League Script', cursive;
+    text-decoration: none;
+    font-weight: normal;
+    display: inline-block;
+    background: none;
+    border: none;
+    text-shadow: -1px -1px 1px brown, 1px 1px 0px #000;
+    color: #fff;
+    text-indent: 8px;
+}
+header span.selectArrow {
+    display: inline-block;
+    margin-left: -30px;
+    font-size: 1.5em;
+    text-shadow: -1px -1px 1px brown, 1px 1px 0px #000;
+    color: #fff;
+    pointer-events: none;
+}
+:not(mobile) header span.selectArrow {
+    opacity: 0.3;
+}
+:not(mobile) header select:hover ~ span.selectArrow {
+    opacity: 1;
+}
+
+header select::-ms-expand {
+    display: none;
+}
+
+.alert {
+    position: fixed;
+    z-index: 10;
+    width: 800px;
+    max-width: 80vw;
+    left: 0;
+    right: 0;
+    margin: 200px auto 0;
+    background-color: rgb(123, 117, 104);
+    box-shadow: -1px -1px 0 rgba(166, 43, 43, 0.3), 1px 1px 0 rgba(0,0,0,0.3);
+    padding: 20px;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    text-shadow: -1px -1px 1px brown, 1px 1px 0px #000;
+}
+.alert .closeButton {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    opacity: 0.5;
+}
+.alert .closeButton:hover {
+    opacity: 1;
+}
+
+        </style>
+</head>
+
+
+<body class="index">
+
+    <button class="toggleNav" onclick="toggleMenu();">☰</button>
+
+    <nav class="sideMenu hidden">
+        <button class="closeNav" onclick="toggleMenu();">𝑥</button>
+        <a href="mailto:studio@constantdullaart.com?subject=request%20for%20studio%20Constant%20Dullaart&amp;body=Hi%20studio%20Constant%20Dullaart!%0A%0A...">Contact Studio ;)</a>
+        <a href="https://teh.dull.cloud/above/d/f/435689946171319943">resume</a>
+        <a href="https://www.upstreamgallery.nl/artists/55/constant-dullaart">♥Upstream Gallery♥</a>
+        <a href="https://pgp.mit.edu/pks/lookup?op=vindex&amp;search=0x2AA41B11EE60798D">Public Key</a>
+        <a href="https://teh.dull.cloud/above/d/s/435308464898580533/BybB6fSSUenhZac4_abM6I1fP8McsUsU-.SlA0R3UcQY_">Press (pdf folder)</a>
+        <a href="http://dullbrown.com">DullBrown™</a>
+        <a href="http://dulltech.com">DullTech™</a>
+        <a href="http://dulldream.xyz">DullDream™</a>
+        <a href="http://imagenet.xyz">European Classes</a>
+        <a href="http://v2.dulldream.xyz">DullDream™ v2</a>
+        <a href="https://en.wikipedia.org/wiki/Constant_Dullaart">Wikipedia (edit pls)</a>
+        <a href="http://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.xxx/">paradise tossed</a>
+        <a href="https://www.artpapers.org/balconism/">Balconium</a>
+        <a href="http://dulldawn.com/">DullDawn</a>
+        <a href="https://www.google.com/search?ei=MHkyXKODGMnFwALQkLuwAg&amp;q=%22constant+dullaart%22+OR+%22Constant+Dullart%22+OR+%22Constant+Dullaert%22+&amp;oq=%22constant+dullaart%22+OR+%22Constant+Dullart%22+OR+%22Constant+Dullaert%22+&amp;gs_l=psy-ab.3..35i302i39l2.6524.6524..6797...0.0..0.70.70.1......0....1..gws-wiz.Nji1A1jNX6g">Press ranked by Google ( yes DullAArt)</a>
+
+    </nav>
+
+    <button class="toggleFilters" onclick="toggleFilters();">
+        <svg
+           viewBox="0 0 89.999916 84.00016"
+           version="1.1"
+           id="svg1"
+           xmlns="http://www.w3.org/2000/svg"
+           xmlns:svg="http://www.w3.org/2000/svg">
+          <defs
+             id="defs1" />
+          <g
+             id="layer1"
+             transform="translate(-5,-8.0000001)">
+            <path
+               id="path3-8"
+               style="fill:#808080;fill-opacity:1;stroke-width:1.32292;stroke-dashoffset:0.475"
+               d="m 7.0000895,12.168789 v 6.775126 a 7.0821649,7.0821649 66.657493 0 0 2.2237382,5.152936 L 36.191094,49.522839 A 18.500212,18.500212 66.657493 0 1 42,62.98347 v 23.960237 a 3.0563292,3.0563292 45.000342 0 0 3.056293,3.056329 l 9.887414,1.19e-4 A 3.0562562,3.0562562 135.00034 0 0 58,86.943898 L 58,62.98347 A 18.500177,18.500177 113.34255 0 1 63.808913,49.522847 L 90.776267,24.096848 a 7.0821514,7.0821514 113.34255 0 0 2.223741,-5.152933 l 0,-6.775126 A 2.1687887,2.1687887 45 0 0 90.831219,10 H 9.1688782 a 2.1687887,2.1687887 135 0 0 -2.1687887,2.168789 z"
+               transform="translate(-2.0000895,-2)" />
+            <path
+               id="path3-8-9"
+               style="stroke-width:1.32292;stroke-dashoffset:0.475"
+               d="m 7.0000895,12.168789 v 6.775126 a 7.0821649,7.0821649 66.657493 0 0 2.2237382,5.152936 L 36.191094,49.522839 A 18.500212,18.500212 66.657493 0 1 42,62.98347 v 23.960237 a 3.0563292,3.0563292 45.000342 0 0 3.056293,3.056329 l 9.887414,1.19e-4 A 3.0562562,3.0562562 135.00034 0 0 58,86.943898 L 58,62.98347 A 18.500177,18.500177 113.34255 0 1 63.808913,49.522847 L 90.776267,24.096848 a 7.0821514,7.0821514 113.34255 0 0 2.223741,-5.152933 l 0,-6.775126 A 2.1687887,2.1687887 45 0 0 90.831219,10 H 9.1688782 a 2.1687887,2.1687887 135 0 0 -2.1687887,2.168789 z"
+               transform="translate(1.9999105,2)" />
+            <path
+               id="path3"
+               style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.32292;stroke-dashoffset:0.475"
+               d="m 7.0000895,12.168789 v 6.775126 a 7.0821649,7.0821649 66.657493 0 0 2.2237382,5.152936 L 36.191094,49.522839 A 18.500212,18.500212 66.657493 0 1 42,62.98347 v 23.960237 a 3.0563292,3.0563292 45.000342 0 0 3.056293,3.056329 l 9.887414,1.19e-4 A 3.0562562,3.0562562 135.00034 0 0 58,86.943898 L 58,62.98347 A 18.500177,18.500177 113.34255 0 1 63.808913,49.522847 L 90.776267,24.096848 a 7.0821514,7.0821514 113.34255 0 0 2.223741,-5.152933 l 0,-6.775126 A 2.1687887,2.1687887 45 0 0 90.831219,10 H 9.1688782 a 2.1687887,2.1687887 135 0 0 -2.1687887,2.168789 z" />
+          </g>
+        </svg>
+    </button>
+    <button class="resetFilters hidden" onclick="resetFilters();">reset filters</button>
+
+    <div class="filterMenu hidden">
+        <button class="closeNav" onclick="toggleFilters();">𝑥</button>
+        <p>Sorting:</p>
+        <div class="optionRow sortingOptions">
+            <button data-order="default" class="active">Sandard</button>
+            <button data-order="year-desc">By Year (newest first)</button>
+            <button data-order="year-asc">By Year (oldest first)</button>
+        </div>
+        <p>Filters:</p>
+        <div class="optionGroup">
+            <p>Theme:</p>
+            <div class="options">
+
+                            <label for="theme1">DullDream<input name="theme" id="theme1" value="1" type="checkbox"></label>
+                            <label for="theme2">Website<input name="theme" id="theme2" value="2" type="checkbox"></label>
+            
+            </div>
+        </div>
+        <div class="optionGroup">
+            <p>Medium:</p>
+            <div class="options">
+
+                            <label for="medium13">Ableton live<input name="medium" id="medium13" value="13" type="checkbox"></label>
+                            <label for="medium20">Bamboo<input name="medium" id="medium20" value="20" type="checkbox"></label>
+                            <label for="medium30">Browser-based performative work in domain name <input name="medium" id="medium30" value="30" type="checkbox"></label>
+                            <label for="medium120">Ceramic<input name="medium" id="medium120" value="120" type="checkbox"></label>
+                            <label for="medium33">Ceramic tiles<input name="medium" id="medium33" value="33" type="checkbox"></label>
+                            <label for="medium24">common.garden<input name="medium" id="medium24" value="24" type="checkbox"></label>
+                            <label for="medium11">Computer<input name="medium" id="medium11" value="11" type="checkbox"></label>
+                            <label for="medium23">Custom peer to peer webrtc connection<input name="medium" id="medium23" value="23" type="checkbox"></label>
+                            <label for="medium89">Custom vinyl wallpaper<input name="medium" id="medium89" value="89" type="checkbox"></label>
+                            <label for="medium10">DMX moving headlight<input name="medium" id="medium10" value="10" type="checkbox"></label>
+                            <label for="medium39">Felted flags<input name="medium" id="medium39" value="39" type="checkbox"></label>
+                            <label for="medium87">Flags<input name="medium" id="medium87" value="87" type="checkbox"></label>
+                            <label for="medium118">Forex Aluminium Sim cards<input name="medium" id="medium118" value="118" type="checkbox"></label>
+                            <label for="medium19">Framed<input name="medium" id="medium19" value="19" type="checkbox"></label>
+                            <label for="medium18">Fuji color crystal archive paper supreme HD print<input name="medium" id="medium18" value="18" type="checkbox"></label>
+                            <label for="medium22">Glue<input name="medium" id="medium22" value="22" type="checkbox"></label>
+                            <label for="medium31">Google maps API<input name="medium" id="medium31" value="31" type="checkbox"></label>
+                            <label for="medium32">Ink on paper<input name="medium" id="medium32" value="32" type="checkbox"></label>
+                            <label for="medium40">Instagram accounts<input name="medium" id="medium40" value="40" type="checkbox"></label>
+                            <label for="medium9">Installation<input name="medium" id="medium9" value="9" type="checkbox"></label>
+                            <label for="medium28">Javascript<input name="medium" id="medium28" value="28" type="checkbox"></label>
+                            <label for="medium88">Lasers<input name="medium" id="medium88" value="88" type="checkbox"></label>
+                            <label for="medium1">Neural network application<input name="medium" id="medium1" value="1" type="checkbox"></label>
+                            <label for="medium25">Neural network synthesised images class<input name="medium" id="medium25" value="25" type="checkbox"></label>
+                            <label for="medium17">Paint <input name="medium" id="medium17" value="17" type="checkbox"></label>
+                            <label for="medium121">Pigment<input name="medium" id="medium121" value="121" type="checkbox"></label>
+                            <label for="medium21">Polysterol Ink<input name="medium" id="medium21" value="21" type="checkbox"></label>
+                            <label for="medium35">PVC<input name="medium" id="medium35" value="35" type="checkbox"></label>
+                            <label for="medium16">Resin<input name="medium" id="medium16" value="16" type="checkbox"></label>
+                            <label for="medium15">Silicone<input name="medium" id="medium15" value="15" type="checkbox"></label>
+                            <label for="medium34">Smartphones<input name="medium" id="medium34" value="34" type="checkbox"></label>
+                            <label for="medium29">Social exhibition platform<input name="medium" id="medium29" value="29" type="checkbox"></label>
+                            <label for="medium12">Software<input name="medium" id="medium12" value="12" type="checkbox"></label>
+                            <label for="medium6">Steel<input name="medium" id="medium6" value="6" type="checkbox"></label>
+                            <label for="medium52">Tech Company<input name="medium" id="medium52" value="52" type="checkbox"></label>
+                            <label for="medium7">Video<input name="medium" id="medium7" value="7" type="checkbox"></label>
+                            <label for="medium27">Webrtc<input name="medium" id="medium27" value="27" type="checkbox"></label>
+                            <label for="medium4">Website<input name="medium" id="medium4" value="4" type="checkbox"></label>
+                            <label for="medium26">Websockets<input name="medium" id="medium26" value="26" type="checkbox"></label>
+                            <label for="medium14">Wood<input name="medium" id="medium14" value="14" type="checkbox"></label>
+            
+            </div>
+        </div>
+        <div class="optionGroup">
+            <p>Exhibition:</p>
+            <div class="options">
+
+                            <label for="expo17"> I Was Raised On The Internet, MCA, Chicago, USA, 2018<input name="expo" id="expo17" value="17" type="checkbox"></label>
+                            <label for="expo13">abandon all hope ye who enter here, transmediale, Berlin, DE, 2022<input name="expo" id="expo13" value="13" type="checkbox"></label>
+                            <label for="expo9">Accepting the Job, Office Impart, Berlin, DE, 2024<input name="expo" id="expo9" value="9" type="checkbox"></label>
+                            <label for="expo4">Alien Matter, Transmediale, Haus der Kulturen der Welt, Berlin, DE, 2017<input name="expo" id="expo4" value="4" type="checkbox"></label>
+                            <label for="expo41">All I Know Is What’s On The Internet, Photographers Gallery, London, UK, 2019<input name="expo" id="expo41" value="41" type="checkbox"></label>
+                            <label for="expo57">Art Basel Miami with Carroll / Fletcher, Miami, USA, 2014<input name="expo" id="expo57" value="57" type="checkbox"></label>
+                            <label for="expo16">Behind the screen, Kindl, Berlin, DE, 2019<input name="expo" id="expo16" value="16" type="checkbox"></label>
+                            <label for="expo71">Cycle Music and Art Festival, Kópavogur, IS, 2016<input name="expo" id="expo71" value="71" type="checkbox"></label>
+                            <label for="expo20">Deep Epoch, Upstream Gallery, Amsterdam, NL, 2016<input name="expo" id="expo20" value="20" type="checkbox"></label>
+                            <label for="expo15">DullLife™, Upstream Gallery, Amsterdam, NL, 2019<input name="expo" id="expo15" value="15" type="checkbox"></label>
+                            <label for="expo10">Exploring the Decentralized Web - Art on the Blockchain, Haus der Elektronischen Künste Basel, CH, 2023<input name="expo" id="expo10" value="10" type="checkbox"></label>
+                            <label for="expo12">Foundation Festival, Videotage / distant.gallery, 2023<input name="expo" id="expo12" value="12" type="checkbox"></label>
+                            <label for="expo56">HEALING, Fabio Paris Gallery, Brescia, IT, 2012<input name="expo" id="expo56" value="56" type="checkbox"></label>
+                            <label for="expo39">High Retention Slow Delivery, Jeu de Paume - espace virtuel, Paris, FR, 2014<input name="expo" id="expo39" value="39" type="checkbox"></label>
+                            <label for="expo18">Human / Digital: A symbiotic love affair, Kunsthal Rotterdam, NL 2017<input name="expo" id="expo18" value="18" type="checkbox"></label>
+                            <label for="expo14">IDFA DocLab, Cultuurhuis De Brakke Grond, Amsterdam, NL, 2022<input name="expo" id="expo14" value="14" type="checkbox"></label>
+                            <label for="expo66">Material Art Fair, Future Gallery, Mexico City, MX, 2017<input name="expo" id="expo66" value="66" type="checkbox"></label>
+                            <label for="expo24">Neoliberal Lulz, Carroll/Fletcher, Londen, EN, 2016<input name="expo" id="expo24" value="24" type="checkbox"></label>
+                            <label for="expo23">Net Art Anthology, Chapter 3: 2005-2010, Rhizome<input name="expo" id="expo23" value="23" type="checkbox"></label>
+                            <label for="expo34">New Corporate Strategies in Art, Stedelijk Museum Bureau Amsterdam, Amsterdam, NL, 2015<input name="expo" id="expo34" value="34" type="checkbox"></label>
+                            <label for="expo5">Open Codes, ZKM, Karlsruhe, DE<input name="expo" id="expo5" value="5" type="checkbox"></label>
+                            <label for="expo76">Particulare - Mirrormap Sculpture Parcours, CH, 2025<input name="expo" id="expo76" value="76" type="checkbox"></label>
+                            <label for="expo6">Phantom Love, Digital Commissions Programme, UP Projects, UK, 2017<input name="expo" id="expo6" value="6" type="checkbox"></label>
+                            <label for="expo67">Profile Wars, Circl, Amsterdam, NL, 2019<input name="expo" id="expo67" value="67" type="checkbox"></label>
+                            <label for="expo28">Stringendo, Vanishing Mediators, Carroll/Fletcher, London, UK, 2014<input name="expo" id="expo28" value="28" type="checkbox"></label>
+                            <label for="expo8">Sunsetting Inconsistencies, Upstream Gallery, Amsterdam, NL, 2023 <input name="expo" id="expo8" value="8" type="checkbox"></label>
+                            <label for="expo19">Synthesising the Preferred Inputs, Future Gallery, Berlin, DE, 2016<input name="expo" id="expo19" value="19" type="checkbox"></label>
+                            <label for="expo58">The Censored Internet, Aksioma, Ljubliana, SI, 2015<input name="expo" id="expo58" value="58" type="checkbox"></label>
+                            <label for="expo42">The Possibility of an Army, Schirn Kunsthalle Frankfurt, Frankfurt, DE, 2015<input name="expo" id="expo42" value="42" type="checkbox"></label>
+                            <label for="expo22">This Unjust Mirror, Het Fries Museum, Leeuwarden, NL, 2020<input name="expo" id="expo22" value="22" type="checkbox"></label>
+                            <label for="expo3">Uncanny Values, Vienna Biennale, AT, 2019<input name="expo" id="expo3" value="3" type="checkbox"></label>
+            
+            </div>
+        </div>
+        <div class="optionGroup">
+            <p>Year:</p>
+            <div class="options">
+
+                                                    <label for="year"><input name="year" id="year" value="" type="checkbox"></label>
+                            <label for="year2010">2010<input name="year" id="year2010" value="2010" type="checkbox"></label>
+                            <label for="year2014">2014<input name="year" id="year2014" value="2014" type="checkbox"></label>
+                            <label for="year2015">2015<input name="year" id="year2015" value="2015" type="checkbox"></label>
+                            <label for="year2016">2016<input name="year" id="year2016" value="2016" type="checkbox"></label>
+                            <label for="year2017">2017<input name="year" id="year2017" value="2017" type="checkbox"></label>
+                            <label for="year2018">2018<input name="year" id="year2018" value="2018" type="checkbox"></label>
+                            <label for="year2019">2019<input name="year" id="year2019" value="2019" type="checkbox"></label>
+                            <label for="year2020">2020<input name="year" id="year2020" value="2020" type="checkbox"></label>
+                            <label for="year2022">2022<input name="year" id="year2022" value="2022" type="checkbox"></label>
+                            <label for="year2023">2023<input name="year" id="year2023" value="2023" type="checkbox"></label>
+            
+            </div>
+        </div>
+        <div class="optionRow">
+            <button onclick="resetFilters();">Reset all</button>
+            <button onclick="toggleFilters();">Close</button>
+        </div>
+    </div>
+
+    
+
+    <div class="container">
+        <div class="flex">
+            <a class='page' id='page547' href='projects/hi-mac-demonstration-drawing-series' data-order='0' data-year='2014' ><p>Hi MAC Demonstration Drawing Series</p></a>
+            <a class='page' id='page522' href='projects/pva-formations' data-order='1' data-year='2016' data-medium='118' data-expo='41,20,19,66,67' ><p>PVA Formations</p></a>
+            <a class='page' id='page464' href='projects/lascaux-plinth' data-order='2' data-year='2019' data-medium='14,120,121' data-expo='15' ><p>Lascaux Plinth</p></a>
+            <a class='page' id='page144' href='projects/the-possibility-of-an-army' data-order='3' data-year='2015' data-expo='42' ><p>The Possibility of an Army</p></a>
+            <a class='page' id='page141' href='projects/the-censored-internet' data-order='4' data-year='2014' data-medium='4,87,88,89' data-expo='28,56,57,58' ><p>thecensoredinternet.com</p></a>
+            <a class='page' id='page106' href='projects/DullTechTM' data-order='5' data-year='2014' data-medium='52' data-expo='24,34,71' ><p>DullTech™</p></a>
+            <a class='page' id='page79' href='projects/high-retention-slow-delivery' data-order='6' data-year='2014' data-expo='39,19' ><p>High Retention, Slow Delivery</p></a>
+            <a class='page' id='page50' href='projects/target-audience' data-order='7' data-year='2018' data-medium='39,40' data-expo='15' ><p>Target Audience</p></a>
+            <a class='page' id='page32' href='projects/dulldream-trade' data-order='8' data-year='2015' data-theme='1' data-medium='1' data-expo='3,4,5' ><p>DullDream™ a neural network photo effect making images less significant</p></a>
+            <a class='page' id='page29' href='projects/the-revolving-internet' data-order='9' data-year='2010' data-medium='30' data-expo='23,56' ><p>The Revolving Internet</p></a>
+            <a class='page' id='page27' href='projects/attention.rip' data-order='10' data-year='2017' data-theme='2' data-medium='34,35' data-expo='6' ><p>attention.rip</p></a>
+            <a class='page' id='page26' href='projects/convnet-filter-cube' data-order='11' data-year='2019' data-medium='33' data-expo='9,15' ><p>Convnet Filter Cube</p></a>
+            <a class='page' id='page25' href='projects/ascii-series' data-order='12' data-year='2023' data-medium='19,32' data-expo='8' ><p>ASCII Series</p></a>
+            <a class='page' id='page24' href='projects/dull.life' data-order='13' data-year='' data-expo='15' ><p>dull.life™</p></a>
+            <a class='page' id='page20' href='projects/this-unjust-mirror' data-order='14' data-year='2020' data-medium='24' data-expo='22' ><p>This Unjust Mirror</p></a>
+            <a class='page' id='page19' href='projects/detour.world' data-order='15' data-year='2020' data-medium='4,31' ><p>detour.world</p></a>
+            <a class='page' id='page18' href='projects/chorus' data-order='16' data-year='2020' data-medium='30' ><p>Chorus</p></a>
+            <a class='page' id='page17' href='projects/touch-ing' data-order='17' data-year='' data-medium='9,7' ><p>Touch-ING</p></a>
+            <a class='page' id='page16' href='projects/common.garden' data-order='18' data-year='2020' data-medium='26,27,28,29' ><p>common.garden</p></a>
+            <a class='page' id='page15' href='projects/convnet-series' data-order='19' data-year='2016' data-medium='25' data-expo='9,15,16,17,18,19,20' ><p>ConvNet Series</p></a>
+            <a class='page' id='page14' href='projects/social-bouquet' data-order='20' data-year='2022' data-medium='23,24' data-expo='14' ><p>Social Bouquet</p></a>
+            <a class='page' id='page13' href='projects/aura.lol' data-order='21' data-year='2022' data-expo='10,12,13' ><p>aura.lol</p></a>
+            <a class='page' id='page12' href='projects/snowww-crshahs' data-order='22' data-year='2023' data-medium='20,21,22' data-expo='9,8,76' ><p>snowww crshahs</p></a>
+            <a class='page' id='page11' href='projects/paperclip-maximizer' data-order='23' data-year='2023' data-medium='18,19' data-expo='8' ><p>Paperclip Maximizer Series</p></a>
+            <a class='page' id='page9' href='projects/mein-goldener-siggi' data-order='24' data-year='2023' data-medium='7,9,10,11,12,13' data-expo='8' ><p>Mein goldener Siggi</p></a>
+            <a class='page' id='page8' href='projects/accepting-the-job' data-order='25' data-year='2023' data-medium='6,14,15,16,17' data-expo='8,9' ><p>Accepting the Job</p></a>
+                    </div>
+    </div>
+
+    <div class="backgroundVideos">
+        <div id='video547'><img src='img/547/' alt='background image'></img><video data-src='img/547/video.mp4' autoplay muted loop playsinline></video></div><div id='video522'><img src='img/522/675c2f6ec07e2.jpeg' alt='background image'></img><video data-src='img/522/video.mp4' autoplay muted loop playsinline></video></div><div id='video464'><img src='img/464/6792806a61718.png' alt='background image'></img><video data-src='img/464/video.mp4' autoplay muted loop playsinline></video></div><div id='video144'><img src='img/144/6732369c023a1.jpg' alt='background image'></img><video data-src='img/144/video.mp4' autoplay muted loop playsinline></video></div><div id='video141'><img src='img/141/' alt='background image'></img><video data-src='img/141/video.mp4' autoplay muted loop playsinline></video></div><div id='video106'><img src='img/106/' alt='background image'></img><video data-src='img/106/video.mp4' autoplay muted loop playsinline></video></div><div id='video79'><img src='img/79/6707a8b50f037.jpg' alt='background image'></img><video data-src='img/79/video.mp4' autoplay muted loop playsinline></video></div><div id='video50'><img src='img/50/67067630e23ad.jpg' alt='background image'></img><video data-src='img/50/video.mp4' autoplay muted loop playsinline></video></div><div id='video32'><img src='img/32/661e760f4c4da.png' alt='background image'></img><video data-src='img/32/video.mp4' autoplay muted loop playsinline></video></div><div id='video29'><img src='img/29/661e6ab79944d.png' alt='background image'></img><video data-src='img/29/video.mp4' autoplay muted loop playsinline></video></div><div id='video27'><img src='img/27/66194c4eae768.png' alt='background image'></img><video data-src='img/27/video.mp4' autoplay muted loop playsinline></video></div><div id='video26'><img src='img/26/661949039b377.jpg' alt='background image'></img><video data-src='img/26/video.mp4' autoplay muted loop playsinline></video></div><div id='video25'><img src='img/25/6619379b766e7.jpg' alt='background image'></img><video data-src='img/25/video.mp4' autoplay muted loop playsinline></video></div><div id='video24'><img src='img/24/661930142c3fd.png' alt='background image'></img><video data-src='img/24/video.mp4' autoplay muted loop playsinline></video></div><div id='video20'><img src='img/20/6616ba7820bc7.png' alt='background image'></img><video data-src='img/20/video.mp4' autoplay muted loop playsinline></video></div><div id='video19'><img src='img/19/6616af319d094.jpg' alt='background image'></img><video data-src='img/19/video.mp4' autoplay muted loop playsinline></video></div><div id='video18'><img src='img/18/661567ccc5d35.png' alt='background image'></img><video data-src='img/18/video.mp4' autoplay muted loop playsinline></video></div><div id='video17'><img src='img/17/661564c0655ef.jpg' alt='background image'></img><video data-src='img/17/video.mp4' autoplay muted loop playsinline></video></div><div id='video16'><img src='img/16/661545d0a8c30.png' alt='background image'></img><video data-src='img/16/video.mp4' autoplay muted loop playsinline></video></div><div id='video15'><img src='img/15/66153ea0c80e6.jpg' alt='background image'></img><video data-src='img/15/video.mp4' autoplay muted loop playsinline></video></div><div id='video14'><img src='img/14/66153224c9224.jpg' alt='background image'></img><video data-src='img/14/video.mp4' autoplay muted loop playsinline></video></div><div id='video13'><img src='img/13/661e7388063d6.jpg' alt='background image'></img><video data-src='img/13/video.mp4' autoplay muted loop playsinline></video></div><div id='video12'><img src='img/12/6602cf8883b38.jpg' alt='background image'></img><video data-src='img/12/video.mp4' autoplay muted loop playsinline></video></div><div id='video11'><img src='img/11/6602c50fc8458.jpg' alt='background image'></img><video data-src='img/11/video.mp4' autoplay muted loop playsinline></video></div><div id='video9'><img src='img/9/65e72450c5ba7.jpg' alt='background image'></img><video data-src='img/9/video.mp4' autoplay muted loop playsinline></video></div><div id='video8'><img src='img/8/65e7350913ef0.jpg' alt='background image'></img><video data-src='img/8/video.mp4' autoplay muted loop playsinline></video></div>    </div>
+
+        <script type="text/javascript" src="js/links_hover.js">
+
+            let links = document.querySelectorAll(".page");
+
+for (let i=0; i<links.length; i++) {
+    links[i].addEventListener("mouseover", handleMouseOver);
+    links[i].addEventListener("focus", handleMouseOver);
+    links[i].addEventListener("mouseout", handleMouseOut);
+}
+
+
+function handleMouseOver(event) {
+    handleMouseOut();
+    event.currentTarget.classList.add("active");
+    let index = event.currentTarget.id.split("page")[1];
+    let video = document.querySelector("#video" + index + " video");
+
+    video.parentElement.classList.add("active");
+    video.setAttribute("src", video.dataset.src);
+}
+
+function handleMouseOut() {
+    let videos = document.querySelectorAll(".backgroundVideos video");
+    for (let i=0; i<videos.length; i++) {
+        videos[i].setAttribute("src", "");
+        videos[i].parentElement.classList.remove("active");
+    }
+    let links = document.querySelectorAll("a.page");
+    for (let i=0; i<links.length; i++) {
+        links[i].classList.remove("active");
+    }
+}
+
+        </script>
+    <script type="text/javascript" src="js/hamburger.js">
+        function toggleMenu() {
+    document.querySelector('.sideMenu').classList.toggle('hidden');
+    document.querySelector('.toggleNav').classList.toggle('hidden');
+}
+
+    </script>
+    <script type="text/javascript" src="js/sorting.js">
+        let options, pages, resetButton, sortButtons;
+
+// setup
+
+function setupFilterEvents() {
+    options = document.querySelectorAll(".filterMenu input[type=checkbox]");
+    pages = document.querySelectorAll(".container a.page");
+    if (!pages || pages.length == 0) {
+        pages = document.querySelectorAll("tr[id^=page]");
+    }
+    resetButton = document.querySelector(".resetFilters");
+    sortButtons = document.querySelectorAll(".sortingOptions button");
+
+    if (window.location.pathname.includes("/cms/")) {
+        let paragraphs = document.querySelectorAll(".filterMenu > p");
+        paragraphs.forEach(elem => {
+            elem.remove();
+        });
+        document.querySelector(".sortingOptions").remove();
+    }
+
+    // aply any filters from URL
+    let params = window.location.search.split("&");
+    params[0] = params[0].substr(1,9999);
+    params.forEach((param) => {
+        let prop = param.split("=")[0];
+        let val = param.split("=")[1];
+
+        let elem = document.querySelector("input[name='" + prop + "'][value='" + val + "']");
+        if (elem) { elem.checked = true; }
+    });
+
+    filterPages();
+
+    options.forEach((option) => {
+        option.addEventListener("change", filterPages);
+    });
+
+    sortButtons.forEach(button => {
+        button.addEventListener("click", sortButtonHandler);
+    });
+
+}
+
+window.addEventListener("load", setupFilterEvents);
+
+// filters
+
+function resetFilters() {
+    options.forEach((option) => {
+        option.checked = false;
+    });
+    filterPages();
+}
+
+function filterPages() {
+    // Get all checked filters grouped by property
+    let checkedFilters = {};
+    let anyFilters = false;
+
+    options.forEach((option) => {
+        if (option.checked) {
+            anyFilters = true;
+            let prop = option.name;
+            let val = option.value;
+
+            if (!checkedFilters[prop]) {
+                checkedFilters[prop] = [];
+            }
+            checkedFilters[prop].push(val);
+        }
+    });
+
+    // Filter pages
+    pages.forEach((page) => {
+        let shouldShow = true;
+
+        if (anyFilters) {
+            // Check if page matches ALL filter categories
+            for (let prop in checkedFilters) {
+                let pageProps = page.dataset[prop];
+                if (pageProps) {
+                    pageProps = pageProps.split(/[\s,]+/);
+                } else {
+                    pageProps = [];
+                }
+
+                // Check if page has at least one value from this filter category
+                let hasMatch = checkedFilters[prop].some(val => pageProps.includes(val));
+                if (!hasMatch) {
+                    shouldShow = false;
+                    break;
+                }
+            }
+        }
+
+        // Show or hide the page
+        if (shouldShow) {
+            page.classList.remove("hidden");
+        } else {
+            page.classList.add("hidden");
+        }
+    });
+
+    if (!anyFilters) {
+        resetButton.classList.add("hidden");
+        pages.forEach((page) => {
+            page.classList.remove("hidden");
+        });
+    } else {
+        resetButton.classList.remove("hidden");
+    }
+
+}
+
+// sorting
+
+function sortButtonHandler(event) {
+    sortType = event.currentTarget.dataset.order;
+    sortPages(sortType);
+}
+
+function sortPages(sortType) {
+    const container = document.querySelector('.container .flex');
+    const items = Array.from(container.querySelectorAll('.page'));
+
+    // Sort based on the specified type
+    items.sort((a, b) => {
+        const aOrder = parseInt(a.dataset.order) || 0;
+        const bOrder = parseInt(b.dataset.order) || 0;
+        const aYear = parseInt(a.dataset.year) || 0;
+        const bYear = parseInt(b.dataset.year) || 0;
+
+        switch(sortType) {
+            case 'default':
+                return aOrder - bOrder;
+
+            case 'year-asc':
+                // Year ascending, then order ascending as fallback
+                if (aYear !== bYear) {
+                    return aYear - bYear;
+                }
+                return aOrder - bOrder;
+
+            case 'year-desc':
+                // Year descending, then order descending as fallback
+                if (aYear !== bYear) {
+                    return bYear - aYear;
+                }
+                return bOrder - aOrder;
+
+            default:
+                return 0;
+        }
+    });
+
+    // Clear container and re-append sorted items
+    container.innerHTML = '';
+    items.forEach(item => container.appendChild(item));
+
+    // set apropriate button to active
+    sortButtons.forEach(button => {
+        button.classList.remove("active");
+    });
+
+    document.querySelector(".sortingOptions button[data-order='" + sortType + "']").classList.add("active");
+}
+
+function toggleFilters() {
+    document.querySelector('.filterMenu').classList.toggle('hidden');
+    document.querySelector('.toggleFilters').classList.toggle('hidden');
+}
+
+    </script>
+
+</body>
+
+</html>

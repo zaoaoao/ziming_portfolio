@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html>
+<script>
+    window.addEventListener("load", () => {
+        document.getElementById("website").src = "about:blank";
+    });
+
+</script>
+
+<style>
+    @property --a {
+        syntax: "<number>";
+        initial-value: 1;
+        inherits: false;
+    }
+
+    @property --b {
+        syntax: "<angle>";
+        initial-value: -10deg;
+        inherits: false;
+    }
+
+    @property --c {
+        syntax: "<number>";
+        initial-value: 1;
+        inherits: false;
+    }
+
+    @property --d {
+        syntax: "<number>";
+        initial-value: 1;
+        inherits: false;
+    }
+
+    @property --e {
+        syntax: "<length>";
+        initial-value: 1000px;
+        inherits: false;
+    }
+
+    @property --f {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    @property --g {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+
+
+    .container {
+        width: 70vw;
+        height: 70vh;
+        perspective: 70vw;
+        z-index: 1;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(calc(-50% + 5vw), calc(-50% - 0vw));
+    }
+
+
+
+
+
+    .cube {
+
+
+        width: 36vw;
+        height: 70vh;
+        transform-style: preserve-3d;
+        transition: --a 2s, --b 2s, --c 2s, --d 2s, --e 2s, --f 2s, --g 2s;
+        transform:
+            scaleX(var(--a)) scaleY(var(--c)) scaleZ(var(--d)) rotateX(var(--f)) rotateY(var(--b)) rotateZ(var(--g)) translateX(0vw) translateY(0px) translateZ(-10vw) skewX(0deg) skewY(0deg);
+    }
+
+
+
+    .cube-wrap {
+        perspective: 0px;
+        perspective-origin: 50% 50%;
+    }
+
+
+    .front {
+        transform: translateZ(18vw);
+        background-color: rgba(255, 0, 0, 0);
+        transition: background-color 2s;
+        border: 0px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 70vw;
+        height: 70vh;
+        z-index: 999;
+        opacity: 1;
+    }
+
+
+
+    .left {
+        transform: translateX(-7vw) translateZ(25vw) translateY(-5vh) rotateY(30deg);
+        background: #000000;
+        transition: background-color 2s;
+        border: 0px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 11vw;
+        height: 80vh;
+
+        opacity: 1;
+        position: relative;
+        overflow-x: hidden;
+        overflow-y: auto;
+
+scrollbar-color: rgb(49, 49, 49) rgb(0, 0, 0);
+  scrollbar-width: thin;
+
+    }
+
+
+
+
+
+    .face {
+
+        position: absolute;
+        display: block;
+        align-items: normal;
+        justify-content: left;
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        line-break: strict;
+        word-wrap: break-word;
+
+    }
+
+
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+    }
+
+    body {
+        margin: 0;
+
+    }
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        border: 0cm;
+    }
+
+    .words {
+        height: auto;
+        position: absolute;
+        top: 0;
+        opacity: 1;
+        left: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        font-size: 0.5vw;
+        /* font-family: "Lucida Console", Monaco, monospace;*/
+        font-family: "Lucida Console", Monaco, monospace;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .designerbutton,
+    .publisherbutton,
+    .residencebutton {
+        cursor: pointer;
+        font-size: 2vw;
+        font-family: 'Times New Roman', Times, serif;
+        color: #ff0000;
+
+    }
+
+
+
+
+    button {
+        all: unset;
+        width: 10vw;
+        font-size: 0.6vw;
+        text-align: left;
+        text-transform: lowercase;
+    }
+
+    .active {
+        color: #ffffff !important;
+        font-size: 1vw !important;
+        /*text-shadow: 0.2vw 0.2vw 0.5vw rgb(255, 255, 255);*/
+    }
+
+    button:lang(en):after {
+        content: '🇬🇧';
+    }
+
+    body {
+        background-color: #000000;
+    }
+
+    .frame {
+        background-color: #ffffff;
+        z-index: 10;
+        display: none;
+        overflow: hidden;
+    }
+
+    .alterlink {
+        font-size: 20px;
+        left: 50%;
+        color: #ff0000;
+        display: block;
+        position: fixed;
+        opacity: 0;
+        transform: translate(-50%, 50%);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+
+    }
+    .info{
+        color: #ffffff;
+        font-size: 15px;
+        position: fixed;
+        left: 50%;
+                transform: translate(-50%, 50%);
+
+    }
+
+    .noweb {}
+</style>
+
+<head> </head>
+
+<body>
+    <div class="container">
+        <div class="cube" onclick="rotate()">
+
+            <div class="face left">
+
+                <div class="words">
+                    <span class="designerbutton" onclick="designeranimate()">designers<br></span>
+                    <span class="designers"></span>
+                    <span class="publisherbutton" onclick="publisheranimate()">publishers<br></span>
+                    <span class="publishers"></span>
+                    <span class="residencebutton" onclick="residenceanimate()">organizations<br></span>
+                    <span class="organizations"></span>
+                </div>
+            </div>
+
+            <div class="face front">
+                <div class="web"> <iframe class="frame" src="about:blank" id="website"></iframe></div>
+                <a class="alterlink" target="_blank">click here to visit website</a>
+                <p class="info">this webiste has problem with scrolling on safari</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</body>
+
+
+<script>
+
+
+
+
+
+    function randomColor() {
+        const colors = [
+            "rgb(0, 255, 0)",
+            "rgb(0, 0, 255)",
+            "rgb(0, 255, 255)",
+            "rgb(128, 0, 128)",
+            "rgb(255, 192, 203)",
+            "rgb(255, 255, 0)",
+            "rgb(255, 165, 0)",
+            "rgb(255, 0, 0)",
+            "rgb(128, 128, 128)",
+            "rgb(185, 255, 0)",
+            "rgb(0, 255, 236)",
+            "rgb(0, 143, 255)",
+            "rgb(232, 0, 255)",
+            "rgb(207, 255, 216)",
+            "rgb(255, 187, 187)",
+            "rgb(187, 231, 255)",
+        ];
+        const colors1 = [
+            "#000000"
+        ];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    const designerlist = [
+        { text: "75b\n", class: "7b", url: "https://75b.nl/", color: randomColor() },
+        { text: "ABC Dinamo\n", class: "ad noweb", url: "https://abcdinamo.com/teaching-lectures-workshops", color: randomColor() },
+        { text: "Adrianus Kundert\n", class: "ak noweb", url: "https://www.instagram.com/opblaashelicopter/?hl=en", color: randomColor() },
+        { text: "Artem Matyushkin\n", class: "am noweb", url: "https://a-r-t-e-m.com/", color: randomColor() },
+        { text: "Atelier Haegeman Temmerman\n", class: "aht", url: "https://haegeman-temmerman.be/", color: randomColor() },
+        { text: "Atelier van Lieshout\n", class: "avl", url: "https://www.ateliervanlieshout.com/", color: randomColor() },
+        { text: "Attak\n", class: "a", url: "https://attak.co/", color: randomColor() },
+        { text: "Benjamin Li\n", class: "bl", url: "https://benjaminli.nl/", color: randomColor() },
+        { text: "Bart de Baets\n", class: "bdb noweb", url: "", color: randomColor() },
+        { text: "Bertjan Pot\n", class: "bp", url: "https://www.bertjanpot.nl/", color: randomColor() },
+        { text: "Boris Tellegen\n", class: "bt noweb", url: "https://www.instagram.com/boris_tellegen/?hl=en#", color: randomColor() },
+        { text: "Bureau Borsche\n", class: "bb", url: "https://bureauborsche.com/", color: randomColor() },
+        { text: "Bureau Klammer\n", class: "bk", url: "https://bureauklammer.net/", color: randomColor() },
+        { text: "CoType Foundry\n", class: "cf", url: "https://cotypefoundry.com/", color: randomColor() },
+        { text: "Colour & Books\n", class: "cb noweb", url: "https://www.colourandbooks.com/", color: randomColor() },
+        { text: "Dan Reisinger\n", class: "dr", url: "https://danreisinger.com/", color: randomColor() },
+        { text: "Dan Vezentan\n", class: "dv", url: "https://www.danvezentan.com/", color: randomColor() },
+        { text: "Droog\n", class: "d", url: "https://droog.com", color: randomColor() },
+        { text: "Experimental Jetset\n", class: "ej", url: "https://www.jetset.nl/", color: randomColor() },
+        { text: "Figure 10\n", class: "f10", url: "https://figureten.nl/", color: randomColor() },
+        { text: "Frank Bruggeman\n", class: "fb", url: "https://frankbruggeman.com/", color: randomColor() },
+        { text: "Formafantasma\n", class: "ff noweb", url: "https://formafantasma.com/works", color: randomColor() },
+        { text: "Gijs Frieling\n", class: "gf", url: "https://www.gijsfrieling.nl", color: randomColor() },
+        { text: "Graftik\n", class: "g noweb", url: "https://graftik.lv/en?utm_source=chatgpt.com", color: randomColor() },
+        { text: "Guido de Boer\n", class: "gdb", url: "https://www.guidodeboer.info", color: randomColor() },
+        { text: "Hammer\n", class: "h", url: "https://hammer.to/", color: randomColor() },
+        { text: "Hansje van Halem Studio\n", class: "hvh", url: "https://hansje.net/", color: randomColor() },
+        { text: "He Jing\n", class: "hj noweb", url: "https://he-jing.com/works", color: randomColor() },
+        { text: "Haller Brun\n", class: "hb", url: "https://hallerbrun.eu/about/", color: randomColor() },
+        { text: "Imprudence\n", class: "i", url: "https://imprudence.fr/eng/", color: randomColor() },
+        { text: "Irma Boom\n", class: "ib noweb", url: "https://irmaboom.nl/", color: randomColor() },
+        { text: "James Langdon\n", class: "jl", url: "https://schoolofartsgent.be/en/agenda/james-langdon", color: randomColor() },
+        { text: "Jean-Philippe Bretin\n", class: "jpb", url: "https://jeanphilippebretin.fr/", color: randomColor() },
+        { text: "Johannes Langkamp\n", class: "jlk", url: "https://johanneslangkamp.com/", color: randomColor() },
+        { text: "Jonas Staal\n", class: "js noweb", url: "https://www.jonasstaal.nl/", color: randomColor() },
+        { text: "Julia Born\n", class: "jb", url: "https://www.juliaborn.com/", color: randomColor() },
+        { text: "Julia Joliat\n", class: "jj", url: "https://joliat.net/portfolio", color: randomColor() },
+        { text: "Jung Lee Type Foundry\n", class: "jltf", url: "https://j-ltf.com/", color: randomColor() },
+        { text: "Kees de Klein\n", class: "kdk noweb", url: "https://keesdeklein.eu/?fbclid=PAZXh0bgNhZW0CMTEAAadFW3ug_cDWWPUQ2shrxJszM_hoon7ZJqCcgsmHgkNdl8U1mNbth4f8-fBbJQ_aem_YEI_01J6k2eO_gjz0HlCKw", color: randomColor() },
+        { text: "Kexin Hao\n", class: "kh", url: "https://howkexin.com/", color: randomColor() },
+        { text: "KID Studio\n", class: "ks", url: "https://www.kiddesign.lv/kid-design-studio-about-us", color: randomColor() },
+        { text: "Koen Taselaar\n", class: "kt", url: "https://koentaselaar.nl/", color: randomColor() },
+        { text: "Koos Breen\n", class: "kb noweb", url: "https://www.koosbreen.com/", color: randomColor() },
+        { text: "Koos Buster\n", class: "kb2 noweb", url: "", color: randomColor() },
+        { text: "Kiosk Rotterdam\n", class: "kr", url: "https://kioskrotterdam.com/About", color: randomColor() },
+        { text: "Lo Siento\n", class: "ls noweb", url: "losiento.net", color: randomColor() },
+        { text: "Luna Maurer\n", class: "lm noweb", url: "https://lunamaurer.com/", color: randomColor() },
+        { text: "LMNOP\n", class: "lmnop", url: "https://lmnop.works/nl/over-ons/", color: randomColor() },
+        { text: "Main Studio\n", class: "ms", url: "https://mainstudio.com/", color: randomColor() },
+        { text: "Malte Müller\n", class: "mm", url: "https://maltemueller.com/", color: randomColor() },
+        { text: "Marshmallow Laser Feast\n", class: "mlf noweb", url: "https://marshmallowlaserfeast.com", color: randomColor() },
+        { text: "Mau Morgo\n", class: "mm2", url: "https://maumorgo.com/", color: randomColor() },
+        { text: "Michiel Schuurman\n", class: "ms2", url: "https://michielschuurman.com/", color: randomColor() },
+        { text: "MM Paris\n", class: "mmp", url: "https://www.mmparis.com/", color: randomColor() },
+        { text: "New Tendency\n", class: "nt", url: "https://newtendency.com/?v=1a13105b7e4e", color: randomColor() },
+        { text: "Neo Neo\n", class: "nn", url: "https://www.neoneo.ch/about/", color: randomColor() },
+        { text: "Norm\n", class: "n", url: "https://norm.to/", color: randomColor() },
+        { text: "Not Your Type Foundry\n", class: "nyt noweb", url: "https://www.notyourtype.nl/", color: randomColor() },
+        { text: "Ovidiu Hrin\n", class: "oh", url: "https://www.ovidiuhrin.com/", color: randomColor() },
+        { text: "Ok-RM\n", class: "okrm", url: "https://www.ok-rm.co.uk/", color: randomColor() },
+        { text: "Onformative\n", class: "o", url: "https://onformative.com", color: randomColor() },
+        { text: "Our Polite Society\n", class: "ops noweb", url: "https://ourpolitesociety.net/en/index", color: randomColor() },
+        { text: "Playmodes\n", class: "p", url: "https://playmodes.com", color: randomColor() },
+        { text: "PolygonFuture\n", class: "pf", url: "https://polygonfuture.studio", color: randomColor() },
+        { text: "Re-Levent\n", class: "rl", url: "https://re-levant.co.il/?lang=en", color: randomColor() },
+        { text: "Rein Reitsma\n", class: "rr", url: "https://reinreitsma.nl/", color: randomColor() },
+        { text: "RNDR\n", class: "r", url: "https://rndr.studio/", color: randomColor() },
+        { text: "Riet Wijnen\n", class: "rw noweb", url: "https://www.rietwijnen.nl/", color: randomColor() },
+        { text: "RVTR\n", class: "rvtr noweb", url: "https://www.rvtr.com", color: randomColor() },
+        { text: "Sadiene Nadine\n", class: "sn", url: "https://sadienadine.nl/", color: randomColor() },
+        { text: "Sabo Day\n", class: "sd", url: "http://saboday.com/", color: randomColor() },
+        { text: "Sam de Groot\n", class: "sdg", url: "https://www.samdegroot.nl/", color: randomColor() },
+        { text: "Scheltens & Abbenes\n", class: "sa noweb", url: "https://www.scheltens-abbenes.com/", color: randomColor() },
+        { text: "Slavs and Tatars\n", class: "sat noweb", url: "https://slavsandtatars.com/about", color: randomColor() },
+        { text: "Sander Sturing\n", class: "ss", url: "https://sandersturing.com/", color: randomColor() },
+        { text: "Spassky Fischer\n", class: "sf", url: "http://spassky-fischer.fr/fr/", color: randomColor() },
+        { text: "Studio Airport\n", class: "sa", url: "https://www.studioairport.nl/about", color: randomColor() },
+        { text: "Studio Dennis Vanderbroeck\n", class: "sdv", url: "https://dennisvanderbroeck.com/about", color: randomColor() },
+        { text: "Studio Drift\n", class: "sd", url: "https://studiodrift.com", color: randomColor() },
+        { text: "Studio Dumbar\n", class: "sd2", url: "https://studiodumbar.com", color: randomColor() },
+        { text: "Studio Joost Grootens\n", class: "sjg", url: "https://www.joostgrootens.nl/", color: randomColor() },
+        { text: "Studio Jop van Bennekom\n", class: "sjvb noweb", url: "https://jopvanbennekom.com", color: randomColor() },
+        { text: "Studio Mut\n", class: "sm", url: "https://www.studiomut.com/", color: randomColor() },
+        { text: "Studio Rens\n", class: "sr", url: "https://www.studiorens.com/", color: randomColor() },
+        { text: "Studio Swine\n", class: "ssw", url: "https://studioswine.com", color: randomColor() },
+        { text: "Studio Yukiko\n", class: "sy noweb", url: "https://y-u-k-i-k-o.com/", color: randomColor() },
+        { text: "The Rodina\n", class: "tr", url: "https://www.therodina.com/", color: randomColor() },
+        { text: "The Right Studio\n", class: "trs", url: "https://www.therightstudio.com/about?utm_source=chatgpt.com", color: randomColor() },
+        { text: "Troika\n", class: "t", url: "https://troika.uk.com", color: randomColor() },
+        { text: "Vadik Marmeladov\n", class: "vm", url: "https://vadikmarmeladovlab.com/", color: randomColor() },
+        { text: "Vincent de Boer\n", class: "vdb", url: "https://vincentdeboer.cargo.site/home", color: randomColor() },
+        { text: "Vera van de Seyp\n", class: "vvd noweb", url: "https://veravandeseyp.com/projects/overshot-pattern-tool/", color: randomColor() },
+        { text: "Void of Metal\n", class: "vom noweb", url: "", color: randomColor() },
+        { text: "W+K Amsterdam Studio\n", class: "wk", url: "https://wkams.com/ventures/design-studio/?utm_source=chatgpt.com", color: randomColor() },
+        { text: "Ward Goes\n", class: "wg", url: "https://wardgoes.com/", color: randomColor() },
+        { text: "Werker Collective\n", class: "wc", url: "https://www.werkercollective.net/", color: randomColor() },
+        { text: "Willem Popelier\n", class: "wp", url: "https://www.willempopelier.nl/", color: randomColor() },
+        { text: "Wunderhund\n", class: "w", url: "https://www.wunderhund.studio/", color: randomColor() },
+        { text: "Yambo Studio\n", class: "ys", url: "https://www.yambo-studio.com", color: randomColor() },
+        { text: "Yonk\n", class: "y", url: "https://www.yonk.online/info/", color: randomColor() },
+        { text: "Zachary Formwalt\n", class: "zf", url: "https://www.zacharyformwalt.com/", color: randomColor() }
+    ];
+
+
+
+    let current = 0;
+    let i = 0;
+    let speed = 3;
+    let typing = false;
+    let mode = null;
+    let timer = null;
+
+    function designeranimate() {
+        clearTimeout(timer);
+        if (typing) {
+            mode = mode === "show" ? "hide" : "show";
+        } else {
+            mode = document.querySelector(".designers").textContent ? "hide" : "show";
+        }
+        animateText();
+    }
+
+    function animateText() {
+        const container = document.querySelector(".designers");
+        typing = true;
+
+        const buttons = container.querySelectorAll("button");
+        current = buttons.length > 0 ? buttons.length - 1 : 0;
+        i = buttons.length > 0 ? buttons[current]?.textContent.length || 0 : 0;
+
+        function step() {
+            if (mode === "show") {
+                if (current < designerlist.length) {
+                    let btn = container.children[current];
+                    if (!btn) {
+                        const item = designerlist[current];
+                        btn = document.createElement("button");
+                        btn.className = item.class + " designername";
+                        btn.textContent = "";
+                        btn.style.color = randomColor();
+                        btn.style.cursor = "pointer";
+
+                        btn.onmouseover = () => {
+                            btn.style.fontSize = "1vw";
+                            btn.style.transition = "all 0.5s";
+                        };
+                        btn.onmouseout = () => {
+                            btn.style.fontSize = "0.6vw";
+                            btn.style.textShadow = "none";
+                        };
+
+                        btn.onclick = () => {
+
+                            if (btn.classList.contains("noweb")) {
+                                document.querySelectorAll(".designername,.publishername,.organisationname").forEach(b => b.classList.remove("active"));
+                                btn.classList.add("active");
+
+                                document.querySelector(".frame").style.display = "none";
+                                document.querySelector(".alterlink").style.opacity = "1";
+                                document.querySelector(".alterlink").href = item.url
+                                document.querySelector(".info").style.display = "none";
+
+
+                            } else {
+                                document.querySelector(".frame").style.display = "block";
+
+                                document.querySelector(".alterlink").style.opacity = "0";
+                                document.querySelector(".info").style.display = "none";
+
+
+                                document.querySelectorAll(".designername,.publishername,.organisationname").forEach(b => b.classList.remove("active"));
+                                btn.classList.add("active");
+                                document.getElementById("website").src = item.url || "about:blank"
+                            }
+
+                        };
+
+                        container.appendChild(btn);
+                        i = 0;
+                    }
+
+                    const text = designerlist[current].text;
+                    if (i < text.length) {
+                        btn.innerHTML += text.charAt(i) === '\n' ? '<br>' : text.charAt(i);
+                        i++;
+                        timer = setTimeout(step, speed);
+                    } else {
+                        current++;
+                        i = 0;
+                        timer = setTimeout(step, 10);
+                    }
+                } else {
+                    typing = false;
+                    mode = null;
+                }
+            }
+            else if (mode === "hide") {
+                const buttons = container.querySelectorAll("button");
+                if (buttons.length === 0) {
+                    typing = false;
+                    mode = null;
+                    return;
+                }
+                const last = buttons[buttons.length - 1];
+                if (last.textContent.length > 0) {
+                    last.textContent = last.textContent.slice(0, -1);
+                    timer = setTimeout(step, speed);
+                } else {
+                    last.remove();
+                    timer = setTimeout(step, speed);
+                }
+            }
+        }
+
+        step();
+    }
+
+
+    const publisherlist = [
+        { text: "Aa Magazine", class: "am noweb", url: "https://aamagazine.com", color: randomColor() },
+        { text: "Al-Tiba9 Contemporary Art Magazine", class: "acam noweb", url: "https://www.altiba9.com/", color: randomColor() },
+        { text: "Architectural Digest", class: "ad", url: "https://www.architecturaldigest.com", color: randomColor() },
+        { text: "Art Paper Editions", class: "ape noweb", url: "https://artpapereditions.org", color: randomColor() },
+        { text: "Athenaeum", class: "a", url: "https://athenaeumscheltema.nl/", color: randomColor() },
+        { text: "Baron Books", class: "bb", url: "https://www.baronbooks.co.uk", color: randomColor() },
+        { text: "Belgian Institute of Graphic Design (BINGO)", class: "bigd", url: "https://b-i-n-g-o.be", color: randomColor() },
+        { text: "Bidoun", class: "b noweb", url: "https://www.bidoun.org/", color: randomColor() },
+        { text: "Boekie Woekie", class: "bw noweb", url: "https://boekiewoekie.com/", color: randomColor() },
+        { text: "Bricks from the Kiln", class: "bftk", url: "https://b-f-t-k.info", color: randomColor() },
+        { text: "Butt Magazine", class: "bm", url: "https://www.fantasticman.com/butt", color: randomColor() },
+        { text: "Canvas", class: "c noweb", url: "https://canvasonline.com/", color: randomColor() },
+        { text: "Chillzone", class: "c noweb", url: "https://www.chillzone.com", color: randomColor() },
+        { text: "Dazed & Confused", class: "dc", url: "https://www.dazeddigital.com", color: randomColor() },
+        { text: "Dispozitiv", class: "d", url: "https://members.peopleofprint.com/profile/dispozitiv-books/", color: randomColor() },
+        { text: "Empire Books", class: "eb", url: "https://e-m-p-i-r-e.eu/", color: randomColor() },
+        { text: "Fair Enough", class: "fe", url: "https://fairenough.ee/index.html", color: randomColor() },
+        { text: "Fantastic Man", class: "fm", url: "https://www.fantasticman.com/", color: randomColor() },
+        { text: "Foam", class: "f", url: "https://www.foam.org/", color: randomColor() },
+        { text: "Formist Editions", class: "fe noweb", url: "https://formisteditions.co", color: randomColor() },
+        { text: "FR David", class: "fd noweb", url: "https://frdavid.com", color: randomColor() },
+        { text: "FRAME Magazine", class: "fm noweb", url: "https://frameweb.com", color: randomColor() },
+        { text: "Fukt Magazine", class: "fm", url: "https://www.fuktmagazine.com", color: randomColor() },
+        { text: "FW Books", class: "fb", url: "https://fw-books.nl/about-contact/", color: randomColor() },
+        { text: "Glamcult", class: "g", url: "https://www.glamcult.com", color: randomColor() },
+        { text: "Glean", class: "g", url: "https://glean.art", color: randomColor() },
+        { text: "Graphikmagazin", class: "g", url: "https://grafikmagazin.de/en/store/", color: randomColor() },
+        { text: "GSM Magazine", class: "gm", url: "https://www.gsmmagazine.co/back-issues/", color: randomColor() },
+        { text: "Highsnobiety", class: "h noweb", url: "https://www.highsnobiety.com", color: randomColor() },
+        { text: "Hothead", class: "h noweb", url: "https://hotheadradio.com/pages/archive", color: randomColor() },
+        { text: "Idea Mag", class: "im", url: "https://www.idea-mag.com/en/", color: randomColor() },
+        { text: "In Other Words", class: "iow noweb", url: "https://in-other-words.co.uk/", color: randomColor() },
+        { text: "INFINITIF", class: "i", url: "https://infinitif.org/Info", color: randomColor() },
+        { text: "Jubels", class: "j", url: "https://www.jubels.nl/print-en-drukwerk/", color: randomColor() },
+        { text: "Kajet", class: "k", url: "https://kajetjournal.com/", color: randomColor() },
+        { text: "Kinfolk", class: "k", url: "https://www.kinfolk.com/about", color: randomColor() },
+        { text: "Kiosk", class: "k", url: "https://kioskrotterdam.com/", color: randomColor() },
+        { text: "Knust / Extrapool", class: "ke", url: "https://extrapool.nl", color: randomColor() },
+        { text: "Koopmans", class: "k", url: "https://koopmansdrukkerij.nl", color: randomColor() },
+        { text: "Lecturis", class: "l noweb", url: "https://lecturis.nl/en/", color: randomColor() },
+        { text: "Limestone Books", class: "lb noweb", url: "https://limestonebooks.org/", color: randomColor() },
+        { text: "MacGuffin", class: "m", url: "https://www.macguffinmagazine.com/", color: randomColor() },
+        { text: "Metropolis M", class: "mm", url: "https://metropolism.com/en/", color: randomColor() },
+        { text: "Mousse Magazine", class: "mm", url: "https://www.moussemagazine.it", color: randomColor() },
+        { text: "NAI Boekverkopers", class: "nb", url: "https://www.naibooksellers.nl/", color: randomColor() },
+        { text: "Onomatopee Projects", class: "op noweb", url: "https://www.onomatopee.net", color: randomColor() },
+        { text: "Phaidon", class: "p noweb", url: "https://www.phaidon.com/en-eu/collections/phaidon", color: randomColor() },
+        { text: "Polyester Zine", class: "pz noweb", url: "https://www.polyesterzine.com/", color: randomColor() },
+        { text: "PrintRoom", class: "pr", url: "https://printroom.org/about/", color: randomColor() },
+        { text: "Printed Matter Inc", class: "pmi noweb", url: "https://www.printedmatter.org/", color: randomColor() },
+        { text: "Punch Books", class: "pb", url: "https://www.p-u-n-c-h.ro/", color: randomColor() },
+        { text: "Purple", class: "p", url: "https://purple.fr/magazine/", color: randomColor() },
+        { text: "Real Review", class: "rr", url: "https://real-review.org/", color: randomColor() },
+        { text: "Revue Faire", class: "rf", url: "https://revue-faire.eu/", color: randomColor() },
+        { text: "RisoWiso", class: "rw noweb", url: "https://www.beeldendekunstarnhem.nl/partners/riso-wiso", color: randomColor() },
+        { text: "Rollo Press", class: "rp", url: "https://rollo-press.com/", color: randomColor() },
+        { text: "Roma Publications", class: "rp", url: "https://www.romapublications.org", color: randomColor() },
+        { text: "Rough Trade Books", class: "rtb noweb", url: "https://roughtradebooks.com", color: randomColor() },
+        { text: "San Serriffe", class: "ss", url: "https://san-serriffe.com/", color: randomColor() },
+        { text: "The Chartium", class: "tc noweb", url: "https://www.chartium.org", color: randomColor() },
+        { text: "The Eriskay Connection", class: "tec", url: "https://www.eriskayconnection.com", color: randomColor() },
+        { text: "The Last Books", class: "tlb", url: "https://thelastbooks.org/", color: randomColor() },
+        { text: "The New Era", class: "tne", url: "https://www.theneweramagazine.com", color: randomColor() },
+        { text: "The Print Space", class: "tps noweb", url: "https://www.theprintspace.com/nl/", color: randomColor() },
+        { text: "Thames & Hudson", class: "th noweb", url: "https://www.thamesandhudson.com/", color: randomColor() },
+        { text: "Toilet Paper", class: "tp noweb", url: "https://shoptoiletpaper.com/pages/about-us", color: randomColor() },
+        { text: "TYPEONE Magazine", class: "tm noweb", url: "https://type-01.com/typeonemagazine/", color: randomColor() },
+        { text: "Uh Books", class: "ub", url: "https://www.uhbooks.directory/", color: randomColor() },
+        { text: "Valiz", class: "v noweb", url: "https://valiz.nl", color: randomColor() },
+        { text: "Victionary", class: "v noweb", url: "https://victionary.com", color: randomColor() },
+        { text: "Wilco Art Books", class: "wab", url: "https://www.wilco-artbooks.nl/", color: randomColor() },
+        { text: "Wolf Books", class: "wb noweb", url: "https://www.wolf-books.com/", color: randomColor() },
+    ];
+
+    let currentp = 0;
+    let ip = 0;
+    let speedp = 3;
+    let typingp = false;
+    let modep = null;
+    let timerp = null;
+
+    function publisheranimate() {
+        clearTimeout(timerp);
+        if (typingp) {
+            modep = modep === "show" ? "hide" : "show";
+            animateTextpublish();
+        } else {
+            modep = document.querySelector(".publishers").textContent ? "hide" : "show";
+            animateTextpublish();
+        }
+    }
+
+    function animateTextpublish() {
+        const container = document.querySelector(".publishers");
+        typingp = true;
+
+        const buttons = container.querySelectorAll("button");
+        currentp = buttons.length > 0 ? buttons.length - 1 : 0;
+        ip = buttons.length > 0 ? buttons[currentp]?.textContent.length || 0 : 0;
+
+        function step() {
+            if (modep === "show") {
+                if (currentp < publisherlist.length) {
+                    let btn = container.children[currentp];
+                    if (!btn) {
+                        const itemp = publisherlist[currentp];
+                        btn = document.createElement("button");
+                        btn.className = itemp.class + " publishername";
+                        btn.textContent = "";
+                        btn.style.color = randomColor();
+                        btn.style.cursor = "pointer";
+
+                        btn.onmouseover = () => {
+                            btn.style.fontSize = "1vw";
+                            btn.style.textShadow = "12px 12px 4px rgba(0, 0, 0, 0)";
+                            btn.style.transition = "all 0.5s";
+                        };
+                        btn.onmouseout = () => {
+                            btn.style.fontSize = "0.6vw";
+                            btn.style.textShadow = "none";
+                        };
+
+                        btn.onclick = () => {
+
+                            if (btn.classList.contains("noweb")) {
+                                document.querySelectorAll(".designername,.publishername,.organisationname").forEach(b => b.classList.remove("active"));
+                                btn.classList.add("active");
+
+                                document.querySelector(".frame").style.display = "none";
+                                document.querySelector(".alterlink").style.opacity = "1";
+                                document.querySelector(".alterlink").href = itemp.url
+                                document.querySelector(".info").style.display = "none";
+
+
+                            } else {
+                                document.querySelector(".frame").style.display = "block";
+                                document.querySelector(".alterlink").style.opacity = "0";
+                                document.querySelectorAll(".designername,.publishername,.organisationname").forEach(b => b.classList.remove("active"));
+                                btn.classList.add("active");
+                                                                document.querySelector(".info").style.display = "none";
+
+                                document.getElementById("website").src = itemp.url || "about:blank"
+                            }
+
+
+                        };
+
+                        container.appendChild(btn);
+                        ip = 0;
+                    }
+
+                    const text = publisherlist[currentp].text;
+                    if (ip < text.length) {
+                        btn.innerHTML += text.charAt(ip) === '\n' ? '<br>' : text.charAt(ip);
+                        ip++;
+                        timerp = setTimeout(step, speedp);
+                    } else {
+                        currentp++;
+                        ip = 0;
+                        timerp = setTimeout(step, 10);
+                    }
+                } else {
+                    typingp = false;
+                    modep = null;
+                }
+            }
+            else if (modep === "hide") {
+                const buttons = container.querySelectorAll("button");
+                if (buttons.length === 0) {
+                    typingp = false;
+                    modep = null;
+                    return;
+                }
+                const last = buttons[buttons.length - 1];
+                if (last.textContent.length > 0) {
+                    last.textContent = last.textContent.slice(0, -1);
+                    timerp = setTimeout(step, speedp);
+                } else {
+                    last.remove();
+                    timerp = setTimeout(step, speedp);
+                }
+            }
+        }
+
+        step();
+    }
+
+    const residencelist = [
+        { text: "1646", class: "1", url: "https://1646.nl/nl/", color: randomColor() },
+        { text: "AFCN", class: "a", url: "https://www.afcn.ro/", color: randomColor() },
+        { text: "Abstract mag", class: "am noweb", url: "https://abstractmag.net", color: randomColor() },
+        { text: "bak, basis voor actuele kunst", class: "bbvak", url: "https://www.bakonline.org/en", color: randomColor() },
+        { text: "Bethanien Künstlerhaus", class: "bk", url: "https://www.bethanien.de/en/", color: randomColor() },
+        { text: "Bureau du Design", class: "bddmma", url: "https://www.fondationcultureetdiversite.org/partenaires/bureau-du-design-de-la-mode-et-des-metiers-d-art_p606", color: randomColor() },
+        { text: "BYOBfair", class: "b", url: "", color: randomColor() },
+        { text: "Castelo Studio", class: "cs", url: "https://www.castelostudio.com", color: randomColor() },
+        { text: "Centre for Print Research", class: "cfpr", url: "https://cfpr.uwe.ac.uk", color: randomColor() },
+        { text: "CulturEU", class: "ce noweb", url: "https://culture.ec.europa.eu/nl/funding/cultureu-funding-guide", color: randomColor() },
+        { text: "Cultuurfonds Gelderland", class: "cfg", url: "https://www.cultuurfonds.nl/provinciale-afdelingen/gelderland", color: randomColor() },
+        { text: "DAAD", class: "dabp noweb", url: "https://www.berliner-kuenstlerprogramm.de/en/", color: randomColor() },
+        { text: "De Beste Verzorgde Boeken", class: "dbvb noweb", url: "https://debestverzorgdeboeken.nl/nl/", color: randomColor() },
+        { text: "Delfina Foundation", class: "df", url: "https://www.delfinafoundation.com/?", color: randomColor() },
+        { text: "Design Museum Gent", class: "dmg", url: "https://www.designmuseumgent.be/en/news/2025/open-call", color: randomColor() },
+        { text: "Designregio Kortrijk", class: "dk", url: "https://designregio-kortrijk.be/en/drk-for-you/designers-in-residence-kortrijk?", color: randomColor() },
+        { text: "ERIAC", class: "e", url: "https://eriac.org", color: randomColor() },
+        { text: "Filmfonds", class: "f", url: "https://www.filmfonds.nl/nl/page/2546/deadlines-2017-2018", color: randomColor() },
+        { text: "Fondation de France", class: "fdf", url: "https://www.fondationdefrance.org/en/arts-and-society", color: randomColor() },
+        { text: "Fondation Audiovisuelle pour les Arts et le Design", class: "faad", url: "https://www.artsndesign.org", color: randomColor() },
+        { text: "Funding21", class: "f noweb", url: "https://www.fonds21.nl/aanvragen", color: randomColor() },
+        { text: "Goethe Institut - Studio Quantum Residency", class: "gisqr noweb", url: "https://www.goethe.de/en/kul/foe.html#isActive=false", color: randomColor() },
+        { text: "Hangar", class: "h", url: "https://hangar.org/en/?", color: randomColor() },
+        { text: "Immensiva", class: "i", url: "https://www.immensiva.com/", color: randomColor() },
+        { text: "Idea Books", class: "ib noweb", url: "https://www.ideabooks.nl/Home/", color: randomColor() },
+        { text: "Jatiwangi Art Factory", class: "jaf", url: "https://jatiwangiartfactory.com", color: randomColor() },
+        { text: "Jan van Eyck", class: "jve noweb", url: "https://www.janvaneyck.nl/residency/", color: randomColor() },
+        { text: "Kieken centrale", class: "kc", url: "https://stadt.muenchen.de/service/en-GB/info/abteilung-1/10435879/", color: randomColor() },
+        { text: "La Becque Plateforme 10", class: "lbp", url: "https://labecque.ch/residences/", color: randomColor() },
+        { text: "Letterfonds", class: "l noweb", url: "https://www.letterenfonds.nl/subsidies", color: randomColor() },
+        { text: "LIMA", class: "l", url: "https://li-ma.nl", color: randomColor() },
+        { text: "MARES", class: "m noweb", url: "https://mares-art.com/", color: randomColor() },
+        { text: "MASEREEL", class: "m", url: "https://masereel.art/en/residencies/", color: randomColor() },
+        { text: "Medialab Matadero", class: "mmm", url: "https://www.mataderomadrid.org/en?", color: randomColor() },
+        { text: "Mondriaan fonds", class: "mf", url: "https://www.mondriaanfonds.nl/", color: randomColor() },
+        { text: "MGLC International Centre of Graphic Arts", class: "miglca noweb", url: "https://mglc.si/en/mglc-pro/residencies", color: randomColor() },
+        { text: "MUTEK.JP", class: "m noweb", url: "https://tokyo.mutek.org/en/", color: randomColor() },
+        { text: "Open Call for Artists", class: "ocfa", url: "https://www.opencallforartists.com", color: randomColor() },
+        { text: "Performing arts funds NL", class: "pafnl", url: "https://fondspodiumkunsten.nl/nl/subsidies/subsidie_programmering_festival_popmuziek/", color: randomColor() },
+        { text: "P BK", class: "pbk", url: "https://www.platformbk.nl/en/", color: randomColor() },
+        { text: "PERSPEKTIVE", class: "p noweb", url: "https://www.pgsf.org/", color: randomColor() },
+        { text: "Prohelvetia", class: "p", url: "https://prohelvetia.ch/fr/", color: randomColor() },
+        { text: "Prins Bernhard Cultuur fonds", class: "pbcf", url: "https://www.cultuurfonds.nl/fondsen", color: randomColor() },
+        { text: "Rijksakademie", class: "r noweb", url: "https://www.rijksakademie.nl/", color: randomColor() },
+        { text: "Spark Awards", class: "sagdc", url: "https://www.sparkawards.com/entry-types/graphic-print/", color: randomColor() },
+        { text: "Stichting Norma", class: "sn", url: "https://www.stichtingnorma.nl/norma-fonds/", color: randomColor() },
+        { text: "Stimuleringsfonds", class: "s noweb", url: "https://www.stimuleringsfonds.nl", color: randomColor() },
+        { text: "Summer Residency", class: "sr noweb", url: "https://www.instagram.com/summer.residency/", color: randomColor() },
+        { text: "Swiss Design Awards", class: "sda", url: "https://swissdesignawards.ch/en", color: randomColor() },
+        { text: "Think Tanger", class: "tt", url: "", color: randomColor() },
+        { text: "V&A", class: "va noweb", url: "https://www.vam.ac.uk/info/residencies?srsltid=AfmBOoq5ww48y7xZnJv2JUONXDaFMRPClQPyRASkqNNd2c41LoWfpvH7", color: randomColor() },
+        { text: "Videotage", class: "v", url: "https://www.videotage.org.hk", color: randomColor() },
+        { text: "Voordekunst", class: "vk noweb", url: "https://voordekunst.nl", color: randomColor() }
+    ];
+
+
+    let currentr = 0;
+    let ir = 0;
+    let speedr = 3;
+    let typingr = false;
+    let moder = null;
+    let timerr = null;
+
+    function residenceanimate() {
+        clearTimeout(timerr);
+        if (typingr) {
+            moder = moder === "show" ? "hide" : "show";
+        } else {
+            moder = document.querySelector(".organizations").textContent ? "hide" : "show";
+        }
+        animateTextresidence();
+    }
+
+    function animateTextresidence() {
+        const container = document.querySelector(".organizations");
+        typingr = true;
+
+        const buttons = container.querySelectorAll("button");
+        currentr = buttons.length > 0 ? buttons.length - 1 : 0;
+        ir = buttons.length > 0 ? buttons[currentr]?.textContent.length || 0 : 0;
+
+        function step() {
+            if (moder === "show") {
+                if (currentr < residencelist.length) {
+                    let btn = container.children[currentr];
+                    if (!btn) {
+                        const item = residencelist[currentr];
+                        btn = document.createElement("button");
+                        btn.className = item.class + " organisationname";
+                        btn.textContent = "";
+                        btn.style.color = randomColor();
+                        btn.style.cursor = "pointer";
+
+                        btn.onmouseover = () => {
+                            btn.style.fontSize = "1vw";
+                            btn.style.textShadow = "12px 12px 4px rgba(0, 0, 0, 0)";
+                            btn.style.transition = "all 0.5s";
+                        };
+                        btn.onmouseout = () => {
+                            btn.style.fontSize = "0.6vw";
+                            btn.style.textShadow = "none";
+                        };
+
+                        btn.onclick = () => {
+                            if (btn.classList.contains("noweb")) {
+                                document.querySelectorAll(".designername,.publishername,.organisationname").forEach(b => b.classList.remove("active"));
+                                btn.classList.add("active");
+
+                                document.querySelector(".frame").style.display = "none";
+                                document.querySelector(".alterlink").style.opacity = "1";
+                                document.querySelector(".alterlink").href = item.url
+                                document.querySelector(".info").style.display = "none";
+
+
+                            } else {
+                                document.querySelector(".frame").style.display = "block";
+                                document.querySelector(".alterlink").style.opacity = "0";
+                                document.querySelectorAll(".designername,.publishername,.organisationname").forEach(b => b.classList.remove("active"));
+                                btn.classList.add("active");
+                                document.getElementById("website").src = item.url || "about:blank"
+                                                                document.querySelector(".info").style.display = "none";
+
+                            }
+                        };
+
+                        container.appendChild(btn);
+                        ir = 0;
+                    }
+
+                    const text = residencelist[currentr].text;
+                    if (ir < text.length) {
+                        btn.innerHTML += text.charAt(ir) === '\n' ? '<br>' : text.charAt(ir);
+                        ir++;
+                        timerr = setTimeout(step, speedr);
+                    } else {
+                        currentr++;
+                        ir = 0;
+                        timerr = setTimeout(step, 10);
+                    }
+                } else {
+                    typingr = false;
+                    moder = null;
+                }
+            }
+            else if (moder === "hide") {
+                const buttons = container.querySelectorAll("button");
+                if (buttons.length === 0) {
+                    typingr = false;
+                    moder = null;
+                    return;
+                }
+                const last = buttons[buttons.length - 1];
+                if (last.textContent.length > 0) {
+                    last.textContent = last.textContent.slice(0, -1);
+                    timerr = setTimeout(step, speedr);
+                } else {
+                    last.remove();
+                    timerr = setTimeout(step, speedr);
+                }
+            }
+        }
+
+        step();
+    }
+
+
+
+</script>
+
+</html>

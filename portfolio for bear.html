@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+<script>
+
+
+</script>
+
+<style>
+    body {
+        margin: 0%;
+        font-size: 25px;
+        background-color: rgb(255, 255, 255);
+        font-family: "BellGothic-Light", sans-serif;
+ 
+
+    }
+
+    @font-face {
+        font-family: "BellGothic-Light";
+        src: url("./fonts/BellGothic-Light.ttf") format("truetype");
+        font-weight: 300;
+        font-style: normal;
+    }
+
+
+
+    figure {
+        margin-left: 0;
+        margin-top: 0;
+        margin-bottom: 14em;
+        position: relative;
+        width: 100%;
+    }
+
+    figcaption {
+        width: 700px;
+        max-width: 100%;
+        opacity: 1;
+        margin-left: 0EM;
+        color: rgb(195, 195, 195);
+        color: rgb(205, 205, 205);
+        opacity: 1;
+                margin-left: 0em;
+                font-size: 17px;
+
+
+    }
+
+    .work {
+width: 500px;        cursor: pointer;
+        max-width: 80%;
+        margin-left: 3em;
+
+        user-select: none;
+        touch-action: none;
+
+        box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+
+    }
+
+    select {
+        width: 40%;
+        margin: 1em;
+        position: fixed;
+        display: block;
+        right: 0;
+        top: 0;
+        opacity: 0;
+
+    }
+
+    span {
+        color: rgb(116, 116, 116);
+        margin-left: 2em;
+
+    }
+
+    .counter {
+        display: block;
+        text-align: center;
+        margin-left: 2em;
+        font-size: 15px;
+        position: fixed;
+left: 50%;
+top: 50%;
+
+    }
+
+    .right{
+         width: 600px;
+       
+    }
+
+    .small{
+                 width: 300px;
+
+    }
+</style>
+
+<head> </head>
+
+<body>
+    <select id="category">
+
+        <option value="0">all</option>
+        <option value="1">publication, typeface, poster</option>
+        <option value="2">installation, objects, performance, photography</option>
+        <option value="3">web</option>
+    </select>
+<div class="counter"></div>
+
+    <figure class="work-unit one two three">
+ 
+
+    </figure>
+
+   
+    <figure class="work-unit two" data-type="2">
+ <img class="work" data-nr="2" data-imgnr="0">
+
+        <figcaption>port workers usually need to wear
+            various safety gear, such as safety shoes, helmets, and gloves.
+            however, in a port filled with stacked shipping containers, faced with iron sheets, steel bars, and
+            concrete, these protective measures seem insignificant. confronted with these industrial machines and
+            materials, we truly see the fragility of the human body.
+            at the same time, when workers put on their uniforms, what we see are prepared workers, not individuals with
+            their own emotions and experiences. work uniforms objectify us.
+            based on these ideas, in this zine, I want to express the vast gap between humans and machines, humans and
+            products, and how we fall into the trap of dehumanization.</figcaption>
+        <img class="work" data-nr="1" data-imgnr="0">
+
+
+        <figcaption>installation view from suggestion for you</figcaption>
+    </figure>
+
+
+     <figure class="work-unit one" data-type="1">
+
+        <img class="work" data-nr="26" data-imgnr="0">
+
+        <figcaption>a book about people in bed. the pages follow both chronological order and the activities of people, from being awake (printed on yellow paper) to sleeping (printed on white paper and folded inside).
+
+content images originate from rijksmuseum archive.
+        </figcaption>
+                <img class="work" data-nr="27" data-imgnr="0">
+
+    </figure>
+
+   
+  <figure class="work-unit one" data-type="1">
+
+        <img class="work" data-nr="20" data-imgnr="0">
+
+        <figcaption>trump calender
+        </figcaption>
+        <img class="work right" data-nr="21" data-imgnr="0">
+
+    </figure>
+
+
+
+</body>
+
+<script>
+
+    document.getElementById("category").addEventListener("change", function () {
+        myFunction(this.value);
+    });
+
+    function myFunction(value) {
+        if (value == 0) {
+            document.querySelectorAll("figure").forEach(e => {
+
+                e.style.display = "block"
+            });
+        };
+        if (value == 1) {
+            document.querySelectorAll("figure").forEach(e => {
+                if (e.classList.contains('one')) {
+                    e.style.display = "block"
+                } else { e.style.display = "none" }
+
+            });
+        }
+        if (value == 2) {
+            document.querySelectorAll("figure").forEach(e => {
+                if (e.classList.contains('two')) {
+                    e.style.display = "block"
+                } else { e.style.display = "none" }
+
+            });
+        }
+        if (value == 3) {
+            document.querySelectorAll("figure").forEach(e => {
+                if (e.classList.contains('three')) {
+                    e.style.display = "block"
+                } else { e.style.display = "none" }
+
+            });
+        };
+    }
+    window.onload = () => {
+
+        // randomwidth();
+        document.querySelectorAll(".work").forEach(img => {
+
+            const indexnr = img.dataset.nr;
+
+            const currentList = urlLists[`urlList${indexnr}`];
+            const initial = 0;
+
+            img.src = currentList[initial].url;
+        });
+    };
+
+
+    // function randomwidth() {
+    //  document.querySelectorAll(".work").forEach(cube => {
+
+
+
+    // cube.style.width = Math.floor(Math.random() * 600 + 200) + "px";
+
+    // })
+
+
+    // }
+
+    interact('.work')
+        .resizable({
+            edges: { right: true, bottom: true },
+            modifiers: [
+                interact.modifiers.aspectRatio({
+                    ratio: 'preserve'
+                })
+            ],
+            listeners: {
+                move(event) {
+                    let x = parseFloat(event.target.dataset.x) || 0
+                    let y = parseFloat(event.target.dataset.y) || 0
+
+                    Object.assign(event.target.style, {
+                        width: `${event.rect.width}px`,
+                        height: `${event.rect.height}px`,
+                        transform: `translate(${x + event.deltaRect.left}px, ${y + event.deltaRect.top}px)`
+                    })
+
+                    event.target.dataset.x = x + event.deltaRect.left
+                    event.target.dataset.y = y + event.deltaRect.top
+                }
+            }
+        })
+
+    const urlLists = {
+        urlList1: [
+            { url: "aa.jpg" },
+            { url: "Scan 711 2.jpg" },
+
+            { url: "PU5A002811 2.jpg" },
+            { url: "Scan 112.jpg" },
+            { url: "PU5A003011 2.jpg" },
+            { url: "Scan 213.jpg" },
+
+            { url: "PU5A001511 3.jpg" },
+            { url: "PU5A008511 2.jpg" },
+
+            { url: "PU5A002111 3.jpg" },
+            { url: "PU5A011211 2.jpg" },
+
+
+        ],
+        urlList2: [
+            { url: "PU5A012811 5.jpg" },
+
+
+
+        ],
+        urlList3: [
+            { url: "1-1.webp" },
+            { url: "1-2.webp" },
+            { url: "1-3.webp" },
+            { url: "1-4.webp" },
+            { url: "1-5.webp" },
+            { url: "1-6.webp" },
+
+
+
+
+        ],
+        urlList4: [
+            { url: "IMG_0289-311.jpg" },
+            { url: "IMG_658411.jpg" },
+
+            { url: "IMG_029711.jpg" },
+            { url: "IMG_3279.jpg" },
+
+            { url: "IMG_3284.jpg" },
+            { url: "IMG_5360.jpg" }, { url: "IMG_5406.jpg" },
+
+            { url: "IMG_5596.jpg" },
+            { url: "IMG_5604.jpg" },
+
+        ],
+        urlList5: [
+            { url: "bell 2.mov" },
+            { url: "Sequence 01_1.mov" },
+            { url: "starsalign 3.mov" },
+
+        ],
+        urlList6: [
+            { url: "Untitled.mov" }
+
+        ],
+        urlList7: [
+            { url: "Screen Recording 2025-05-29 at 17.31.47 2.mov" }
+
+
+        ],
+        urlList8: [
+            { url: "IMG_467111.jpg" },
+            { url: "IMG_467111 1.jpg" },
+            { url: "IMG_467111 2.jpg" },
+            { url: "IMG_467111 3.jpg" },
+
+        ],
+        urlList9: [
+            { url: "IMG_9810.jpg" }
+
+        ],
+
+        urlList10: [
+            { url: "nmb2 3.PNG" },
+            { url: "nmb 4.PNG" },
+            { url: "nmb3 4.PNG" },
+            { url: "nmb4 4.PNG" },
+       
+
+        ],
+        urlList11: [
+            { url: "Scan 711 6.jpg" },
+            { url: "photo-01.jpg" },
+            { url: "photo-02.jpg" },
+            { url: "photo-03.jpg" },
+            { url: "photo-04.jpg" },
+            { url: "photo-05.jpg" },
+            { url: "photo-06.jpg" },
+            { url: "photo-07.jpg" },
+            { url: "photo-08.jpg" },
+            { url: "photo-09.jpg" },
+            { url: "ScreenRecording_07-03-2025 14(1).gif" }
+
+
+
+        ],
+
+        urlList12: [
+            { url: "typo 811.jpg" },
+            { url: "typo 911.jpg" },
+            { url: "typo 2411.jpg" },
+
+            { url: "5-1.jpg" }
+
+
+        ],
+
+        urlList13: [
+            { url: "3-2.jpg" },
+            { url: "3-1.jpg" },
+            { url: "3-3.jpg" },
+            { url: "3-4.jpg" },
+            { url: "3-5.jpg" },
+            { url: "3-6.jpg" },
+            { url: "3-7.jpg" },
+
+
+        ],
+
+
+        urlList14: [
+            { url: "social-0111.jpg" },
+            { url: "social-0211.jpg" }
+
+
+        ],
+
+        urlList15: [
+            { url: "7-211.jpg" },
+            { url: "7-111.jpg" },
+            { url: "7-311.jpg" },
+        ],
+
+        urlList16: [
+            { url: "IMG_3446.MOV" },
+            { url: "IMG_3297.MOV" }
+        ],
+
+        urlList17: [
+            { url: "scan.jpg" },
+            { url: "scan 5.jpg" },
+            { url: "scan 4.jpg" },
+            { url: "scan 6.jpg" },
+            { url: "scan 20.jpg" },
+            { url: "scan 22.jpg" },
+            { url: "scan 25.jpg" },
+            { url: "scan 26.jpg" },
+            { url: "scan 27.jpg" },
+            { url: "scan 28.jpg" },
+            { url: "scan 29.jpg" },
+            { url: "scan 30.jpg" },
+
+        ],
+        urlList18: [
+            { url: "typo 111.jpg" },
+            { url: "typo 211.jpg" },
+            { url: "typo 411.jpg" },
+            { url: "typo 511.jpg" },
+            { url: "typo 811 1.jpg" },
+            { url: "typo 911 1.jpg" },
+            { url: "typo 1011.jpg" },
+            { url: "typo 1111.jpg" },
+            { url: "typo 1211 1.jpg" },
+            { url: "typo 1311.jpg" },
+            { url: "typo 1411 1.jpg" },
+
+
+
+
+
+
+        ],
+        urlList19: [
+            { url: "IMG_6469 211.jpg" },
+
+
+
+
+
+
+        ],
+
+
+
+        urlList20: [
+            { url: "calender-01.jpg" },
+            { url: "calender-02.jpg" },
+            { url: "calender-03.jpg" },
+            { url: "calender-04.jpg" },
+            { url: "calender-05.jpg" },
+            { url: "calender-06.jpg" },
+            { url: "calender-07.jpg" },
+            { url: "calender-08.jpg" },
+            { url: "calender-09.jpg" },
+
+        ],
+        urlList21: [
+                       { url: "PU5A033111 1.jpg" },
+
+        { url: "PU5A032411.jpg" },
+            { url: "PU5A033511.jpg" },
+            { url: "PU5A034211.jpg" },
+            { url: "PU5A037111.jpg" },
+
+        ],
+        urlList22: [
+            { url: "7M4A225011.jpg" }
+
+        ],
+         urlList23: [
+            { url: "_U5A803311.jpg" },
+            { url: "_U5A786611.jpg" },
+            { url: "_U5A810211.jpg" },
+            { url: "_U5A817711.jpg" },
+
+        ],
+        urlList24: [
+            { url: "IMG_131311.jpg" },
+            { url: "IMG_132211.jpg" },
+            { url: "IMG_133511.jpg" },
+            { url: "IMG_135311.jpg" },
+            { url: "IMG_135711.jpg" },
+
+        ],
+
+         urlList25: [
+            { url: "6-1.jpg" },
+            { url: "6-2.jpg" },
+                       { url: "6-3.jpg" },
+            { url: "6-4.jpg" },
+            { url: "6-5.jpg" },
+            { url: "6-6.jpg" },
+            { url: "6-7.jpg" },
+
+
+        ],
+        urlList26: [
+                       { url: "Untitled-1-0711.jpg" },
+
+        { url: "om11 1.jpg" },
+                       { url: "Untitled-1-08 211.jpg" },
+            { url: "Untitled-1-06 211.jpg" },
+            { url: "Untitled-1-05 211.jpg" },
+            { url: "Untitled-1-04 211.jpg" }
+
+
+        ],
+         urlList27: [
+            { url: "7M4A220411.jpg" },
+            { url: "7M4A219011 1.jpg" },
+            { url: "7M4A221711.jpg" },
+
+
+        ],
+        urlList28: [
+            { url: "7M4A223911.jpg" },
+            { url: "7M4A224011.jpg" },
+            { url: "7M4A224111.jpg" },
+            { url: "7M4A224211.jpg" },
+            { url: "7M4A224311.jpg" },
+            { url: "7M4A224411.jpg" },
+            { url: "7M4A224611.jpg" },
+            { url: "7M4A224711.jpg" },
+
+
+        ],
+         
+    };
+function updateCounter(img) {
+    const counter = document.querySelector('.counter');
+    if (!counter) return;
+
+    const indexnr = img.dataset.nr;
+    const currentList = urlLists[`urlList${indexnr}`];
+    const currentIndex = parseInt(img.dataset.imgnr || 0, 10);
+
+    counter.textContent = `${currentIndex + 1}/${currentList.length}`;
+    counter.style.display = 'block';
+}
+        document.addEventListener('click', e => {
+            if (e.target.classList.contains('work')) {
+                let inr = parseInt(e.target.dataset.imgnr || 0, 10);
+                const indexnr = e.target.dataset.nr;
+
+                const currentList = urlLists[`urlList${indexnr}`];
+                inr = (inr + 1) % currentList.length;
+
+                e.target.dataset.imgnr = inr;
+                e.target.src = currentList[inr].url;
+
+                        updateCounter(e.target);
+            }
+
+        })
+
+   document.querySelectorAll('.work').forEach(img => {
+
+    img.addEventListener('mouseenter', function () {
+        updateCounter(img);
+    });
+
+    img.addEventListener('mouseleave', function () {
+        const counter = document.querySelector('.counter');
+        if (counter) counter.style.display = 'none';
+    });
+
+});
+
+</script>
+
+</html>

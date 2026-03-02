@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+   /* $(document).ready(function () {
+        animateDiv1(".a1");
+        animateDiv2(".about");
+                animateDiv3(".container");
+
+
+    });
+
+    function makeNewPosition() {
+        var h = $(window).height();
+        var w = $(window).width();
+
+        var nh = Math.floor(Math.random() * h - 50);
+        var nw = Math.floor(Math.random() * w - 50);
+
+        return [nh, nw];
+    }
+
+    function animateDiv1(myclass) {
+        var newq = makeNewPosition();
+        $(myclass).animate({ top: newq[0], left: newq[1] }, 8000, function () {
+            animateDiv1(myclass);
+        });
+    }
+    function animateDiv2(myclass) {
+        var newq = makeNewPosition();
+        $(myclass).animate({ top: newq[0], left: newq[1] }, 20000, function () {
+            animateDiv2(myclass);
+        });
+    }
+     function animateDiv3(myclass) {
+        var newq = makeNewPosition();
+        $(myclass).animate({ top: newq[0], left: newq[1] }, 20000, function () {
+            animateDiv3(myclass);
+        });
+    }*/
+   function makeNewPosition($el) {
+    var windowH = $(window).height();
+    var windowW = $(window).width();
+
+    var elH = $el.outerHeight();
+    var elW = $el.outerWidth();
+
+    var maxTop = windowH - elH;
+    var maxLeft = windowW - elW;
+
+    var newTop = Math.random() * maxTop;
+    var newLeft = Math.random() * maxLeft;
+
+    return [newTop, newLeft];
+}
+
+function animateDiv(myclass, speed) {
+    var $el = $(myclass);
+    var newPos = makeNewPosition($el);
+
+    $el.animate(
+        { top: newPos[0], left: newPos[1] },
+        speed,
+        function () {
+            animateDiv(myclass, speed);
+        }
+    );
+}
+$(document).ready(function () {
+    animateDiv(".a1", 8000);       
+    animateDiv(".about", 10000);  
+  /*  animateDiv(".container", 10000);*/
+});
+
+    let degr = 0;
+
+    /* function rotate() {
+     degr += 90;
+ 
+     document.querySelectorAll(".cube").forEach(cube => { cube.style.setProperty("--b", degr + "deg"); })
+         ;
+   
+ 
+      }*/
+
+function fontchange(){
+    document.querySelector(".info").style.fontSize="40px";
+
+    }
+    function fontchange1(){
+    document.querySelector(".info").style.fontSize="15px"
+    }
+</script>
+
+<style>
+    @property --a {
+        syntax: "<number>";
+        initial-value: 0.85;
+        inherits: false;
+    }
+
+    @property --b {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    @property --c {
+        syntax: "<number>";
+        initial-value: 0.85;
+        inherits: false;
+    }
+
+    @property --d {
+        syntax: "<number>";
+        initial-value: 0.85;
+        inherits: false;
+    }
+
+    @property --e {
+        syntax: "<length>";
+        initial-value: 1000px;
+        inherits: false;
+    }
+
+    @property --f {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    @property --g {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+
+
+    .container {
+        width: 36vw;
+        height: 70vh;
+        perspective: 50vw;
+        z-index: 1;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(calc(-50% - 0vw), calc(-50% - 0vw));
+    }
+
+
+
+
+    .cube {
+
+
+        width: 36vw;
+        height: 70vh;
+        transform-style: preserve-3d;
+        transition: --a 2s, --b 1s, --c 2s, --d 2s, --e 2s, --f 1s, --g 1s;
+        transform:
+            scaleX(var(--a)) scaleY(var(--c)) scaleZ(var(--d)) rotateX(var(--f)) rotateY(var(--b)) rotateZ(var(--g)) translateX(0vw) translateY(-5vh) translateZ(0px) skewX(0deg) skewY(0deg);
+    }
+
+
+
+    .cube-wrap {
+        perspective: 1000px;
+        perspective-origin: 50% 50%;
+    }
+
+
+    .front {
+        transform: translateZ(18vw);
+        transition: background-color 2s;
+        border: 0px solid rgb(255, 0, 0);
+        box-sizing: border-box;
+
+        width: 36vw;
+        height: 70vh;
+
+        background-color: rgba(255, 0, 0, 0);
+        z-index: 9;
+    }
+
+    .back {
+        transform: translateZ(-0vw) rotateY(180deg) translateX(32vw) translateY(-15vh);
+        background-color: rgba(255, 0, 0, 1);
+        transition: background-color 2s, opacity 1s;
+        border: 0px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 100vw;
+        height: 100vh;
+        opacity: 0;
+
+
+    }
+
+    .left {
+        transform: translateX(-18vw) rotateY(-90deg);
+        background-color: rgba(255, 0, 0, 0);
+        transition: background-color 2s;
+        border: 0px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 36vw;
+        height: 70vh;
+        opacity: 0;
+
+    }
+
+    .right {
+        transform: translateX(18vw) rotateY(90deg);
+        background-color: rgba(255, 0, 0, 0);
+        transition: background-color 2s;
+        border: 0px solid rgb(255, 0, 0);
+        box-sizing: border-box;
+
+        width: 36vw;
+        height: 70vh;
+        opacity: 0;
+        transition: opacity 1s;
+
+
+
+    }
+
+    .bottom {
+        transform: translateY(45vh) rotateX(90deg);
+        background-color: rgb(0, 0, 0, 0);
+        transition: background-color 2s;
+        border: 0px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 36vw;
+        height: 36vw;
+        opacity: 1;
+
+
+
+    }
+
+    .top {
+        transform: translateY(-35vh) rotateX(-90deg);
+        background: rgb(255, 255, 255, 0);
+        transition: background-color 2s;
+        border: 1px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 40vw;
+        height: 40vw;
+        opacity: 0;
+
+
+    }
+
+
+    .face {
+
+        position: absolute;
+        display: block;
+        align-items: normal;
+        justify-content: left;
+        font-size: 20px;
+        line-break: strict;
+        overflow: scroll;
+        word-wrap: break-word;
+
+
+
+    }
+
+@font-face {
+  font-family: "BellGothic-Light";
+  src: url("./fonts/BellGothic-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #ff80ff;
+  background-color: #ffb9fb;
+  opacity: 1;
+  cursor: w-resize;
+  background-size: cover;  overflow: hidden;
+  transition: all 0.5s;
+  font-family: "BellGothic-Light", sans-serif; /* Fallback is allowed here */
+
+}
+
+body {
+  margin: 0;
+}
+
+
+
+
+    .img {
+        width: 37%;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        transition: --c1 2s, box-shadow 0.5s, width 1s, opacity 0.3s;
+box-shadow: rgba(0, 255, 0, 0.3) 0px 10px 40px 0px, rgba(255, 0, 0, 0.1) 0px 15px 40px 0px;
+border:1px solid #ffff00;
+opacity: 0.3;
+
+}    
+.turn {
+        top: 0%;
+        position: absolute;
+        font-size: 20px;
+        /* left: 50%;
+        transform: translate(-50%, -50%);*/
+        z-index: 999;
+        color: rgb(0, 255, 0);
+        left: 0%;
+        /*filter: invert(100%);
+              mix-blend-mode: difference;*/
+opacity: 0;
+    }
+
+    .info {
+        width: 100%;
+        bottom: 0%;
+        position: absolute;
+        font-size: 20px;
+        left: 0%;
+        transform: translate(0%, 0%);
+        text-align: left;
+        color: #00ff00;
+        opacity: 1;
+        margin: 0%;
+
+
+
+
+
+    }
+
+    @property --c1 {
+        syntax: "<color>";
+        initial-value: #00ff00;
+        inherits: false;
+    }
+
+    @property --c2 {
+        syntax: "<color>";
+        initial-value: #00ffff;
+        inherits: false;
+    }
+
+    @property --size1 {
+        syntax: "<length>";
+        initial-value: 200px;
+        inherits: false;
+    }
+
+    @property --size2 {
+        syntax: "<length>";
+        initial-value: 240px;
+        inherits: false;
+    }
+
+
+
+
+
+
+
+
+    .description {
+        width: 50%;
+        font-size: 18px;
+        color: #000000;
+        position: fixed;
+        top: 5%;
+        transition: opacity 0.2s;
+opacity: 0;
+
+    }
+
+    .projects {
+        opacity: 0;
+    }
+
+    .next {
+        font-size: 20px;
+        position: fixed;
+        top: 50%;
+        left: 90%;
+        color: rgb(255, 255, 255);
+    }
+
+    .previous {
+        font-size: 20px;
+        position: fixed;
+        top: 50%;
+        right: 90%;
+        color: rgb(255, 255, 255);
+
+    }
+
+    .a img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .a {
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+        position: fixed;
+        display: block;
+    }
+
+    .a1 {
+        position: absolute;
+        font-size: 18px;
+        display: block;
+        color: rgb(0, 0, 0);
+        z-index: 100000;
+            filter: invert(100%);
+              mix-blend-mode: difference;
+              pointer-events: none;
+    }
+
+    .joke{
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        color: #ff0000;
+        z-index: 1;
+        transition: all 1s;
+        opacity: 0;
+    }
+    .disable-hover {
+  pointer-events: none;
+}
+
+.info {
+        width: 100%;
+        bottom: 0%;
+        position: absolute;
+        font-size: 15px;
+        left: 0%;
+        transform: translate(0%, 0%);
+        text-align:left;
+        color: #7c7c7c;
+        opacity: 1;
+        margin: 0%;
+        transition: opacity 0.3s, text-shadow 1s, font-size 0.3s, color 1s;
+    }
+
+    .info-container{
+        width: 100%;
+        left: 0%;
+        bottom: 0%;
+        position: fixed;
+          
+    }
+    .info:hover {
+
+text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
+        color: #000000;
+
+}
+
+    .email{
+        color: #ff0000;
+    }
+.ig{
+        color: #0015ff;
+    }
+
+</style>
+
+<head> </head>
+
+<body>
+
+    <div class="next"></div>
+    <div class="previous"></div>
+
+
+    <div class="description1">
+    </div>
+    
+    <div class="projects turn" onclick="about()">projects</div>
+
+
+    <div class="container">
+        <div class="cube" onclick="rotate()">
+            <div class="face top">
+
+            </div>
+            <div class="face bottom">
+
+
+
+            </div>
+            <div class="face left">
+
+            </div>
+
+            <div class="face right">
+
+
+            </div>
+            <div class="face front">
+                <img src="1-1.webp" class="img">
+                <div class="joke">(1)</div>
+
+            </div>
+            <div class="face back">
+
+                
+
+            </div>
+        </div>
+    </div>
+
+    <div class="description a1" id="a1">This series combines halves of everyday dual-part objects into fully functional
+        items.</div>
+
+<div class="about turn " onclick="about()">about
+    </div>
+     <div class="info">aeyoung Choi is a graphic designer based in the Netherlands whose work focuses on topics related to her background. Her work consists mainly of printed matter, but she also loves to explore digital mediums such as coding, websites, and 3D modeling. She often bases her work around the topic of culture and cultural history, with which she aims to represent her background and to spread awareness about how others view Korea, her own experiences as a Korean woman, and Asia in the broader spectrum.ceaseless producer of ideas that comment on society
+                    and situations in a frank and often humorous way.
+<span class="email">cookieblock2023@proton.me</span><span class="ig"> @ziming_ao</span>
+                </div>
+</body>
+
+<script>
+
+    function preloadList(list) {
+        list.forEach(item => {
+            const img = new Image();
+            img.src = item.url;
+        });
+    }
+
+
+
+    document.addEventListener("click", (e) => {
+        const x = e.clientX;
+        const width = window.innerWidth;
+        if (e.target.closest(".about,.projects,.img")) return;
+        if (x < width / 2) {
+            preimg();
+        } else {
+            neximg();
+
+        }
+    });
+
+    document.body.style.cursor = "w-resize";
+let myInterval; 
+
+function start() {
+    myInterval = setInterval(neximg, 2000);
+
+}
+    document.addEventListener("mousemove", (f) => {
+        const x = f.clientX;
+        const width = window.innerWidth;
+
+        if (x < width / 2) {
+            document.body.style.cursor = "w-resize";
+        } else {
+            document.body.style.cursor = "e-resize";
+        }
+
+         const imgshow = document.querySelector(".img");
+
+   
+    });
+
+    const colors = [
+
+        "rgb(0,255,0)",
+        "rgb(0,0,255)",
+        "aqua",
+        "purple",
+        "pink",
+        "yellow",
+        "orange",
+        "red",
+        "grey",
+        "#b9ff00",
+        "#00ffec",
+        "#008fff",
+        "#e800ff",
+        "#cfffd8",
+        "#fbffcf",
+        "#ffbbbb",
+        " #bbe7ff",
+        "#f1eeff",
+        " #ffeefe",
+
+        "rgb(0,0,0)",
+    ];
+    let deg = 0
+
+    let rotatetime = 0
+    function about() {
+       rotatetime += 1;
+       /* let random1 = Math.floor(Math.random() * colors.length);
+        let random2 = Math.floor(Math.random() * colors.length);*/
+
+
+
+        if (rotatetime % 2 == 0) {
+                     document.body.querySelector(".description").textContent = `
+Ziming Ao is a multidisciplinary visual artist based in Rotterdam, The Netherlands.
+Straightforward, critical and witty, Smits is a ceaseless producer of ideas that comment on society
+and situations in a frank and often humorous way.
+`;
+
+             document.body.querySelector(".container").style.opacity = "0";
+document.body.querySelector(".about").textContent = `
+projects
+`;
+            /*document.querySelectorAll('.a, .img').forEach(el => {
+                        el.style.setProperty("--c1", color1);
+                    });
+                    document.querySelectorAll('.a, .b').forEach(el => {
+                        el.style.setProperty("--c2", color2);
+                    })*/
+          /*  document.body.querySelector(".back").style.opacity = 1;
+            document.body.querySelector(".projects").style.opacity = 0;
+
+            document.body.querySelector(".about").style.opacity = 1;
+            document.body.querySelector(".description").style.opacity = 1;*/
+
+
+        } else {
+           /* document.body.querySelector(".back").style.opacity = 1;
+            document.body.querySelector(".projects").style.opacity = 1;
+
+            document.body.querySelector(".about").style.opacity = 0;
+            document.body.querySelector(".description").style.opacity = 0;
+
+
+            /*document.querySelectorAll('.a, .img').forEach(el => {
+                       el.style.setProperty("--c1", "white");
+                   });
+                   document.querySelectorAll('.a, .b').forEach(el => {
+                       el.style.setProperty("--c2", "white");
+                   })
+                   }
+                  
+                  */
+
+        
+
+     /*   xdegree();
+        document.querySelector(".cube").style.setProperty("--b", deg + "deg");*/
+        document.body.querySelector(".description").textContent = destext[current].text;
+
+
+             document.body.querySelector(".container").style.opacity = "1";
+document.body.querySelector(".about").textContent = `
+about
+`;
+
+        }
+            
+    }
+
+    function xdegree() {
+        deg += 180;
+        return deg;
+    }
+    const urlList = [
+        { url: "1-1.webp" },
+        { url: "2-1.jpg" },
+        { url: "3-1.jpg" },
+        { url: "4-1.gif" },
+        { url: "5-1.jpg" },
+                { url: "6-1.jpg" },
+                { url: "7-1.jpg" },
+
+       
+    ];
+
+    const destext = [
+        { text: "This series combines halves of everyday dual-part objects into fully functional items." },
+        { text: "Photographers become a tripod by inventively adding a third point of contact to the ground in what ever way suits them." },
+        { text: "A variation on a Coca-Cola can design created by sunlight." },
+        { text: "Two outdoor electrical boxes with identical taggs and stickers. The public is invited to collaborate and add their stickers and taggs in duplicate." },
+        { text: "This series combines halves of everyday dual-part objects into fully functional items." },
+        { text: "Three sheets of standard consecutive paper sizes (A4-A5-A6) are each crumpled into a ball and stacked from largest to smallest, forming a snowman." },
+        { text: "A collection of used coloring pencils arranged in appropriate size order to color in the void of a tree trunk fork." },
+        { text: "Three videos of moving tape. Videos shot by Malte Oing" },
+        { text: "Taking the organized and removable stickers from the front of the sheet, and rearranging them on the back in permanent chaos." },
+
+    ]
+
+
+
+    const urlLists = {
+        urlList1: [
+            { url: "1-1.webp" },
+            { url: "1-2.webp" },
+            { url: "1-3.webp" },
+            { url: "1-4.webp" },
+            { url: "1-5.webp" },
+            { url: "1-6.webp" },
+
+        ],
+        urlList2: [
+            { url: "2-1.jpg" },
+            { url: "2-2.jpg" },
+            { url: "2-3.jpg" },
+            { url: "2-4.jpg" },
+            { url: "2-5.jpg" },
+{ url: "2-6.jpg" },
+            { url: "2-7.jpg" },
+            { url: "2-8.jpg" },
+            { url: "2-9.jpg" },
+            { url: "2-10.jpg" },
+          
+
+        ],
+        urlList3: [
+            { url: "3-1.jpg" },
+            { url: "3-2.jpg" },
+            { url: "3-3.jpg" },
+{ url: "3-4.jpg" },
+            { url: "3-5.jpg" },
+            { url: "3-6.jpg" },
+{ url: "3-7.jpg" },
+         
+
+
+
+
+        ],
+        urlList4: [
+            { url: "4-1.gif" },
+            { url: "4-2.jpg" },
+            { url: "4-3.jpg" },
+            { url: "4-4.jpg" },
+            
+
+        ],
+        urlList5: [
+            { url: "5-1.jpg" },
+            
+        ],
+        urlList6: [
+            { url: "6-1.jpg" },
+            { url: "6-2.jpg" },
+            { url: "6-3.jpg" },
+{ url: "6-4.jpg" },
+            { url: "6-5.jpg" },
+            { url: "6-6.jpg" },
+{ url: "6-7.jpg" },
+         { url: "6-8.jpg" },
+
+
+
+
+
+        ],
+         urlList7: [
+            { url: "7-1.jpg" },
+            { url: "7-2.jpg" },
+            { url: "7-3.jpg" },
+            
+
+        ],
+    };
+
+    function swapimg() {
+        const imgshow = document.querySelector(".img");
+                const show = document.querySelector(".joke");
+
+        const currentList = urlLists[`urlList${current+1}`];
+        let safeIndex = 0;
+
+        show.onmousemove = (e) => {
+             
+document.querySelector(".img").style.width = "70%";
+document.querySelector(".description").style.opacity = "1";
+document.body.style.backgroundColor = "black";
+document.querySelector(".img").style.opacity = "1";
+document.querySelector(".info").style.opacity = "0";
+
+document.querySelector(".joke").style.opacity = "0";
+document.querySelector(".joke").style.zIndex = "0";
+             clearInterval(myInterval);
+
+
+        };
+
+
+        imgshow.onmousemove = (e) => {
+            const total = currentList.length;
+            const w = imgshow.offsetWidth;
+            const dist = w / total;
+            const x = e.offsetX;
+            const index = Math.floor(x / dist);
+            safeIndex = Math.min(Math.max(index, 0), total - 1);
+
+            imgshow.src = currentList[safeIndex].url;
+            /*  document.body.querySelector(".description").textContent+=safeIndex+"/"+total ;*/
+document.querySelector(".img").style.zIndex = "1";
+
+const bg = getComputedStyle(document.body).backgroundColor;
+if(bg === "rgb(255, 128, 255)"){
+document.querySelector(".img").style.opacity = "0.2";
+
+}
+
+
+        };
+
+
+
+        imgshow.onmouseleave = () => {
+            clearInterval(myInterval);
+        myInterval = setInterval(neximg, 2000);
+            document.querySelector(".img").src = urlList[current].url;
+            document.querySelector(".img").style.width = "37%";
+            document.querySelector(".description").style.opacity = "0";
+document.body.style.backgroundColor = "#ffb9fb";
+document.querySelector(".img").style.opacity = "0.1";
+
+document.querySelector(".joke").style.opacity = "1";
+document.querySelector(".joke").classList.remove("disable-hover");
+document.querySelector(".img").style.zIndex = "0";
+document.querySelector(".joke").style.zIndex = "1";
+document.querySelector(".info").style.opacity = "1";
+
+/*setTimeout(() => {
+
+}, 500);*/
+
+
+        };
+    }
+
+let listKeys = Object.keys(urlLists);
+    let current = 0;
+    window.onload = () => {
+        preloadList(urlList);
+        Object.values(urlLists).forEach(preloadList);
+        swapimg();
+        start();
+    };
+
+
+    function neximg() {
+               let randomc = Math.floor(Math.random() * colors.length);
+        document.body.querySelector(".img").style.borderColor = colors[randomc];
+
+        current = (current + 1) % urlList.length;
+        document.body.querySelector(".img").src = urlList[current].url;
+        document.body.querySelector(".description").textContent = destext[current].text;
+
+
+        /*  document.querySelectorAll(".des").forEach(d => d.style.opacity = "0");
+  
+          document.querySelector(".des" + (current + 1)).style.opacity = "0";*/
+        let random1 = Math.floor(Math.random() * colors.length);
+        let random2 = Math.floor(Math.random() * colors.length);
+        let random3 = Math.floor(Math.random() * 80 + 200);
+        let random4 = Math.floor(Math.random() * 80 + 200);
+
+        let angle1 = Math.floor(Math.random() * 20 - 10);
+        let angle2 = Math.floor(Math.random() * 20 - 10);
+        let angle3 = Math.floor(Math.random() * 20 - 10);
+
+
+        let color1 = colors[random1];
+        let color2 = colors[random2];
+        //document.querySelector(".a").style.setProperty("--c1", color1);
+        //document.querySelector(".a").style.setProperty("--c2", color2);
+        //document.querySelector(".a").style.setProperty("--size1", random3+"px");
+        // document.querySelector(".a").style.setProperty("--size2", random4+"px");
+        document.querySelectorAll('.a, .img').forEach(el => {
+            el.style.setProperty("--c1", color1);
+        });
+        document.querySelectorAll('.a, .b').forEach(el => {
+            el.style.setProperty("--c2", color2);
+        })
+        document.querySelectorAll('.a, .b').forEach(el => {
+            el.style.setProperty("--size1", random3 + "px");
+        });
+        document.querySelectorAll('.a, .b').forEach(el => {
+            el.style.setProperty("--size2", random4 + "px");
+        })
+        document.querySelector(".cube").style.setProperty("--b", deg + angle1 + "deg");
+        document.querySelector(".cube").style.setProperty("--f", angle2 + "deg");
+        document.querySelector(".cube").style.setProperty("--g", angle3 + "deg");
+
+
+        let random5 = Math.floor(Math.random() * 15 + 30);
+        document.querySelector(".img").style.width = random5 + "%";
+
+        swapimg();
+        //return angle1;
+document.querySelector(".joke").textContent = `(${current+1})`;
+
+    }
+
+
+    function preimg() {
+        current = (current - 1 + urlList.length) % urlList.length;
+
+        document.body.querySelector(".description").textContent = destext[current].text;
+
+        document.body.querySelector(".img").src = urlList[current].url;
+
+        let angle1 = Math.floor(Math.random() * 5 - 2.5);
+        let angle2 = Math.floor(Math.random() * 5 - 2.5);
+        let angle3 = Math.floor(Math.random() * 5 - 2.5);
+
+
+        document.querySelector(".cube").style.setProperty("--b", deg + angle1 + "deg");
+        document.querySelector(".cube").style.setProperty("--f", angle2 + "deg");
+        document.querySelector(".cube").style.setProperty("--g", angle3 + "deg");
+        swapimg();
+
+        //return angle1;
+
+    }
+
+
+</script>
+
+</html>

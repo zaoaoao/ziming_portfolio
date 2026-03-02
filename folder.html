@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+<style>
+    @property --a {
+        syntax: "<number>";
+        initial-value: 0.85;
+        inherits: false;
+    }
+
+    @property --b {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    @property --c {
+        syntax: "<number>";
+        initial-value: 0.85;
+        inherits: false;
+    }
+
+    @property --d {
+        syntax: "<number>";
+        initial-value: 0.85;
+        inherits: false;
+    }
+
+    @property --e {
+        syntax: "<length>";
+        initial-value: 1000px;
+        inherits: false;
+    }
+
+    @property --f {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    @property --g {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+
+
+    .container {
+        width: 70vw;
+        height: 70vh;
+        perspective: 100vw;
+        z-index: 1;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(calc(-50% - 0vw), calc(-50% - 0vw));
+    }
+
+
+
+
+    .cube {
+
+
+        width: 70vw;
+        height: 70vh;
+        transform-style: preserve-3d;
+        transition: --a 1s, --b 1s, --c 1s, --d 1s, --e 1s, --f 1s, --g 1s;
+        transform:
+            scaleX(var(--a)) scaleY(var(--c)) scaleZ(var(--d)) rotateX(var(--f)) rotateY(var(--b)) rotateZ(var(--g)) translateX(0vw) translateY(-5vh) translateZ(0px) skewX(0deg) skewY(0deg);
+    }
+
+
+
+    .cube-wrap {
+        perspective: 1000px;
+        perspective-origin: 50% 50%;
+    }
+
+
+  
+
+    .left {
+        background-color: rgb(255, 255, 0);
+        transition: background-color 2s;
+        border: 0px solid rgb(0, 0, 0);
+        box-sizing: border-box;
+
+        width: 70vw;
+        height: 70vh;
+        opacity: 1;
+
+    }
+ @property --z {
+        syntax: "<length>";
+        initial-value: 0vw;
+        inherits: false;
+    }
+@property --x {
+        syntax: "<length>";
+        initial-value: -40vw;
+        inherits: false;
+    }
+@property --y {
+        syntax: "<angle>";
+        initial-value: -90deg;
+        inherits: false;
+    }
+
+
+   .one {
+    transform: translateX(var(--x)) translateZ(var(--z)) rotateY(var(--y)) ;
+    transition: transform 2s;
+}
+
+        .two{
+                transform: translateX(-35vw) rotateY(-90deg);
+
+    }
+     .three{
+                transform: translateX(-30vw) rotateY(-90deg);
+
+    }
+ .four{
+                transform: translateX(-25vw) rotateY(-90deg);
+
+    }
+
+        .five{
+                transform: translateX(-20vw) rotateY(-90deg);
+
+    }
+     .six{
+                transform: translateX(-15vw) rotateY(-90deg);
+
+    }
+    .seven{
+                transform: translateX(-10vw) rotateY(-90deg);
+
+    }
+
+        .eight{
+                transform: translateX(-5vw) rotateY(-90deg);
+
+    }
+   
+        .ten{
+                transform: translateX(40vw) rotateY(-90deg);
+
+    }
+
+        .eleven{
+                transform: translateX(35vw) rotateY(-90deg);
+
+    }
+     .twelve{
+                transform: translateX(30vw) rotateY(-90deg);
+
+    }
+ .thirteen{
+                transform: translateX(25vw) rotateY(-90deg);
+
+    }
+
+        .fourteen{
+                transform: translateX(20vw) rotateY(-90deg);
+
+    }
+     .fifteen{
+                transform: translateX(15vw) rotateY(-90deg);
+
+    }
+    .sixteen{
+                transform: translateX(10vw) rotateY(-90deg);
+
+    }
+
+        .eighteen{
+                transform: translateX(5vw) rotateY(-90deg);
+
+    }
+   
+
+   
+    .face {
+
+        position: absolute;
+        display: block;
+        align-items: normal;
+        justify-content: left;
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        line-break: strict;
+        overflow: scroll;
+        word-wrap: break-word;
+
+
+
+    }
+
+
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+
+        background-color: #00bdf1;
+        opacity: 1;
+        overflow: hidden;
+    }
+
+    body {
+        margin: 0;
+    }
+
+.img {
+        width: auto;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        transition: --c1 2s, box-shadow 0.5s;
+    }
+
+</style>
+
+<head> </head>
+
+<body>
+
+<button onclick="turn()">suprise</button>
+
+    <div class="container c1">
+        <div class="cube">
+
+            <div class="face left one" onclick="rotate()"> </div>
+                       <div class="face left two"> </div>
+                        <div class="face left three"> </div>
+                       <div class="face left four"> </div>
+                        <div class="face left five"> </div>
+                       <div class="face left six"> </div>
+                        <div class="face left seven"> </div>
+                       <div class="face left eight" onclick="rotate()"> </div>
+                       <div class="face left ten"> </div>
+                         <div class="face left eleven"> </div>
+                        <div class="face left twelve"> </div>
+                       <div class="face left thirteen"> </div>
+                        <div class="face left fourteen"> </div>
+                       <div class="face left fifteen"> </div>
+                        <div class="face left sixteen"> </div>
+                        <div class="face left eighteen"> </div>
+
+        </div>
+    </div>
+    
+</body>
+
+<script>
+
+
+</script>
+<script>
+ 
+ function rotate() {
+    const el = document.querySelector(".one");
+
+    el.style.setProperty('--z', '70vw');
+
+ 
+
+    setTimeout(() => {
+        el.style.setProperty('--z', '35vw');
+         el.style.setProperty('--y', '-180deg');
+    }, 1000); }
+
+
+
+ 
+</script>
+
+</html>

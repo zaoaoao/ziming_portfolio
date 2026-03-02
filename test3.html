@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<script>
+window.addEventListener("load", () => {
+  document.getElementById("website").src = "about:blank";
+});
+</script>
+<head>
+    <style>
+        body {
+            font-size: 10pt;
+            font-family: "Lucida Console", Monaco, monospace;
+        }
+
+        .ss {
+            color: rgb(0, 255, 0);
+        }
+
+        .za {
+            color: rgb(255, 0, 0);
+        }
+
+      
+        #website{
+            width: 70vw;
+            height: 90vh;
+            border: 0cm;
+        }
+        #ig{
+            width: 28vw;
+             height: 90vh;
+
+            position:relative;
+                        border: 0cm;
+
+        }
+.web{
+    float: left;
+}
+      
+    </style>
+</head>
+
+<body>
+<div><span class="designerbutton" onclick="designeranimate()">designers</span>
+    <span class="designers"></span>
+    <span class="publisherbutton">publishers</span></div>
+    
+<div class="web">    <iframe src="about:blank" id="website" ></iframe></div>
+   <div class="web">    <iframe src="about:blank" id="ig" ></iframe></div>
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   <script>
+
+
+
+
+
+
+        const designerlist = [
+            { text: "sander sturing ", class: "ss", onclick: change },
+            { text: "ziming ao ", class: "za", onclick: oo }
+        ];
+
+        let current = 0;
+        let i = 0;
+        let speed = 3;
+        let typing = false;
+        let mode = null;
+        let timer = null;
+
+        function designeranimate() {
+            clearTimeout(timer);
+            if (typing) {
+                mode = mode === "show" ? "hide" : "show";
+                animateText();
+            } else {
+                mode = document.querySelector(".designers").textContent ? "hide" : "show";
+                animateText();
+            }
+        }
+
+        function animateText() {
+            const container = document.querySelector(".designers");
+            typing = true;
+
+            const spans = container.querySelectorAll("span");
+            current = spans.length > 0 ? spans.length - 1 : 0;
+            i = spans.length > 0 ? spans[current]?.textContent.length || 0 : 0;
+
+            function step() {
+                if (mode === "show") {
+                    if (current < designerlist.length) {
+                        let span = container.children[current];
+                        if (!span) {
+                            span = document.createElement("span");
+                            span.className = designerlist[current].class;
+                            //if (designerlist[current].onclick) {
+                            span.onclick = designerlist[current].onclick;
+                            //}
+                            container.appendChild(span);
+                            i = 0;
+                        }
+                        const text = designerlist[current].text;
+                        if (i < text.length) {
+                            span.textContent += text.charAt(i);
+                            i++;
+                            timer = setTimeout(step, speed);
+                        } else {
+                            current++;
+                            i = 0;
+                            timer = setTimeout(step, 10);
+                        }
+                    } else {
+                        typing = false;
+                        mode = null;
+                    }
+                } else if (mode === "hide") {
+                    const spans = container.querySelectorAll("span");
+                    if (spans.length === 0) {
+                        typing = false;
+                        mode = null;
+                        return;
+                    }
+                    const last = spans[spans.length - 1];
+                    if (last.textContent.length > 0) {
+                        last.textContent = last.textContent.slice(0, -1);
+                        timer = setTimeout(step, speed);
+                    } else {
+                        last.remove();
+                        timer = setTimeout(step, speed);
+                    }
+                }
+            }
+
+            step();
+        }
+
+        function change() {
+            document.querySelector(".ss").style.color = "black"
+    document.getElementById("website").src = "http://saboday.com/";
+        document.getElementById("ig").src = "//iframely.net/OwfnBG4L?theme=light";
+
+        }
+        function oo() {
+            document.querySelector(".za").style.color = "black"
+        }
+    </script>
+
+</body>
+
+</html>
