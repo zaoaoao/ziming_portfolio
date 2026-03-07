@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <script>
-    
+    window.onload = () => {
+  change();
+  setInterval(change, 2000);
+};
     
     const colors = [
         
@@ -67,7 +70,6 @@ document.querySelector(".d").style.width=Math.floor(Math.random() * 2+65)+"vw";
 document.querySelector(".d").style.height=Math.floor(Math.random() * 2+65)+"vh";
 
 }
-   setInterval(change, 2000);
 
   </script>
 

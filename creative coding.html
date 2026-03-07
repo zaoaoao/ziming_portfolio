@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+<script>
+
+
+</script>
+
+<style>
+    body {
+        margin: 0%;
+        font-size: 17px;
+        background-color: rgb(255, 255, 255);
+        font-family: "BellGothic-Light", sans-serif;
+
+        text-transform: lowercase;
+        overflow-x: hidden;
+
+    }
+
+
+
+    @font-face {
+        font-family: "BellGothic-Light";
+        src: url("./fonts/BellGothic-Light.ttf") format("truetype");
+        font-weight: 300;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: "Candice-Regular";
+        src: url("./fonts/Candice-Regular.ttf") format("truetype");
+        font-weight: 300;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: "Artistik-Regular";
+        src: url("./fonts/Artistik-Regular.ttf") format("truetype");
+        font-weight: 300;
+        font-style: normal;
+    }
+
+    figure {
+        margin-left: 0;
+        margin-top: 0;
+        margin-bottom: 20em;
+        position: relative;
+        width: 100%;
+        user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+
+
+
+
+
+    .work {
+        margin-left: 4em;
+    }
+
+    .normal {
+        width: 500px
+    }
+
+    .wide {
+        width: 600px;
+    }
+
+    .thin {
+        width: 300px;
+    }
+
+    .clickable {
+        cursor: pointer;
+
+    }
+
+
+
+
+
+
+    .heading {
+        margin-top: 1em;
+        color: rgb(0, 0, 255);
+        font-size: 1em;
+    }
+
+    .about {
+
+
+        background-image: linear-gradient(to left, violet, indigo, blue, green, rgb(200, 200, 0), orange, red);
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+
+    }
+
+
+    .contact, .contact a {
+        color: rgb(205, 205, 205);
+text-decoration: none;
+
+    }
+
+    .contact a:hover{
+        color: black;
+    }
+
+    .bottom {
+        margin-top: 10em;
+        color: rgb(0, 0, 255);
+        cursor: pointer;
+    }
+
+    .info-page {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: fixed;
+        display: none;
+        z-index: 1;
+        background-color: white;
+    }
+
+    .counter {
+        display: block;
+        font-size: 17px;
+
+        color: rgb(0, 0, 255);
+        margin-right: 0.7em;
+
+    }
+
+    .counter-container {
+        width: 4em;
+        text-align: right;
+        position: fixed;
+        left: 0%;
+        top: 50%;
+        z-index: 10;
+        transform: translate(0, -50%);
+
+
+
+    }
+
+    .ziming-project {
+        margin-bottom: 1em;
+        bottom: 0%;
+        position: absolute;
+    }
+
+    .work-unit a {
+        display: block;
+        margin-left: 4em;
+        width: 500px;
+    }
+
+
+
+
+    figcaption {
+        font-size: 1em;
+        width: 700px;
+        user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+
+    }
+
+
+    .short {
+        color: rgb(104, 104, 104);
+
+    }
+
+    .long {
+        color: rgb(205, 205, 205);
+        margin-left: 0.7em;
+        margin-bottom: 0.1em;
+
+    }
+
+    .open-in-new-tab {
+        color: rgb(0, 0, 255);
+
+    }
+
+    img,
+    video {
+        user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+
+    .title {
+        text-transform: uppercase;
+    }
+
+
+    .web {
+        border: 0cm;
+    }
+
+    .display-only {
+        pointer-events: none;
+        width: 100%;
+    }
+
+    .color-web {
+        height: 300px;
+    }
+
+    @media (max-width: 720px) {
+
+        .work,
+        .long {
+            width: 90% !important;
+            max-width: 90% !important;
+            margin-left: 5% !important;
+        }
+
+        .long {
+            color: rgb(205, 205, 205);
+
+        }
+
+        .short {
+            color: rgb(104, 104, 104);
+            width: 85% !important;
+            max-width: 85% !important;
+            margin-left: 10% !important;
+        }
+
+
+
+        .counter-container {
+            opacity: 0 !important;
+        }
+
+        figure {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin-bottom: 1em;
+
+        }
+
+        figcaption,
+        .heading {
+            line-height: 120%;
+            font-size: 13px;
+        }
+
+        .color-web {
+            height: 60vw !important;
+        }
+
+        .not-onphone {
+            display: none;
+        }
+
+
+        .ziming-project {
+            margin-bottom: 1em;
+            bottom: auto;
+            position: relative;
+        }
+    }
+
+
+
+
+
+
+
+
+    .fly {
+        width: 40px;
+        height: 40px;
+        position: fixed;
+        z-index: 2;
+        top: 0%;
+        left: 95%;
+        cursor: pointer;
+    }
+
+    .fly img {
+        width: 100%;
+        height: 100%;
+
+    }
+    a.clicked .title {
+    color: rgb(196, 196, 196);
+}
+
+a{
+    text-decoration: none;
+}
+
+.short:hover{
+    color: rgb(196, 196, 196);
+}
+</style>
+
+<head>
+<link rel="icon" type="image/x-icon" href="mos.gif">
+  <title>Ziming Ao</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ziming Ao is an artist and graphic designer based in the Netherlands">
+</head>
+
+<body>
+    
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+   
+        <figcaption class="work open-in-new-tab heading"> click to open the following coding projects</figcaption>
+
+        <a href="ha.html" class="work normal" target="_blank">
+             <figcaption class="work short">
+            <span class="title">ha ha ha</span>
+           
+
+        </figcaption>
+        </a>
+       
+
+
+        <a href="gradient.html" class="work normal" target="_blank">
+ <figcaption class="work short">
+            <span class="title">gradient box</span>
+           
+
+        </figcaption>
+        </a>
+       
+
+        <a href="square.html" class="work normal" target="_blank">
+
+<figcaption class="work short">
+            <span class="title">three squares</span>
+           
+
+        </figcaption>        </a>
+        
+
+
+        <a href="cube.html" class="work normal" target="_blank">
+
+<figcaption class="work short">
+            <span class="title">cube</span>
+           
+
+        </figcaption>
+            </a>
+        
+
+
+
+
+
+
+
+        <a href="buttons.html" class="work normal" target="_blank">
+<figcaption class="work short">
+            <span class="title">buttons</span>
+           
+
+        </figcaption>
+            </a>
+        
+
+       
+<a href="final 2.html" class="work normal" target="_blank">
+<figcaption class="work short">
+            <span class="title">pets</span>
+           
+        </figcaption>
+
+</a>
+
+       <a href="index.html" class="work normal" target="_blank">
+        <br>
+
+<figcaption class="work short">
+          <span class="title">other projects</span>
+           
+
+        </figcaption>
+
+</a>
+
+
+
+
+
+</body>
+
+<script>
+    document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function () {
+        this.classList.add("clicked");
+    });
+});
+
+    document.querySelector(".fly").addEventListener("click", function () {
+        myFunction();
+    });
+
+    let clicktime = 0;
+
+    function myFunction() {
+
+        clicktime += 1;
+
+        if (clicktime % 2 === 0) {
+            document.querySelector(".info-page").style.display = "none";
+            document.body.style.overflowY = "auto"
+        }
+
+        else {
+            document.querySelector(".info-page").style.display = "block"
+            document.body.style.overflowY = "hidden"
+
+        }
+    }
+    window.onload = () => {
+
+        animateDiv();
+
+
+        document.querySelectorAll(".clickable").forEach(img => {
+            const indexnr = img.dataset.nr;
+            const currentList = urlLists[`urlList${indexnr}`];
+            img.src = currentList[0].url;
+            img.setAttribute("draggable", "false");
+
+
+        });
+    };
+
+    function animateDiv() {
+
+        const el = document.querySelector('.fly');
+
+        move(el);
+
+        function move(element) {
+
+            const duration = Math.floor(Math.random() * 5000 + 10000);
+            const pos = makeNewPosition();
+
+            element.style.transition = `top ${duration / 100}s linear, left ${duration / 100}s linear`;
+            element.style.top = pos.top + 'px';
+            element.style.left = pos.left + 'px';
+
+            setTimeout(() => move(element), duration);
+        }
+    }
+    function makeNewPosition() {
+        const h = window.innerHeight;
+        const w = window.innerWidth;
+
+        return {
+            top: Math.random() * (h - 50),
+            left: Math.random() * (w - 50)
+        };
+    }
+
+
+
+
+    const urlLists = {
+        urlList1: [
+            { url: "./1/5.webp" },
+            { url: "./1/10.webp" },
+            { url: "./1/3.webp" },
+
+            { url: "./1/8.webp" },
+            { url: "./1/1.webp" },
+            { url: "./1/6.webp" },
+            { url: "./1/4.webp" },
+
+
+            { url: "./1/9.webp" },
+            { url: "./1/2.webp" },
+
+            { url: "./1/7.webp" },
+
+
+
+        ],
+        urlList2: [
+            { url: "./2/1.webp" },
+
+
+
+        ],
+        urlList3: [
+            { url: "./3/1.webp" },
+            { url: "./3/2.webp" },
+            { url: "./3/3.webp" },
+            { url: "./3/4.webp" },
+            { url: "./3/5.webp" },
+            { url: "./3/6.webp" },
+
+
+
+
+        ],
+        urlList4: [
+            { url: "./4/1.webp" },
+            { url: "./4/9.webp" },
+
+            { url: "./4/2.webp" },
+            { url: "./4/3.webp" },
+            { url: "./4/4.webp" },
+            { url: "./4/5.webp" },
+            { url: "./4/6.webp" },
+            { url: "./4/7.webp" },
+            { url: "./4/8.webp" }
+
+        ],
+
+
+        urlList7: [
+            { url: "Screen Recording 2025-05-29 at 17.31.47 2.mov" }
+
+
+        ],
+
+
+        urlList10: [
+            { url: "./10/2.webp" },
+
+            { url: "./10/1.webp" },
+            { url: "./10/3.webp" },
+            { url: "./10/4.webp" },
+
+
+        ],
+
+
+
+        urlList13: [
+            { url: "./13/2.webp" },
+
+            { url: "./13/1.webp" },
+            { url: "./13/3.webp" },
+            { url: "./13/4.webp" },
+            { url: "./13/5.webp" },
+            { url: "./13/6.webp" },
+            { url: "./13/7.webp" },
+            { url: "./13/8.webp" },
+
+        ],
+
+
+        urlList14: [
+            { url: "./14/1.webp" },
+            { url: "./14/2.webp" }
+
+
+        ],
+
+        urlList15: [
+            { url: "./15/2.webp" },
+
+            { url: "./15/1.webp" },
+            { url: "./15/3.webp" },
+
+        ],
+
+
+
+        urlList17: [
+            { url: "./17/1.webp" },
+            { url: "./17/2.webp" },
+            { url: "./17/3.webp" },
+            { url: "./17/4.webp" },
+            { url: "./17/5.webp" },
+            { url: "./17/6.webp" },
+            { url: "./17/7.webp" },
+            { url: "./17/8.webp" },
+            { url: "./17/9.webp" },
+            { url: "./17/10.webp" },
+            { url: "./17/11.webp" },
+            { url: "./17/12.webp" },
+
+
+
+
+        ],
+        urlList18: [
+            { url: "./18/4.webp" },
+
+            { url: "./18/1.webp" },
+            { url: "./18/2.webp" },
+            { url: "./18/3.webp" },
+            { url: "./18/5.webp" },
+            { url: "./18/6.webp" },
+            { url: "./18/7.webp" },
+            { url: "./18/8.webp" },
+            { url: "./18/9.webp" },
+            { url: "./18/10.webp" },
+            { url: "./18/11.webp" },
+
+
+
+
+
+
+
+        ],
+        urlList19: [
+            { url: "./19/2.webp" },
+
+
+
+
+
+
+        ],
+
+
+
+        urlList20: [
+            { url: "./20/calender-01.webp" },
+            { url: "./20/calender-02.webp" },
+            { url: "./20/calender-03.webp" },
+            { url: "./20/calender-04.webp" },
+            { url: "./20/calender-05.webp" },
+            { url: "./20/calender-06.webp" },
+            { url: "./20/calender-07.webp" },
+            { url: "./20/calender-08.webp" },
+
+
+
+        ],
+        urlList21: [
+            { url: "./21/2.webp" },
+            { url: "./21/3.webp" },
+            { url: "./21/4.webp" },
+            { url: "./21/1.webp" },
+            { url: "./21/5.webp" },
+
+
+
+        ],
+        urlList22: [
+            { url: "./22/1.webp" }
+
+        ],
+        urlList23: [
+            { url: "./23/1.jpg" },
+            { url: "./23/2.jpg" },
+            { url: "./23/3.jpg" },
+            { url: "./23/4.jpg" },
+
+        ],
+
+
+        urlList25: [
+            { url: "./25/1.webp" },
+            { url: "./25/2.webp" },
+            { url: "./25/3.webp" },
+            { url: "./25/4.webp" },
+            { url: "./25/5.webp" },
+            { url: "./25/6.webp" },
+            { url: "./25/7.webp" },
+
+
+
+
+        ],
+        urlList26: [
+            { url: "./26/6.webp" },
+            { url: "./26/2.webp" },
+            { url: "./26/3.webp" },
+            { url: "./26/4.webp" },
+            { url: "./26/5.webp" },
+            { url: "./26/1.webp" },
+
+
+        ],
+        urlList27: [
+            { url: "./27/2.webp" },
+            { url: "./27/1.webp" },
+            { url: "./27/3.webp" },
+
+
+        ],
+        urlList28: [
+            { url: "./28/1.webp" },
+            { url: "./28/2.webp" },
+            { url: "./28/3.webp" },
+            { url: "./28/4.webp" },
+            { url: "./28/5.webp" },
+            { url: "./28/6.webp" },
+            { url: "./28/7.webp" },
+            { url: "./28/8.webp" },
+
+
+        ],
+        urlList29: [
+            { url: "./29/t-y3s1 33.jpg" },
+
+            { url: "./29/IMG_1394.webp" },
+            { url: "./29/IMG_1857.webp" },
+            { url: "./29/IMG_2494.webp" },
+            { url: "./29/IMG_2479.webp" },
+            { url: "./29/IMG_2448.webp" },
+            { url: "./29/IMG_2404.webp" },
+            { url: "./29/IMG_2395.webp" },
+            { url: "./29/IMG_2389.webp" },
+            { url: "./29/IMG_2373.webp" },
+            { url: "./29/IMG_2359.webp" },
+            { url: "./29/IMG_2353.webp" },
+            { url: "./29/IMG_2352.webp" },
+            { url: "./29/IMG_2121.webp" },
+            { url: "./29/IMG_2118.webp" },
+            { url: "./29/IMG_2113.webp" },
+            { url: "./29/IMG_2112.webp" },
+            { url: "./29/IMG_2105.webp" },
+            { url: "./29/IMG_2104.webp" },
+            { url: "./29/IMG_2103.webp" },
+            { url: "./29/IMG_2095.webp" },
+            { url: "./29/IMG_2027.webp" },
+            { url: "./29/IMG_2016.webp" },
+            { url: "./29/IMG_2006 2.webp" },
+            { url: "./29/IMG_1958.webp" },
+            { url: "./29/IMG_1946.webp" },
+            { url: "./29/IMG_1904.webp" },
+            { url: "./29/IMG_1902.webp" },
+            { url: "./29/IMG_1872.webp" },
+            { url: "./29/IMG_1864.webp" },
+            { url: "./29/IMG_1838.webp" },
+            { url: "./29/IMG_1649.webp" },
+            { url: "./29/IMG_1599.webp" },
+            { url: "./29/IMG_1598.webp" },
+            { url: "./29/IMG_1591.webp" },
+            { url: "./29/IMG_1561.webp" },
+            { url: "./29/IMG_1401.webp" },
+            { url: "./29/IMG_1293.webp" },
+            { url: "./29/IMG_1214.webp" },
+            { url: "./29/IMG_1210.webp" },
+            { url: "./29/IMG_0933.webp" },
+            { url: "./29/IMG_0931.webp" },
+            { url: "./29/IMG_0894.webp" },
+            { url: "./29/IMG_0884.webp" },
+            { url: "./29/IMG_0881.webp" },
+            { url: "./29/IMG_0874.webp" },
+            { url: "./29/IMG_0871.webp" },
+            { url: "./29/IMG_0865.webp" },
+            { url: "./29/IMG_0863.webp" },
+            { url: "./29/IMG_0842.webp" },
+            { url: "./29/IMG_0702.webp" },
+            { url: "./29/IMG_0669.webp" },
+            { url: "./29/IMG_0646.webp" },
+            { url: "./29/IMG_0630.webp" },
+            { url: "./29/IMG_0597.webp" },
+            { url: "./29/IMG_9823.webp" },
+            { url: "./29/IMG_9750.webp" },
+            { url: "./29/IMG_9350.webp" },
+            { url: "./29/IMG_9248.webp" },
+            { url: "./29/IMG_9047.webp" },
+            { url: "./29/IMG_9035.webp" },
+            { url: "./29/IMG_9032.webp" },
+            { url: "./29/IMG_8996.webp" },
+            { url: "./29/IMG_8994.webp" },
+            { url: "./29/IMG_7780.webp" },
+            { url: "./29/IMG_7703.webp" },
+            { url: "./29/IMG_7690.webp" },
+            { url: "./29/IMG_6301.webp" },
+            { url: "./29/IMG_6300.webp" },
+            { url: "./29/IMG_5050.webp" },
+            { url: "./29/IMG_4578.webp" },
+            { url: "./29/IMG_4547.webp" },
+            { url: "./29/IMG_4539.webp" },
+            { url: "./29/IMG_4515.webp" },
+            { url: "./29/IMG_4084.webp" },
+            { url: "./29/IMG_4075.webp" },
+            { url: "./29/IMG_4052.webp" },
+            { url: "./29/IMG_3681.webp" },
+            { url: "./29/IMG_3385.webp" },
+            { url: "./29/IMG_3349.webp" },
+            { url: "./29/1000132122.webp" },
+            { url: "./29/IMG_8954.webp" },
+            { url: "./29/IMG_7289.webp" },
+            { url: "./29/IMG_8113.webp" },
+            { url: "./29/IMG_7619.webp" },
+            { url: "./29/1000132135.webp" },
+            { url: "./29/1000145966.webp" },
+            { url: "./29/IMG_1740.webp" },
+            { url: "./29/IMG_4326.webp" },
+            { url: "./29/IMG_8587.webp" },
+            { url: "./29/IMG_4318.webp" },
+            { url: "./29/IMG_7614.webp" },
+            { url: "./29/IMG_7630.webp" },
+            { url: "./29/IMG_9858.webp" },
+            { url: "./29/IMG_4810.webp" },
+            { url: "./29/IMG_8540.webp" },
+            { url: "./29/IMG_8900.webp" },
+            { url: "./29/IMG_8735.webp" },
+            { url: "./29/IMG_4120.webp" },
+            { url: "./29/IMG_1719.webp" },
+            { url: "./29/IMG_1764.webp" },
+            { url: "./29/IMG_3477.webp" },
+            { url: "./29/IMG_3999.webp" },
+            { url: "./29/IMG_8893.webp" },
+            { url: "./29/IMG_4290.webp" },
+            { url: "./29/IMG_7631.webp" },
+            { url: "./29/IMG_4319.webp" },
+            { url: "./29/1000132251.webp" },
+            { url: "./29/IMG_4292.webp" },
+            { url: "./29/IMG_1809.webp" },
+            { url: "./29/IMG_7616.webp" },
+            { url: "./29/IMG_8541.webp" },
+            { url: "./29/IMG_8140.webp" },
+            { url: "./29/IMG_4218.webp" },
+            { url: "./29/IMG_4225.webp" },
+            { url: "./29/IMG_5034.webp" },
+            { url: "./29/IMG_8066.webp" },
+            { url: "./29/IMG_4422.webp" },
+            { url: "./29/IMG_7640.webp" },
+            { url: "./29/1000145313.webp" },
+            { url: "./29/IMG_1774.webp" },
+            { url: "./29/IMG_9573.webp" },
+            { url: "./29/IMG_9759.webp" },
+            { url: "./29/IMG_1765.webp" },
+            { url: "./29/IMG_4207.webp" },
+            { url: "./29/1000145965.webp" },
+            { url: "./29/IMG_7613.webp" },
+            { url: "./29/IMG_9758.webp" },
+            { url: "./29/IMG_4280.webp" },
+            { url: "./29/IMG_8948.webp" },
+            { url: "./29/IMG_9757.webp" },
+            { url: "./29/1000132257.webp" },
+            { url: "./29/IMG_4971.webp" },
+            { url: "./29/IMG_2475.webp" },
+            { url: "./29/IMG_4176.webp" },
+            { url: "./29/IMG_8733.webp" },
+            { url: "./29/IMG_8921.webp" },
+            { url: "./29/IMG_7624.webp" },
+            { url: "./29/IMG_8887.webp" },
+            { url: "./29/IMG_8579.webp" },
+            { url: "./29/IMG_4209.webp" },
+            { url: "./29/IMG_4288.webp" },
+            { url: "./29/IMG_7615.webp" },
+            { url: "./29/IMG_8241.webp" },
+            { url: "./29/IMG_8555.webp" },
+            { url: "./29/IMG_7060.webp" },
+            { url: "./29/IMG_4260.webp" },
+            { url: "./29/IMG_7276.webp" }
+        ],
+        urlList30: [
+            { url: "IMG_3446.MOV" },
+            { url: "IMG_3297.MOV" },
+
+
+        ],
+        urlList31: [
+            { url: "bell 2.mov" }
+
+
+        ],
+    };
+    function updateCounter(img) {
+        const counter = document.querySelector('.counter');
+        if (!counter) return;
+
+        const indexnr = img.dataset.nr;
+        const currentList = urlLists[`urlList${indexnr}`];
+        const currentIndex = parseInt(img.dataset.imgnr || 0, 10);
+
+        counter.textContent = `${currentIndex + 1}/${currentList.length}`;
+        counter.style.display = 'block';
+    }
+    document.addEventListener('click', e => {
+        if (e.target.classList.contains('clickable')) {
+            let inr = parseInt(e.target.dataset.imgnr || 0, 10);
+            const indexnr = e.target.dataset.nr;
+
+            const currentList = urlLists[`urlList${indexnr}`];
+            inr = (inr + 1) % currentList.length;
+
+            e.target.dataset.imgnr = inr;
+            e.target.src = currentList[inr].url;
+
+            updateCounter(e.target);
+        }
+
+    })
+
+    document.querySelectorAll('.clickable').forEach(img => {
+
+        img.addEventListener('mouseenter', function () {
+            updateCounter(img);
+        });
+
+        img.addEventListener('mouseleave', function () {
+            const counter = document.querySelector('.counter');
+            if (counter) counter.style.display = 'none';
+        });
+
+    });
+
+    const video = document.querySelector("video");
+
+    function checkScreen() {
+        if (window.matchMedia("(max-width: 1000px)").matches) {
+            document.querySelectorAll("video").forEach(el => {
+                el.autoplay = false;
+                // video.pause();
+
+
+            }
+
+            )
+
+
+        } else {
+            document.querySelectorAll("video").forEach(el => {
+                el.autoplay = true;
+                // video.pause();
+
+
+            }
+
+            )
+
+        }
+    }
+
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+
+
+    document.querySelector(".bottom").addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+
+
+</script>
+
+</html>
